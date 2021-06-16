@@ -31,18 +31,3 @@ closeButton.onclick = function() {
 	modal.style.display = "none";
 	TopCodes.stopVideoScan('video-canvas');
 }
-
-scanButton.onclick = function() {
-	TopCodes.stopVideoScan('video-canvas');
-	modal.style.display = "none";
-	send();
-}
-
-function send() {
-	console.log(tableau_instruc);
-	var array = tableau_instruc;
-	var hash = btoa(JSON.stringify(array));
-	console.log(hash);
-	var frame = document.getElementById("frame");
-	frame.src="cargo-not/index.html#"+hash;
-}

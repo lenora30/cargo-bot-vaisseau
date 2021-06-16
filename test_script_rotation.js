@@ -145,7 +145,7 @@ TopCodes.setVideoFrameCallback("video-canvas", function (jsonString) {
   };
 
 
-  document.getElementById("scan-button").onclick = function () {
+  document.getElementById("scanButton").onclick = function () {
     sessionStorage.setItem('scan', jsonString);
 
     let haut_droite;
@@ -187,11 +187,16 @@ TopCodes.setVideoFrameCallback("video-canvas", function (jsonString) {
 
     tri_fonction(topcodes, hauteur_case, haut_droite, haut_gauche);
 
-    tableau_instruc = [];
+    tableau_instruc = [[0]];
 
     index(tableau_points, tableau_instruc, haut_droite, haut_gauche, largeur_case);
 
-    console.log(tableau_instruc);
+    // console.log(tableau_instruc);
+
+    send(tableau_instruc);
+
+    TopCodes.stopVideoScan('video-canvas');
+    document.getElementById("modal").style.display = "none";
   }
 });
 
@@ -201,3 +206,12 @@ var ctx = document.querySelector("#video-canvas").getContext('2d');
 
 var tableau_instruc = [];
 var tableau_points = [];
+
+function send(tab) {
+	console.log(tab);
+	var array = tab;
+	var hash = btoa(JSON.stringify(array));
+	console.log(hash);
+	var frame = document.getElementById("frame");
+	frame.src="cargo-not/index.html#"+hash;
+}

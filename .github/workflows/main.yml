@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build cargo-not
-        run:
+        run: |
           cd ./cargo-not/
           make closure
           make release

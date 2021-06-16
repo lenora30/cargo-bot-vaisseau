@@ -14,6 +14,12 @@ cn.constants.GAME_WIDTH = 750;
 /** @type {number} @const */
 cn.constants.GAME_HEIGHT = 300;
 
+/** @type {number} @const */
+cn.constants.SCAN_WIDTH = 1280;
+
+
+/** @type {number} @const */
+cn.constants.SCAN_HEIGHT = 720;
 
 /** @type {number} @const */
 cn.constants.GAME_MARGIN = 1;
@@ -170,6 +176,9 @@ cn.constants.PROGRAM_EDITOR_CLASS_NAME = goog.getCssName('cn-program-editor');
 /** @type {string} @const */
 cn.constants.FUNCTION_EDITOR_CLASS_NAME = goog.getCssName('cn-function-editor');
 
+/** @type {string} @const */
+cn.constants.SCANNER_CLASS_NAME = goog.getCssName('cn-scanner');
+
 
 /** @type {Array.<string>} @const */
 cn.constants.FUNCTION_CLASS_NAMES = [
@@ -192,3 +201,13 @@ cn.constants.CONDITION_REGISTER_CLASS_NAME =
 /** @type {string} @const */
 cn.constants.COMMAND_REGISTER_CLASS_NAME =
     goog.getCssName('cn-command-register');
+
+
+cn.constants.LEVEL_CODE = {
+  1: 'CARGO 101',
+  2: 'TRANSPORTER',
+  3: 'RE-CURSES',
+  4: 'INVERTER',
+  5: 'FROM BENEATH',
+  6: 'GO LEFT'
+}

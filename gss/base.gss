@@ -29,7 +29,8 @@ div:after {
 }
 
 .cn-game-logo {
-  height: 100px;
+  display: none;
+  height: 0;
   background-image: url('png/logo_text.png');
   background-size: 70%;
   background-position: center;

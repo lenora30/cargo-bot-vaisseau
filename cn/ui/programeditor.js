@@ -21,14 +21,12 @@ goog.require('goog.style');
 /**
  * @param {!cn.model.Game} game The game model to render.
  * @param {!cn.ui.GameUi} ui A pointer to parent game UI.
- * @param {!cn.ui.Toolbox} conditionToolbox The drag drop source for conditions.
- * @param {!cn.ui.Toolbox} commandToolbox The drag drop source for commands.
  * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
  * @constructor
  * @extends {cn.ui.ClassComponent}
  */
 cn.ui.ProgramEditor = function(
-    game, ui, conditionToolbox, commandToolbox, opt_domHelper) {
+    game, ui, opt_domHelper) {
   goog.base(this, cn.constants.PROGRAM_EDITOR_CLASS_NAME, opt_domHelper);
   this.game_ = game;
   this.ui_ = ui;
@@ -36,10 +34,6 @@ cn.ui.ProgramEditor = function(
   this.conditionDragGroup_ = new goog.fx.DragDropGroup();
   this.commandDropGroup_ = new goog.fx.DragDropGroup();
   this.commandDragGroup_ = new goog.fx.DragDropGroup();
-
-  // Add the registers as a drag drop target for the toolboxes.
-  conditionToolbox.getDragDropGroup().addTarget(this.conditionDropGroup_);
-  commandToolbox.getDragDropGroup().addTarget(this.commandDropGroup_);
 
   // Add the registers as a drag drop target for the actions already in a
   // register.
@@ -132,17 +126,6 @@ cn.ui.ProgramEditor.prototype.registerDragDropEvents_ = function(
         var element = e.dragSourceItem.element;
         var data = e.dragSourceItem.data;
         var ptr = e.dropTargetItem.data;
-
-        // Clone the command element if coming from the toolbox.
-        if (source === this.ui_.conditionToolbox.getDragDropGroup()) {
-          element = e.dragSourceItem.element.cloneNode(true);
-          data = goog.object.clone(data);
-          this.conditionDragGroup_.addItem(element, data);
-        } else if (source === this.ui_.commandToolbox.getDragDropGroup()) {
-          element = e.dragSourceItem.element.cloneNode(true);
-          data = goog.object.clone(data);
-          this.commandDragGroup_.addItem(element, data);
-        }
 
         // Update the style and add the element to the register's DOM.
         goog.style.setOpacity(element, 1.0);

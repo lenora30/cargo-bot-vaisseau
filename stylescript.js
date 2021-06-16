@@ -7,35 +7,42 @@ var imgInput = document.getElementById("imgInput");
 var w = window.innerWidth;
 var h = window.innerHeight;
 
-function scale(canvasId) {
-	var wRatio = (w-50)/1280;
-	var hRatio = (h-50)/720
-
-	var canvas = document.getElementById(canvasId);
-	var ctx = canvas.getContext('2d');
-
-	if (wRatio < 1 && wRatio < hRatio) {		
-		ctx.scale(wRatio, wRatio);
-	} else if (hRatio < 1) {
-		ctx.scale(hRatio, hRatio);
-	}
-}
 
 camButton.onclick = function() {
-	scale("video-canvas");
-	modal.style.display = "block";
+	modal.style.display = "flex";
 	TopCodes.startVideoScan("video-canvas");
 }
 
 imgButton.onclick = function() {
-	fileInput.style.display = "block";
+	if (fileInput.style.display == "none") {
+		fileInput.style.display = "block";
+
+	} else {
+		fileInput.style.display = "none";
+	}
+	
 }
 
 fileInput.oninput = function() {
-	modal.style.display = "block";
+	modal.style.display = "flex";
 }
 
-stopButton.onclick = function() {
+closeButton.onclick = function() {
 	modal.style.display = "none";
 	TopCodes.stopVideoScan('video-canvas');
+}
+
+scanButton.onclick = function() {
+	TopCodes.stopVideoScan('video-canvas');
+	modal.style.display = "none";
+	send();
+}
+
+function send() {
+	console.log(tableau_instruc);
+	var array = tableau_instruc;
+	var hash = btoa(JSON.stringify(array));
+	console.log(hash);
+	var frame = document.getElementById("frame");
+	frame.src="cargo-not/index.html#"+hash;
 }

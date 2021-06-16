@@ -12,10 +12,12 @@
 
   <div id="modal">
     <div id="scanner">
-      <canvas id="video-canvas" width="1280" height="720" style="background: #ddd;"></canvas>
-      <button id="scan-button">Scan</button>
-      <button id="transfer-button" onclick="f()">Transfer</button>
-      <button id="stop-button">Stop</button>
+      <canvas id="video-canvas" width="1280" height="720"></canvas>
+      <br>
+      <div id="buttonContainer">
+        <button id="scanButton" class="scannerButton"></button>
+        <button id="closeButton" class="scannerButton"></button>
+      </div>
     </div>
   </div>
 
@@ -36,16 +38,6 @@
   <script src="topcodes.js"></script>
   <script src="stylescript.js"></script>
   <script src="test_script_rotation.js"></script>
-  <script>
-    function f() {
-        console.log(tableau_instruc);
-        var array = tableau_instruc;
-        var hash = btoa(JSON.stringify(array));
-        console.log(hash);
-        var frame = document.getElementById("frame");
-        frame.src="cargo-not/index.html#"+hash;
-    }
-  </script>
 
 </body>
 </html>

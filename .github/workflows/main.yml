@@ -25,7 +25,7 @@ jobs:
           cd ./cargo-not/
           make closure
           make release
-          ls
+          rm .gitignore
       
       - name: Deploy Webpage
         uses: JamesIves/github-pages-deploy-action@4.1.4

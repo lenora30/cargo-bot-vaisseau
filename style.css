@@ -1,0 +1,101 @@
+:root {
+    --main-color: #968C83;
+    --sec-color: #D6D2C4;
+    --ter-color: #FFF5EA;
+    --quad-color: #F7DAD9;
+    --txt-color: rgb(54, 54, 54);
+}
+
+body {
+    margin: 0;
+    background-color: var(--ter-color);
+}
+
+header {
+    margin: 0;
+    padding: 1px;
+    background-color: var(--main-color);
+    color: var(--ter-color);
+    text-align: center;
+    font-family: sans-serif;
+    font-size: larger;
+}
+
+#main {
+    background-color: var(--sec-color);
+    width: 850px;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#frame {
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#inputMethod {
+    padding: 20px 0 20px 0;
+    width:100%;
+    align-content: center;
+}
+
+.button {
+    border: none;
+    background-color: var(--ter-color);
+    border-radius: 10%;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+#camInButton {
+    width: 50px;
+    height: 50px;
+    background-image: url("img/cam.svg");
+}
+
+#imgInButton {
+    width: 50px;
+    height: 50px;
+    background-image: url("img/addPhoto.svg"); 
+}
+
+#phoneInButton {
+    width: 50px;
+    height: 50px;
+    background-image: url("img/phone.svg");
+}
+
+#modal {
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#scanner {
+    padding: 20px;
+    width: 80%;
+}
+
+#video-scanner {
+    width: 100%;
+    height: 100%;
+}
+
+#fileIn {
+    display: none;
+}

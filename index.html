@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cargo Tangible</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1>Cargo Tangible</h1>
+  </header>
+
+  <div id="modal">
+    <div id="scanner">
+      <canvas id="video-canvas" width="1280" height="720" style="background: #ddd;"></canvas>
+      <button id="scan-button">Scan</button>
+      <button id="transfer-button" onclick="f()">Transfer</button>
+      <button id="stop-button">Stop</button>
+    </div>
+  </div>
+
+  <div id="main">
+    <div id="inputMethod">
+      <button id="camInButton" class="button"></button>
+      <button id="imgInButton" class="button"></button>
+      <button id="phoneInButton" class="button"></button>
+    </div>
+
+    <div id="fileIn">
+      <input type="file" accept="image/*" id="imgInput">
+    </div>
+
+    <iframe id="frame" src="cargo-not/index.html" width="820" height="990"></iframe>
+  </div>
+
+  <script src="topcodes.js"></script>
+  <script src="stylescript.js"></script>
+  <script src="test_script_rotation.js"></script>
+  <script>
+    function f() {
+        console.log(tableau_instruc);
+        var array = tableau_instruc;
+        var hash = btoa(JSON.stringify(array));
+        console.log(hash);
+        var frame = document.getElementById("frame");
+        frame.src="cargo-not/index.html#"+hash;
+    }
+  </script>
+
+</body>
+</html>

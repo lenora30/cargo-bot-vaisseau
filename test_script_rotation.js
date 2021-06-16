@@ -25,7 +25,6 @@ function matrix_vec_mult(mat, vec) {
   return result;
 }
 
-// Fonction qui dessine une ligne
 function drawLine(start, end, ctx) {
   ctx.beginPath();
   ctx.moveTo(start[0], start[1]);

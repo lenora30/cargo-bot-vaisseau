@@ -25,6 +25,8 @@ jobs:
           cd ./cargo-not/
           make closure
           make release
+          cd
+          ls
       
       - name: Deploy Webpage
         uses: JamesIves/github-pages-deploy-action@4.1.4

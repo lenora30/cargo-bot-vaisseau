@@ -25,7 +25,6 @@ jobs:
           cd ./cargo-not/
           make closure
           make release
-          cd ..
           ls
       
       - name: Deploy Webpage

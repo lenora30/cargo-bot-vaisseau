@@ -1,11 +1,43 @@
-<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-<link media="all" href="cargo-not-min.css" type="text/css" rel="stylesheet" />
-<title>Cargo-Bot</title>
-<script src="cargo-not-min.js" type="text/javascript"></script>
+  <title>Cargo Tangible</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<script>main();</script>
+  <header>
+    <h1>Cargo Tangible</h1>
+  </header>
+
+  <div id="modal">
+    <div id="scanner">
+      <canvas id="video-canvas" width="1280" height="720"></canvas>
+      <br>
+      <div id="buttonContainer">
+        <button id="scanButton" class="scannerButton"></button>
+        <button id="closeButton" class="scannerButton"></button>
+      </div>
+    </div>
+  </div>
+
+  <div id="main">
+    <div id="inputMethod">
+      <button id="camInButton" class="button"></button>
+      <button id="imgInButton" class="button"></button>
+      <button id="phoneInButton" class="button"></button>
+    </div>
+
+    <div id="fileIn">
+      <input type="file" accept="image/*" id="imgInput">
+    </div>
+
+    <iframe id="frame" src="cargo-not/index.html" width="820" height="990"></iframe>
+  </div>
+
+  <script src="topcodes.js"></script>
+  <script src="stylescript.js"></script>
+  <script src="test_script_rotation.js"></script>
+
 </body>
 </html>

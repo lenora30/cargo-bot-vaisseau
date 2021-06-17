@@ -82,53 +82,77 @@ cn.LevelData.mapStacks_ = function(colors) {
  * @const
  */
 cn.LevelData.levelpacks = {
-  'Tutorial': [
-    'CARGO 101',
-    'TRANSPORTER',
-    'RE-CURSES',
-    'INVERTER',
-    'FROM BENEATH',
-    'GO LEFT'
+  'Tutorial 1': [
+    'Cargo 101',
+    'Transporter',
+      'Stack',
+      'Swap',
+      'Re-Curses',
+      'Split'
+  ],
+  'Tutorial 2': [
+    'Inverter',
+    'From Beneath',
+      'La Trieuse',
+      'Translation',
+      'Color Translate',
+    'Go Left'
   ],
   'Easy': [
-    'DOUBLE FLIP',
-    'GO LEFT 2',
-    'SHUFFLE SORT',
-    'GO THE DISTANCE',
-    'COLOR SORT',
-    'WALKING PILES'
+    'Double Flip',
+    'Go Left 2',
+    'Shuffle Sort',
+    'Go the Distance',
+    'Color Sort',
+    'Walking Piles'
   ],
   'Medium': [
-    'REPEAT INVERTER',
-    'DOUBLE SORT',
-    'MIRROR',
-    'LAY IT OUT',
-    'THE STACKER',
-    'CLARITY'
+    'Repeat Inverter',
+    'Double Sort',
+    'Mirror',
+    'Lay it out',
+    'The Stacker',
+    'Clarity'
   ],
   'Hard': [
-    'COME TOGETHER',
-    'COME TOGETHER 2',
-    'UP THE GREENS',
-    'FILL THE BLANKS',
-    'COUNT THE BLUES',
-    'MULTI SORT'
+    'Come Together',
+    'Come Together 2',
+    'Up The Greens',
+    'Fill The Blanks',
+    'Count The Blues',
+    'Multi Sort'
   ],
   'Crazy': [
-    'DIVIDE BY TWO',
-    'THE MERGER',
-    'EVEN THE ODDS',
-    'GENETIC CODE',
-    'MULTI SORT 2',
-    'THE SWAP'
+    'Divide by two',
+    'The Merger',
+    'Even the Odds',
+    'Genetic Code',
+    'Multi Sort 2',
+    'The Swap'
   ],
   'Impossible': [
-    'RESTORING ORDER',
-    'CHANGING PLACES',
-    'PALETTE SWAP',
-    'MIRROR 2',
-    'CHANGING PLACES 2',
-    'VERTICAL SORT'
+    'Restoring Order',
+    'Changing Places',
+    'Palette Swap',
+    'Mirror 2',
+    'Changing Places 2',
+    'Vertical Sort'
+  ],
+    'Champo': [
+	'Bouton d\'arrêt',
+	'Roumanie',
+	'Permutation circulaire',
+	'Chèvre deviendra barbichette',
+	'Evasion',
+	'Trier par couleurs',
+	'Rassemblement',
+	'May the odds be ever in your favour',
+	'Spain',
+	'Ella',
+	'Inversion',
+	'Aure',
+	'Demis',
+	'Jean Baptiste'
   ]
 };
 
@@ -138,86 +162,289 @@ cn.LevelData.levelpacks = {
  * @const
  */
 cn.LevelData.levels = {
-  'CARGO 101': new cn.LevelData(
+/*** Pos initial, Etoiles, Registres, opérations, départ (de bas en haut), arrivée, hint ***/
+/***
+    'Toto': new cn.LevelData(
+        2,
+        [30, 30, 30],
+        [8, 8, 8, 5],
+        ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'red',
+        'blue', 'green', 'yellow', 'none', 'any'],
+        [[], [], []],
+        [[], [], []],
+'Niveau proposé par '
+    ),
+***/
+    'Jean Baptiste': new cn.LevelData(
+        1,
+        [30, 30, 30],
+        [8, 8, 8, 5],
+        ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'red',
+        'green', 'none', 'any'],
+        [['green', 'red'], ['green', 'red'], ['green', 'red'], ['red', 'green'], ['red', 'green']],
+        [['green', 'green', 'green', 'green', 'green'], [], [], [], ['red', 'red', 'red', 'red', 'red']],
+'Niveau proposé par Jean-Baptiste'
+    ),
+    'Demis': new cn.LevelData(
+        1,
+        [15, 11, 11],
+        [8, 8, 8, 5],
+        ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3',
+        'blue', 'yellow', 'none', 'any'],
+        [['blue'], ['blue'], ['yellow'], ['blue'], ['blue'], ['yellow']],
+        [['yellow'], ['blue'], ['blue'], ['yellow'], ['blue'], ['blue']],
+'Niveau proposé par Demis'
+    ),
+    'Aure': new cn.LevelData(
+        1,
+        [20, 16, 16],
+        [8, 8, 8, 5],
+        ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3',
+        'blue', 'green', 'none', 'any'],
+        [['blue', 'green', 'green'], [], []],
+        [['green', 'green', 'blue'], [], []],
+'Niveau proposé par Aure'
+    ),
+    'Inversion': new cn.LevelData(
+        3,
+        [16, 16, 16],
+        [8, 8, 8, 5],
+        ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3',
+        'blue', 'yellow', 'none', 'any'],
+        [[], [], ['yellow', 'blue', 'yellow', 'blue', 'yellow', 'blue'], [], []],
+        [[], [], ['blue', 'yellow', 'blue', 'yellow', 'blue', 'yellow'], [], []],
+'Niveau proposé par Jérémy'
+    ),
+    'Ella': new cn.LevelData(
+        2,
+        [30, 30, 30],
+        [8, 8, 8, 5],
+        ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3',
+        'blue', 'green', 'none', 'any'],
+        [[], ['green', 'blue'], []],
+        [[], ['blue', 'green'], []],
+'Niveau proposé par Ella'
+    ),
+    'Evasion': new cn.LevelData(
+        2,
+        [30, 30, 30],
+        [10, 10, 10, 8, 8, 8],
+        ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'f4', 'f5','red',
+        'blue', 'green', 'yellow', 'none', 'any'],
+        [['blue', 'red', 'blue'], ['yellow', 'green', 'yellow'], [], []],
+        [['yellow', 'blue', 'yellow', 'blue'], [], ['green', 'red'], []],
+'Niveau proposé par Laure, Axelle et Clotilde'
+    ),
+    'Trier par couleurs': new cn.LevelData(
+        3,
+        [40, 40, 40],
+        [8, 8, 8, 8, 5, 5],
+        ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'f4','f5','none', 'any'],
+        [['yellow', 'green', 'red'], [], [], ['red', 'yellow', 'green'], ['blue']],
+        [['blue'], ['red', 'red'], ['green', 'green'], [], ['yellow', 'yellow']],
+'Niveau proposé par Margot et Clémence'
+    ),
+    'Rassemblement': new cn.LevelData(
+        1,
+        [40, 40, 40],
+        [10, 10, 10, 10, 5],
+        ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'f4', 'red',
+        'blue', 'green', 'yellow', 'none', 'any'],
+        [['yellow'], ['green'], ['blue', 'red']],
+        [[], ['blue','yellow','green','red'], []],
+'Niveau proposé par Tess'
+    ),
+    'May the odds be ever in your favour': new cn.LevelData(
+        5,
+        [50, 50, 50],
+        [10,10,10,10,10],
+        ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'f4','red',
+        'green', 'yellow', 'none', 'any'],
+        [['green'], ['green', 'green', 'red'], [],
+	 ['red', 'red', 'red'], ['green', 'red', 'green'], ['red', 'red', 'red'],
+	 [], ['green', 'green', 'yellow'], ['green']],
+        [['green', 'green', 'green'], ['green'], [],
+	 ['red', 'red', 'red'], ['red', 'yellow', 'red'], ['red', 'red', 'red'],
+	 [], ['green', 'green', 'green'], ['green']],
+'Niveau proposé par L&R'
+    ),
+    'Spain': new cn.LevelData(
+        3,
+        [30, 30, 30],
+        [8, 8, 8, 5],
+        ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'red',
+        'yellow'],
+        [['red', 'yellow'], ['red'], [], ['red'], ['yellow']],
+        [['red'], ['yellow'], ['red'], ['yellow'], ['red']],
+'Niveau proposé par Thomas et Martin'
+    ),
+    'Chèvre deviendra barbichette': new cn.LevelData(
+        1,
+        [30, 30, 30],
+        [8, 8, 8, 5],
+        ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3',
+        'green', 'yellow', 'none', 'any'],
+        [['yellow', 'yellow', 'yellow'], ['yellow', 'green', 'yellow'], [], [], []],
+        [[], [], ['green'], ['yellow', 'yellow'], ['yellow', 'yellow', 'yellow']],
+'Niveau proposé par Nathalie, Lise et Mathilde'
+    ),
+    'Permutation circulaire': new cn.LevelData(
+        1,
+        [28, 13, 13],
+        [8, 8, 8, 5],
+        ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'red',
+         'blue', 'green', 'none', 'any'],
+        [['green'], ['blue'], ['red']],
+        [['blue'], ['red'], ['green']],
+'Niveau proposé par Robin'
+    ),
+    'Roumanie': new cn.LevelData(
+        4,
+        [30, 30, 30],
+        [8, 8, 8, 5],
+        ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'none'],
+        [['blue', 'blue'], ['yellow', 'yellow'], ['red', 'red'], [], []],
+        [[], [], ['blue', 'blue'], ['yellow', 'yellow'], ['red', 'red']],
+'Niveau proposé par Philémon'
+    ),
+    'Bouton d\'arrêt': new cn.LevelData(
+        1,
+        [30, 30, 30],
+        [8, 8, 8, 5],
+        ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'red',
+        'green', 'none', 'any'],
+        [[], ['green'], ['green'], ['green'], ['red']],
+        [['green', 'green', 'green'], [], [], [], ['red']],
+'Niveau proposé par Lucien'
+    ),
+    'Stack': new cn.LevelData(
+        2,
+        [8, 8, 7],
+        [8, 8, 8, 5],
+        ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3'],
+        [['blue'], [], ['red']],
+        [[], ['blue','red'], []],
+'Détaillez la suite d\'instructions à effectuer.\n\nVous pouvez "revenir à la ligne" en appelant un autre programme'
+    ),
+    'Swap': new cn.LevelData(
+        2,
+        [20, 15, 10],
+        [8, 8, 8, 5],
+        ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3'],
+        [[], ['blue','red'], []],
+        [[], ['red','blue'], []],
+        'Réutilisez les idées du niveau précédent...'
+    ),
+    'La Trieuse': new cn.LevelData(
+	1,
+	[20,14,12],
+	[8,8,8,5],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'red',
+        'green', 'yellow', 'none', 'any'],
+	[['yellow','green','red','yellow','red'], [], [], []],
+	[[], ['yellow','yellow'], ['green'], ['red','red']],
+	'Cherchez une solution générale plutôt qu\'une solution particulière' + '\n\nLa plus courte solution connue utilise 12 registres.'
+    ),
+  'Split': new cn.LevelData(
+      2,
+      [15, 10, 9],
+      [8, 8, 8, 5],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3'],
+      [[], ['yellow', 'yellow', 'yellow', 'yellow'], []],
+      [['yellow', 'yellow'], [], ['yellow', 'yellow']],
+      'Alternez gauche et droite, et utilisez les programmes pour raccourcir votre ' +
+          'solution.\n\nLa plus courte utilise 9 registres.'
+  ),
+    'Translation': new cn.LevelData(
+        1,
+        [10,6,4],
+        [8,8,8,5],
+        ['right','pickup','left','f0','f1','f2','f3','red','none'], [[],['red','red','red'],[],['red','red','red','red','red'],[],['red','red'],['red','red','red','red'],[]],        [['red','red','red'],[],['red','red','red','red','red'],[],['red','red'],['red','red','red','red'],[],[]],
+        'Utilisez les étiquettes pour savoir si vous avez fini de déplacer une pile, puis passez à la suivante.'
+    ),
+    'Color Translate': new cn.LevelData(
+        1,
+        [9,5,4],
+        [8,8,8,5],        ['right','pickup','left','f0','f1','f2','f3','blue','green','none','any'], [['green'],['blue','blue'],['green'],[],['blue','blue','blue'],['green'],['blue','blue'],['blue','blue']], [['green','blue','blue'],[],['green'],['blue','blue','blue'],[],['green','blue','blue'],['blue','blue'],[]],
+        'Très similaire au précédent, mais il faut tenir compte des couleurs.'
+    ),
+  'Cargo 101': new cn.LevelData(
       1,
       [3, 3, 3],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3'],
       [['yellow'], []],
       [[], ['yellow']],
-      'Down, Right, Down'
+      'Bas, Droite, Bas'
   ),
-  'TRANSPORTER': new cn.LevelData(
+  'Transporter': new cn.LevelData(
       1,
       [5, 5, 4],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3'],
       [['yellow'], [], [], []],
       [[], [], [], ['yellow']],
-      'Reuse the solution from level 1 and loop through it.\n\nThe shortest ' +
-          'solution uses 4 registers.'
+      'Réutilisez et adaptez la solution du premier niveau.\n\nLa plus courte solution utilise 4 registres.'
   ),
-  'RE-CURSES': new cn.LevelData(
+  'Re-Curses': new cn.LevelData(
       1,
       [10, 5, 5],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3'],
       [['yellow', 'yellow', 'yellow', 'yellow'], []],
       [[],
         ['yellow', 'yellow', 'yellow', 'yellow']],
-      'Move one crate to the right, go back to the original position, and ' +
-          'then loop.\n\nThe shortest solution uses 5 registers.'
+      'Déplacez une caisse vers la droite, revenez, et recommencez.\n\nLa plus courte solution utilise 5 registres.'
   ),
-  'INVERTER': new cn.LevelData(
+  'Inverter': new cn.LevelData(
       1,
       [15, 10, 10],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3'],
       [['blue', 'red', 'green', 'yellow'], [], [], [], [], []],
       [[], [], [], [], [], ['yellow', 'green', 'red', 'blue']],
-      'Move all four blocks one spot to the right, and repeat.\n\nThe ' +
-          'shortest solution uses 10 registers.'
+      'Déplacez les quatre blocs vers la droite et recommencez.\n\nLa ' +
+          'plus courte solution utilise 10 registres.'
   ),
-  'FROM BENEATH': new cn.LevelData(
+  'From Beneath': new cn.LevelData(
       1,
       [8, 6, 5],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'blue', 'yellow',
-        'none', 'multi'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'blue', 'yellow',
+        'none', 'any'],
       [['yellow', 'blue', 'blue', 'blue', 'blue'], [], []],
       [[], ['blue', 'blue', 'blue', 'blue'], ['yellow']],
-      'Go right once if holding blue, twice if holding yellow, and left if ' +
-          'holding none. Repeat.\n\nThe shortest solution uses 5 registers.'
+      'À droite une fois pour les bleus, deux fois pour le jaune : utilisez les étiquettes !' + '\nUne instruction ne s\'exécutera que si la pince contient un bloc de la couleur indiquée par l\'étiquette.' + '\n\nLa plus courte solution utilise 5 registres.'
   ),
-  'GO LEFT': new cn.LevelData(
+  'Go Left': new cn.LevelData(
       1,
       [15, 9, 9],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3'],
       [[], ['red', 'red', 'red'], ['green', 'green', 'green'],
         ['blue', 'blue', 'blue']],
       [['red', 'red', 'red'], ['green', 'green', 'green'],
         ['blue', 'blue', 'blue'], []],
-      'Move each pile to the left. Repeat.\n\nThe shortest solution uses 9 ' +
-          'registers.'
+      'Déplacez chaque pile vers la gauche et recommencez.\n\nLa plus courte solution utilise 9 ' +
+          'registres.'
   ),
-  'DOUBLE FLIP': new cn.LevelData(
+  'Double Flip': new cn.LevelData(
       1,
       [12, 6, 5],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'blue', 'red',
-        'green', 'yellow', 'none', 'multi'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'blue', 'red',
+        'green', 'yellow', 'none', 'any'],
       [['blue', 'red', 'green', 'yellow'], [], []],
       [[], [], ['blue', 'red', 'green', 'yellow']],
       'Go right once if holding any, twice if holding blue, and left if ' +
           'holding none. Repeat.\n\nThe shortest solution uses 5 registers.'
   ),
-  'GO LEFT 2': new cn.LevelData(
+  'Go Left 2': new cn.LevelData(
       1,
       [8, 6, 4],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'blue', 'red',
-        'green', 'none', 'multi'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'blue', 'red',
+        'green', 'none', 'any'],
       [[], ['red', 'red', 'red'], ['blue', 'blue', 'blue'],
         ['green', 'green', 'green']],
       [['red', 'red', 'red'], ['blue', 'blue', 'blue'],
@@ -225,22 +452,22 @@ cn.LevelData.levels = {
       'Go right if holding none, and left if holding any. Repeat.\n\nThe ' +
           'shortest solution uses 4 registers.'
   ),
-  'SHUFFLE SORT': new cn.LevelData(
+  'Shuffle Sort': new cn.LevelData(
       2,
       [15, 10, 9],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3'],
       [[], ['blue', 'yellow', 'blue', 'yellow', 'blue', 'yellow'], []],
       [['blue', 'blue', 'blue'], [], ['yellow', 'yellow', 'yellow']],
       'Alternate left and right, and make sure to use F2 to shorten your ' +
           'solution.\n\nThe shortest solution uses 9 registers.'
   ),
-  'GO THE DISTANCE': new cn.LevelData(
+  'Go the Distance': new cn.LevelData(
       1,
       [12, 6, 4],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'red', 'yellow',
-        'none', 'multi'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'red', 'yellow',
+        'none', 'any'],
       [['yellow'], ['yellow'], ['yellow'], ['yellow'], ['yellow'], ['yellow'],
         [], ['red', 'red', 'red', 'red']],
       [['yellow'], ['yellow'], ['yellow'], ['yellow'], ['yellow'], ['yellow'],
@@ -248,12 +475,12 @@ cn.LevelData.levels = {
       'Go right if holding none, and left if holding red. Repeat.\n\nThe ' +
           'shortest solution uses 4 registers.'
   ),
-  'COLOR SORT': new cn.LevelData(
+  'Color Sort': new cn.LevelData(
       2,
       [14, 10, 8],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'red', 'green',
-        'none', 'multi'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'red', 'green',
+        'none', 'any'],
       [[], ['green', 'green', 'red', 'green', 'red', 'red'], []],
       [['red', 'red', 'red'], [], ['green', 'green', 'green']],
       'Go over each of the 3 piles and drop or pick up based on the color. ' +
@@ -261,11 +488,11 @@ cn.LevelData.levels = {
           'drop if green.\n\nThe shortest known solution uses 8 registers, ' +
           'all in F1.'
   ),
-  'WALKING PILES': new cn.LevelData(
+  'Walking Piles': new cn.LevelData(
       1,
       [13, 11, 9],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'blue', 'none'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'blue', 'none'],
       [['blue', 'blue', 'blue', 'blue'], ['blue', 'blue', 'blue', 'blue'],
         ['blue', 'blue', 'blue', 'blue'], [], [], [], []],
       [[], [], [], [], ['blue', 'blue', 'blue', 'blue'],
@@ -275,12 +502,12 @@ cn.LevelData.levels = {
           'shortest known solution uses 9 registers (with an approach that ' +
           'is very specific to this configuration)'
   ),
-  'REPEAT INVERTER': new cn.LevelData(
+  'Repeat Inverter': new cn.LevelData(
       1,
       [9, 7, 5],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'blue', 'red',
-        'green', 'yellow', 'none', 'multi'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'blue', 'red',
+        'green', 'yellow', 'none', 'any'],
       [['yellow', 'red', 'green', 'blue'], [],
         ['yellow', 'red', 'green', 'blue'], [],
         ['yellow', 'red', 'green', 'blue'], []],
@@ -291,12 +518,12 @@ cn.LevelData.levels = {
           'conditional modifiers. Solutions with up to 7 instructions earn 3 ' +
           'stars.'
   ),
-  'DOUBLE SORT': new cn.LevelData(
+  'Double Sort': new cn.LevelData(
       2,
       [20, 14, 11],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'blue', 'yellow',
-        'none', 'multi'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'blue', 'yellow',
+        'none', 'any'],
       [[], ['blue', 'blue', 'yellow', 'yellow'],
         ['yellow', 'blue', 'yellow', 'blue'], []],
       [['blue', 'blue', 'blue', 'blue'], [], [],
@@ -304,12 +531,12 @@ cn.LevelData.levels = {
       'Sort, go right, sort, go left. Repeat. Use at most 14 instructions ' +
           'for 3 stars.\n\nThe shortest known solution uses 11 registers.'
   ),
-  'MIRROR': new cn.LevelData(
+  'Mirror': new cn.LevelData(
       1,
       [9, 7, 6],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'green', 'yellow',
-        'none', 'multi'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'green', 'yellow',
+        'none', 'any'],
       [['yellow', 'yellow', 'yellow', 'yellow'], ['green', 'green'], ['green'],
         ['green'], ['green', 'green'], []],
       [[], ['green', 'green'], ['green'], ['green'], ['green', 'green'],
@@ -317,22 +544,22 @@ cn.LevelData.levels = {
       'Use at most 7 registers for 3 stars. There are various known ' +
           'solutions with 6 registers in F1, but no known solution with only 5.'
   ),
-  'LAY IT OUT': new cn.LevelData(
+  'Lay it out': new cn.LevelData(
       1,
       [13, 9, 7],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'green', 'none'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'green', 'none'],
       [['green', 'green', 'green', 'green', 'green', 'green'], [], [], [], [],
         []],
       [['green'], ['green'], ['green'], ['green'], ['green'], ['green']],
       'Move the pile one slot to the right and bring one crate back to the ' +
           'left.\n\nThe shortest known solution uses 7 registers.'
   ),
-  'THE STACKER': new cn.LevelData(
+  'The Stacker': new cn.LevelData(
       5,
       [12, 10, 8],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'yellow', 'none'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'yellow', 'none'],
       [[], ['yellow'], ['yellow'], ['yellow'], ['yellow'], ['yellow'],
         ['yellow'], []],
       [[], [], [], [], [], [], [],
@@ -341,24 +568,24 @@ cn.LevelData.levels = {
           'yellow crate one slot to the right. Repeat.\n\nThe shortest known ' +
           'solution uses 8 registers.'
   ),
-  'CLARITY': new cn.LevelData(
+  'Clarity': new cn.LevelData(
       1,
       [9, 7, 6],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'red', 'green',
-        'none', 'multi'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'red', 'green',
+        'none', 'any'],
       [['green', 'red', 'green'], ['green', 'green', 'green', 'red', 'green'],
         ['red', 'green', 'red', 'green'], ['red', 'green', 'green'], []],
       [['green', 'red'], ['green', 'green', 'green', 'red'],
         ['red', 'green', 'red'], ['red'],
         ['green', 'green', 'green', 'green', 'green']],
-      'A disguised version of Mirror.'
+      'A disguised version of Mirror'
   ),
-  'COME TOGETHER': new cn.LevelData(
+  'Come Together': new cn.LevelData(
       1,
       [15, 9, 7],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'yellow', 'none'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'yellow', 'none'],
       [[], [], ['yellow', 'yellow', 'yellow'], ['yellow'], [], [],
         ['yellow', 'yellow']],
       [['yellow', 'yellow', 'yellow', 'yellow', 'yellow', 'yellow'], [], [], [],
@@ -373,12 +600,12 @@ cn.LevelData.levels = {
           'implemented with 4 registers.\n\nThe shortest known solution uses ' +
           'a total of 7 registers.'
   ),
-  'COME TOGETHER 2': new cn.LevelData(
+  'Come Together 2': new cn.LevelData(
       1,
       [12, 10, 8],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'green', 'yellow',
-        'none', 'multi'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'green', 'yellow',
+        'none', 'any'],
       [[], ['yellow'], ['yellow', 'green', 'green'], ['yellow'],
         ['yellow', 'green'], ['yellow'], ['green', 'green', 'green', 'green']],
       [['green', 'green', 'green', 'green', 'green', 'green', 'green'],
@@ -387,12 +614,12 @@ cn.LevelData.levels = {
           'with a small modification.\n\nThe shortest known solution uses 8 ' +
           'registers.'
   ),
-  'UP THE GREENS': new cn.LevelData(
+  'Up The Greens': new cn.LevelData(
       1,
       [12, 9, 7],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'blue', 'green',
-        'none', 'multi'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'blue', 'green',
+        'none', 'any'],
       [['green'], ['blue', 'blue'], ['green'], [], ['blue', 'blue', 'blue'],
         ['green'], ['blue', 'blue'], ['blue', 'blue']],
       [['green', 'blue', 'blue'], [], ['green', 'blue', 'blue', 'blue'], [], [],
@@ -401,12 +628,12 @@ cn.LevelData.levels = {
           'reset when you find a green. To do this only go left if holding ' +
           'a blue.\n\nThe shortest known solution uses 7 registers.'
   ),
-  'FILL THE BLANKS': new cn.LevelData(
+  'Fill The Blanks': new cn.LevelData(
       1,
       [20, 14, 11],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'red', 'green',
-        'none', 'multi'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'red', 'green',
+        'none', 'any'],
       [['green', 'green', 'green', 'green'], ['red'], [], ['red'], [], [],
         ['red'], []],
       [[], ['red'], ['green'], ['red'], ['green'], ['green'], ['red'],
@@ -415,24 +642,24 @@ cn.LevelData.levels = {
           'right and bring one crate back to the left, except in the first ' +
           'iteration.\n\nThe shortest known solution uses 11 registers.'
   ),
-  'COUNT THE BLUES': new cn.LevelData(
+  'Count The Blues': new cn.LevelData(
       1,
       [15, 12, 9],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'blue', 'yellow',
-        'none', 'multi'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'blue', 'yellow',
+        'none', 'any'],
       [['yellow', 'blue', 'blue'], [], [], [], ['yellow', 'blue'], [], []],
       [[], ['blue', 'blue'], [], ['yellow'], [], ['blue'], ['yellow']],
       'Another stack puzzle. The number of blues indicates how many times ' +
           'to go right with the yellow.\n\nThe shortest known solution uses ' +
           '9 registers.'
   ),
-  'MULTI SORT': new cn.LevelData(
+  'Multi Sort': new cn.LevelData(
       1,
       [16, 11, 11],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'blue', 'yellow',
-        'none', 'multi'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'blue', 'yellow',
+        'none', 'any'],
       [[], ['blue', 'yellow'], [], ['yellow', 'yellow', 'blue'],
         ['yellow', 'blue', 'yellow', 'blue'], ['blue', 'yellow'], ['blue'], []],
       [['yellow', 'yellow', 'yellow', 'yellow', 'yellow', 'yellow'], [], [], [],
@@ -443,11 +670,11 @@ cn.LevelData.levels = {
           'it back and drop it. Repeat.\n\nThe shortest known solution uses ' +
           '11 registers.'
   ),
-  'DIVIDE BY TWO': new cn.LevelData(
+  'Divide by two': new cn.LevelData(
       1,
       [20, 14, 12],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'blue', 'none'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'blue', 'none'],
       [['blue', 'blue', 'blue', 'blue'], [], ['blue', 'blue'], [],
         ['blue', 'blue', 'blue', 'blue', 'blue', 'blue'], [],
         ['blue', 'blue', 'blue', 'blue'], []],
@@ -457,23 +684,23 @@ cn.LevelData.levels = {
       'Wind up the stack for every two crates. Move one crate back each time ' +
           'it unwinds.\n\nThe shortest known solution uses 12 registers.'
   ),
-  'THE MERGER': new cn.LevelData(
+  'The Merger': new cn.LevelData(
       1,
       [9, 7, 6],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'blue', 'red', 'none',
-        'multi'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'blue', 'red', 'none',
+        'any'],
       [['blue', 'blue', 'blue'], [], ['red', 'red', 'red']],
       [[], ['blue', 'red', 'blue', 'red', 'blue', 'red'], []],
       'Use the stack once in each blue, and unwind it in each red.\n\nThe ' +
           'shortest known solution uses 6 registers.'
   ),
-  'EVEN THE ODDS': new cn.LevelData(
+  'Even the Odds': new cn.LevelData(
       1,
       [13, 11, 10],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'blue', 'red',
-        'green', 'yellow', 'none', 'multi'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'blue', 'red',
+        'green', 'yellow', 'none', 'any'],
       [['green', 'green', 'green', 'green', 'green'], [], ['red', 'red'], [],
         ['blue', 'blue', 'blue'], [], ['yellow', 'yellow', 'yellow', 'yellow'],
         []],
@@ -486,12 +713,12 @@ cn.LevelData.levels = {
           'execute it an even number of times.\n\nThe shortest known ' +
           'solution uses 10 registers.'
   ),
-  'GENETIC CODE': new cn.LevelData(
+  'Genetic Code': new cn.LevelData(
       1,
       [29, 20, 17],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'green', 'yellow',
-        'none', 'multi'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'green', 'yellow',
+        'none', 'any'],
       [['green', 'yellow', 'yellow', 'green', 'yellow', 'green'], [],
         ['yellow', 'yellow', 'yellow'], [], ['green', 'green', 'green']],
       [[], ['green', 'yellow', 'green', 'yellow', 'yellow', 'green'], [],
@@ -500,12 +727,12 @@ cn.LevelData.levels = {
           'Wind up the entire stack on the left and unwind on the right.\n\n' +
           'The shortest known solution uses 17 registers.'
   ),
-  'MULTI SORT 2': new cn.LevelData(
+  'Multi Sort 2': new cn.LevelData(
       1,
       [25, 17, 17],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'blue', 'red',
-        'green', 'yellow', 'none', 'multi'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'blue', 'red',
+        'green', 'yellow', 'none', 'any'],
       [[], ['blue', 'yellow', 'red', 'green', 'yellow'], [],
         ['red', 'blue', 'blue', 'green', 'green', 'yellow'], [],
         ['red', 'green', 'yellow', 'red', 'blue'], []],
@@ -517,23 +744,23 @@ cn.LevelData.levels = {
           'over the odd slots.\n\nThe shortest known solution uses 17 ' +
           'registers.'
   ),
-  'THE SWAP': new cn.LevelData(
+  'The Swap': new cn.LevelData(
       2,
       [15, 12, 10],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'red', 'green',
-        'none', 'multi'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'red', 'green',
+        'none', 'any'],
       [['red', 'red', 'red'], [], ['green', 'green', 'green']],
       [['green', 'green', 'green'], [], ['red', 'red', 'red']],
       'Merge the piles in the middle, change parity, and unmerge.\n\nThe ' +
           'shortest known solution uses 10 registers.'
   ),
-  'RESTORING ORDER': new cn.LevelData(
+  'Restoring Order': new cn.LevelData(
       1,
       [29, 20, 16],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'blue', 'red', 'none',
-        'multi'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'blue', 'red', 'none',
+        'any'],
       [[], ['blue', 'red', 'blue', 'blue'], ['red', 'blue', 'red', 'blue'],
         ['blue', 'blue', 'blue'], ['red'], ['red', 'blue'], ['blue'], []],
       [[], ['blue', 'blue', 'blue'], ['blue', 'blue'], ['blue', 'blue', 'blue'],
@@ -543,12 +770,12 @@ cn.LevelData.levels = {
           'the blues so that you can put them back afterwards. Repeat for ' +
           'each pile.\n\nThe shortest known solution uses 16 registers.'
   ),
-  'CHANGING PLACES': new cn.LevelData(
+  'Changing Places': new cn.LevelData(
       1,
       [20, 18, 17],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'red', 'green',
-        'none', 'multi'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'red', 'green',
+        'none', 'any'],
       [['red'], ['red', 'red', 'red'], ['green', 'green', 'green'], [],
         ['red', 'red', 'red', 'red'], ['red', 'red'],
         ['green', 'green', 'green', 'green'], ['green']],
@@ -560,12 +787,12 @@ cn.LevelData.levels = {
           'slot. Finally, unwind the stack moving a crate to the right each ' +
           'time.\n\nThe shortest known solution uses 17 registers.'
   ),
-  'PALETTE SWAP': new cn.LevelData(
+  'Palette Swap': new cn.LevelData(
       2,
       [29, 18, 15],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'blue', 'red', 'none',
-        'multi'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'blue', 'red', 'none',
+        'any'],
       [[], ['red', 'blue'], ['blue', 'red', 'blue', 'red'], ['blue', 'red'],
         ['blue', 'red', 'blue', 'red'], [],
         ['blue', 'red', 'blue', 'red', 'blue', 'red'], []],
@@ -576,22 +803,22 @@ cn.LevelData.levels = {
           'more crates are left, unwind the stack going left and going ' +
           'right. Repeat. \n\nThe shortest known solution uses 15 registers.'
   ),
-  'MIRROR 2': new cn.LevelData(
+  'Mirror 2': new cn.LevelData(
       1,
       [20, 15, 12],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'yellow', 'none'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'yellow', 'none'],
       [['yellow', 'yellow', 'yellow'], ['yellow', 'yellow'], ['yellow'], []],
       [[], ['yellow'], ['yellow', 'yellow'], ['yellow', 'yellow', 'yellow']],
       'Move the top crate of the 2nd pile one slot to the right, and bring ' +
           'the left pile all the way to the right.\n\nThe shortest known ' +
           'solution uses 12 registers.'
   ),
-  'CHANGING PLACES 2': new cn.LevelData(
+  'Changing Places 2': new cn.LevelData(
       1,
       [25, 19, 16],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'red', 'none'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'red', 'none'],
       [['red'], ['red', 'red', 'red'], ['red'],
         ['red', 'red', 'red', 'red', 'red'], [], ['red', 'red'],
         ['red', 'red', 'red', 'red'], ['red', 'red', 'red']],
@@ -602,12 +829,12 @@ cn.LevelData.levels = {
           'consecutive piles and you\'re done.\n\nThe shortest known ' +
           'solution uses 16 registers.'
   ),
-  'VERTICAL SORT': new cn.LevelData(
+  'Vertical Sort': new cn.LevelData(
       2,
       [29, 29, 20],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'blue', 'green',
-        'none', 'multi'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'blue', 'green',
+        'none', 'any'],
       [[], ['green', 'blue', 'green', 'blue', 'blue'],
         ['blue', 'green', 'blue'], ['green', 'blue', 'blue', 'green'],
         ['blue', 'green'], ['blue', 'green', 'green', 'green', 'blue'], []],
@@ -616,45 +843,45 @@ cn.LevelData.levels = {
         ['green', 'blue'], ['green', 'green', 'green', 'blue', 'blue'], []],
       'Draw on ideas from previous sort levels.'
   ),
-  'COUNT IN BINARY': new cn.LevelData(
+  'Count in Binary': new cn.LevelData(
       1,
       [29, 23, 17],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'green', 'none'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'green', 'none'],
       [['green', 'green', 'green', 'green', 'green', 'green'], [], [], [], [],
         [], []],
       [['green', 'green'], [], ['green'], ['green'], ['green'], [], ['green']],
       'Count up all the numbers in binary: 1, 10, 11, 100,...'
   ),
-  'EQUALIZER': new cn.LevelData(
+  'Equalizer': new cn.LevelData(
       1,
       [40, 40, 40],
       [10, 10, 10, 10, 6],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'f5', 'blue', 'red',
-        'none', 'multi'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'f4', 'blue', 'red',
+        'none', 'any'],
       [[], ['blue', 'blue'], ['blue'], ['blue', 'blue', 'blue', 'blue', 'blue'],
         [], ['blue', 'blue'], ['blue', 'blue', 'blue', 'blue'], ['red']],
       [['blue', 'blue'], ['blue', 'blue'], ['blue', 'blue'], ['blue', 'blue'],
         ['blue', 'blue'], ['blue', 'blue'], ['blue', 'blue'], ['red']],
       ''
   ),
-  'PARTING THE SEA': new cn.LevelData(
+  'Parting the Sea': new cn.LevelData(
       1,
       [17, 17, 17],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'blue', 'none'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'blue', 'none'],
       [[], ['blue', 'blue'], ['blue', 'blue'], ['blue', 'blue'],
         ['blue', 'blue'], ['blue', 'blue'], []],
       [['blue', 'blue', 'blue', 'blue', 'blue'], [], [], [], [], [],
         ['blue', 'blue', 'blue', 'blue', 'blue']],
       ''
   ),
-  'THE TRICK': new cn.LevelData(
+  'The Trick': new cn.LevelData(
       2,
       [20, 14, 11],
       [8, 8, 8, 5],
-      ['right', 'pickup', 'left', 'f1', 'f2', 'f3', 'f4', 'red', 'yellow',
-        'none', 'multi'],
+      ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'red', 'yellow',
+        'none', 'any'],
       [['yellow', 'red'], [], ['red', 'yellow']],
       [['red', 'yellow'], [], ['yellow', 'red']],
       'Bring the right pile to the middle, then the left pile to the middle. ' +

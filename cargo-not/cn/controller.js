@@ -339,6 +339,22 @@ cn.controller.scan = function (game, ui) {
           cn.controller.setCondition(game,e[1],e[2],cn.model.Condition.YELLOW);
           goog.style.setTransparentBackgroundImage(conditions[e[1]*8+e[2]], "png/yellow.svg");
           break;
+        case 171:
+          cn.controller.setCondition(game,e[1],e[2],cn.model.Condition.GREEN);
+          // goog.style.setTransparentBackgroundImage(conditions[e[1]*8+e[2]], "png/green.svg");
+          break;
+        case 173:
+          cn.controller.setCondition(game,e[1],e[2],cn.model.Condition.RED);
+          // goog.style.setTransparentBackgroundImage(conditions[e[1]*8+e[2]], "png/red.svg");
+          break;
+        case 179:
+          cn.controller.setCondition(game,e[1],e[2],cn.model.Condition.BLUE);
+          // goog.style.setTransparentBackgroundImage(conditions[e[1]*8+e[2]], "png/blue.svg");
+          break;
+        case 181:
+          cn.controller.setCondition(game,e[1],e[2],cn.model.Condition.ANY);
+          // goog.style.setTransparentBackgroundImage(conditions[e[1]*8+e[2]], "png/any.svg");
+          break;
         default:
           break;
       };

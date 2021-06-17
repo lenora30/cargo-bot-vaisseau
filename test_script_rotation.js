@@ -190,6 +190,18 @@ TopCodes.setVideoFrameCallback("video-canvas", function (jsonString) {
 
     index(tableau_points, tableau_instruc, haut_droite, haut_gauche, largeur_case);
 
+    tableau_instruc.forEach(e => {
+      var difficulty = 0;
+      var level = 0;
+
+      if (e[1] == 3 && e[2] == 6) {
+        difficulty = difficultySelect(e[0]);
+      };
+      if (e[1] == 3 && e[2] == 7) {
+        level = levelSelect(e[0]);
+      };
+      tableau_instruc[0][0] = difficulty*6+level;
+    });
     // console.log(tableau_instruc);
 
     send(tableau_instruc);
@@ -213,4 +225,34 @@ function send(tab) {
 	console.log(hash);
 	var frame = document.getElementById("frame");
 	frame.src="cargo-not/index.html#"+hash;
+}
+
+function difficultySelect(code) {
+  switch (code) {
+    case 205:
+      return 0;
+    case 221:
+      return 1;
+    default:
+      return 0;
+  }
+}
+
+function levelSelect(code) {
+  switch (code) {
+    case 279:
+      return 1;
+    case 283:
+      return 2;
+    case 285:
+      return 3;
+    case 295:
+      return 4;
+    case 299:
+      return 5;
+    case 301:
+      return 6;
+    default:
+      return 0;
+  }
 }

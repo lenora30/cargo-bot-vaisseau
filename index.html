@@ -21,6 +21,18 @@
     </div>
   </div>
 
+
+  <div id="modalImg">
+    <div id="scannerImg">
+      <canvas id="image-canvas" width="1280" height="720"></canvas>
+      <br>
+      <div id="buttonContainerImg">
+        <button id="scanButtonImg" class="scannerButton"></button>
+        <button id="closeButtonImg" class="scannerButton"></button>
+      </div>
+    </div>
+  </div>
+
   <div id="main">
     <div id="inputMethod">
       <button id="camInButton" class="button"></button>
@@ -28,8 +40,8 @@
       <button id="phoneInButton" class="button"></button>
     </div>
 
-    <div id="fileIn">
-      <input type="file" accept="image/*" id="imgInput">
+    <div id="fileIn" style="display: none;">
+      <input type="file" accept="image/*" id="fileInput">
     </div>
 
     <iframe id="frame" src="cargo-not/index.html" width="820" height="1400"></iframe>

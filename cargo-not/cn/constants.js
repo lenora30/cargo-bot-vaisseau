@@ -30,15 +30,15 @@ cn.constants.GAME_COLOR = 'white';
 
 
 /** @type {number} @const */
-cn.constants.GOAL_WIDTH = 375;
+cn.constants.GOAL_WIDTH = 500;
 
 
 /** @type {number} @const */
-cn.constants.GOAL_HEIGHT = 176;
+cn.constants.GOAL_HEIGHT = 200;
 
 
 /** @type {number} @const */
-cn.constants.GOAL_MARGIN = 100;
+cn.constants.GOAL_MARGIN = 150;
 
 
 /** @type {string} @const */
@@ -204,18 +204,19 @@ cn.constants.COMMAND_REGISTER_CLASS_NAME =
 
 
 cn.constants.LEVEL_CODE = {
-  1: 'CARGO 101',
-  2: 'TRANSPORTER',
-  3: 'RE-CURSES',
-  4: 'INVERTER',
-  5: 'FROM BENEATH',
-  6: 'GO LEFT',
-  7: 'DOUBLE FLIP',
-  8: 'GO LEFT 2',
-  9: 'SHUFFLE SORT',
-  10: 'GO THE DISTANCE',
-  11: 'COLOR SORT',
-  12: 'WALKING PILES',
+  1: 'Cargo 101',
+  2: 'Transporter',
+  3: 'Stack',
+  4: 'Swap',
+  5: 'Re-Curses',
+  6: 'Split',
+  7: 'Inverter',
+  8: 'From Beneath',
+  9: 'La Trieuse',
+  10: 'Translation',
+  11: 'Color Translate',
+  12: 'Go Left',
+  //Wrong level name after 13
   13: 'REPEAT INVERTER',
   14: 'DOUBLE SORT',
   15: 'MIRROR',

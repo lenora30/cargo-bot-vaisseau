@@ -1,5 +1,7 @@
 .cn-game-canvas-container {
-  float: right;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cn-game-canvas {

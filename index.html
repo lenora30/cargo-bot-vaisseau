@@ -38,10 +38,17 @@
       <button id="camInButton" class="button"></button>
       <button id="imgInButton" class="button"></button>
       <button id="phoneInButton" class="button"></button>
+      <a href="PDF/CargoTangible.pdf" target="_blank" id="dlPDFButton" class="button"></a>
     </div>
 
     <div id="fileIn" style="display: none;">
       <input type="file" accept="image/*" id="fileInput">
+    </div>
+
+    <div id="selectorCam" style="display: none;">
+      <select id="videoSource">
+        <option value="" selected disabled hidden>Sélectionnez la caméra</option>
+      </select>
     </div>
 
     <iframe id="frame" src="cargo-not/index.html" width="820" height="1400"></iframe>

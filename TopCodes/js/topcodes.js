@@ -36,16 +36,24 @@ var TopCodes = {
 
 
   startVideoScan : function(canvasId) {
+    // get the selected video source
+    const videoSource = document.getElementById('videoSource').value;
+
     // initialize the video scanner if necessary
     if (!(canvasId in TopCodes._mediaStreams)) {
       topcodes_initVideoScanner(canvasId);
     }
+
     var canvas = document.querySelector("#" + canvasId);
     var video = document.querySelector("#" + canvasId + "-video");
+
     if (canvas && video) {
       var vw = parseInt(canvas.getAttribute('width'));
       var vh = parseInt(canvas.getAttribute('height'));
-      var vc = { audio: false, video: { mandatory : { minWidth: vw, maxWidth : vw, minHeight : vh, maxHeight : vh }}}; 
+      var vc = {  audio: false, 
+                  video: {deviceId: videoSource ? {exact: videoSource} : undefined,
+                          width: {min: vw, max: vw},
+                          height: {min: vh, max: vh}}}; 
       navigator.mediaDevices.getUserMedia(vc)
         .then(function(mediaStream) {
           video.srcObject = mediaStream;

@@ -196,8 +196,8 @@ function scan(topcodes) {
 
   index(tableau_points, tableau_instruc, haut_droite, haut_gauche, largeur_case);
 
-  var difficulty;
-  var level;
+  var difficulty = 0;
+  var level = 0;
 
   tableau_instruc.forEach(e => {
     if (e[1] == 3 && e[2] == 6) {
@@ -206,9 +206,8 @@ function scan(topcodes) {
     if (e[1] == 3 && e[2] == 7) {
       level = levelSelect(e[0]);
     };
-    tableau_instruc[0][0] = difficulty*6+level;
   });
-  console.log(tableau_instruc);
+  tableau_instruc[0][0] = difficulty*6+level;
 
   send(tableau_instruc);
 }

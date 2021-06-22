@@ -171,60 +171,78 @@ TopCodes.setVideoFrameCallback("video-canvas", function (jsonString) {
   };
 
 
-  document.getElementById("scan-button").onclick = function () {
-    sessionStorage.setItem('scan', jsonString);
-
-    let haut_droite;
-    let haut_gauche;
-    let bas_droite;
-    let bas_gauche;
-
-    for (let i = 0; i < topcodes.length; i++) {
-      switch (topcodes[i].code) {
-        case 55:
-          haut_gauche = topcodes[i];
-          break;
-        case 59:
-          haut_droite = topcodes[i];
-          break;
-        case 47:
-          bas_gauche = topcodes[i];
-          break;
-        case 61:
-          bas_droite = topcodes[i];
-          break;
-        default:
-          break;
-      }
-    }
-
-    if (haut_droite === undefined || haut_gauche === undefined || bas_gauche === undefined || bas_droite === undefined) {
-      alert("Les quatres coins n'ont pas été détecté");
-      return;
-    }
-
-    translation(topcodes, haut_droite);
-    rotation_matrix(topcodes, bas_droite, bas_gauche);
-
-    drawLine([haut_droite.x, haut_droite.y], [bas_droite.x, bas_droite.y], ctx);
-    drawLine([bas_droite.x, bas_droite.y], [bas_gauche.x, bas_gauche.y], ctx);
-    drawLine([bas_gauche.x, bas_gauche.y], [haut_gauche.x, haut_gauche.y], ctx);
-    drawLine([haut_gauche.x, haut_gauche.y],[haut_droite.x, haut_droite.y], ctx);
-
-    let hauteur = bas_gauche.y - haut_gauche.y;
-    let largeur = haut_gauche.x - haut_droite.x;
-    let hauteur_case = (hauteur/4);
-    let largeur_case = (largeur/9);
-
-    tri_fonction(topcodes, hauteur_case, haut_droite, haut_gauche);
-
-    tableau_instruc = [];
-
-    index(tableau_points, tableau_instruc, haut_droite, haut_gauche, largeur_case);
-
-    console.log(tableau_instruc);
+  document.getElementById("scanButton").onclick = function(){
+    scan(json.topcodes);  
+    TopCodes.stopVideoScan('video-canvas');
+    document.getElementById("modal").style.display = "none";
   }
 });
+  
+function scan(topcodes) {
+  let haut_droite;
+  let haut_gauche;
+  let bas_droite;
+  let bas_gauche;
+
+  for (let i = 0; i < topcodes.length; i++) {
+    switch (topcodes[i].code) {
+      case 55:
+        haut_gauche = topcodes[i];
+        break;
+      case 59:
+        haut_droite = topcodes[i];
+        break;
+      case 47:
+        bas_gauche = topcodes[i];
+        break;
+      case 61:
+        bas_droite = topcodes[i];
+        break;
+      default:
+        break;
+    }
+  }
+
+  if (haut_droite === undefined || haut_gauche === undefined || bas_gauche === undefined || bas_droite === undefined) {
+    alert("Les quatres coins n'ont pas été détecté");
+    return;
+  }
+
+  translation(topcodes, haut_droite);
+  rotation_matrix(topcodes, bas_droite, bas_gauche);
+
+  drawLine([haut_droite.x, haut_droite.y], [bas_droite.x, bas_droite.y], ctx);
+  drawLine([bas_droite.x, bas_droite.y], [bas_gauche.x, bas_gauche.y], ctx);
+  drawLine([bas_gauche.x, bas_gauche.y], [haut_gauche.x, haut_gauche.y], ctx);
+  drawLine([haut_gauche.x, haut_gauche.y],[haut_droite.x, haut_droite.y], ctx);
+
+  let hauteur = bas_gauche.y - haut_gauche.y;
+  let largeur = haut_gauche.x - haut_droite.x;
+  let hauteur_case = (hauteur/4);
+  let largeur_case = (largeur/9);
+
+  tri_fonction(topcodes, hauteur_case, haut_droite, haut_gauche);
+
+  tableau_instruc = [[0]];
+
+  index(tableau_points, tableau_instruc, haut_droite, haut_gauche, largeur_case);
+
+  var difficulty = 0;
+  var level = 0;
+
+  tableau_instruc.forEach(e => {
+    if (e[1] == 3 && e[2] == 6) {
+      difficulty = difficultySelect(e[0]);
+    };
+    if (e[1] == 3 && e[2] == 7) {
+      level = levelSelect(e[0]);
+    };
+  });
+  tableau_instruc[0][0] = difficulty*6+level;
+
+  send(tableau_instruc);
+}
+
 
 var topcodes = [];
 
@@ -232,3 +250,42 @@ var ctx = document.querySelector("#video-canvas").getContext('2d');
 
 var tableau_instruc = [];
 var tableau_points = [];
+
+function send(tab) {
+	console.log(tab);
+	var array = tab;
+	var hash = btoa(JSON.stringify(array));
+	console.log(hash);
+	var frame = document.getElementById("frame");
+	frame.src="cargo-not/index.html#"+hash;
+}
+
+function difficultySelect(code) {
+  switch (code) {
+    case 205:
+      return 0;
+    case 221:
+      return 1;
+    default:
+      return 0;
+  }
+}
+
+function levelSelect(code) {
+  switch (code) {
+    case 279:
+      return 1;
+    case 283:
+      return 2;
+    case 285:
+      return 3;
+    case 295:
+      return 4;
+    case 299:
+      return 5;
+    case 301:
+      return 6;
+    default:
+      return 0;
+  }
+}

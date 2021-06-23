@@ -64,10 +64,10 @@ cn.ui.Controls.prototype.enterDocument = function() {
   // Event handler for the play button.
   this.getHandler().listen(this.playButton_, EventType.ACTION, function() {
     if (this.rewindButton_.isEnabled()) {
-      cn.controller.scan(this.game_, this.ui_);
+      // cn.controller.scan(this.game_, this.ui_);
       cn.controller.resume(this.ui_);
     } else {
-      cn.controller.scan(this.game_, this.ui_);
+      // cn.controller.scan(this.game_, this.ui_);
       cn.controller.play(this.game_, this.ui_);
     }
     this.playButton_.setEnabled(false);
@@ -97,10 +97,6 @@ cn.ui.Controls.prototype.enterDocument = function() {
   this.getHandler().listen(this.slider_, EventType.CHANGE, function() {
     cn.controller.setBotSpeed(this.game_, this.slider_.getValue());
   });
-
-  // goog.events.listen(this, EventType.HASHCHANGE, function() {
-  //   cn.controller.scan(this.game_,this.ui_);
-  // });
 };
 
 

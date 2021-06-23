@@ -77,20 +77,37 @@ cn.ui.LevelSelector.prototype.enterDocument = function() {
   // Event handler for each level selector.
   goog.array.forEach(this.levelTabBars_, function(levelTabBar) {
     this.getHandler().listen(levelTabBar,
-        goog.ui.Component.EventType.SELECT,
-        function(e) {
-          // Deselect all other levels.
-          goog.array.forEach(this.levelTabBars_, function(otherTabBar) {
-            if (levelTabBar !== otherTabBar) {
-              otherTabBar.setSelectedTabIndex(-1);
-            }
-          }, this);
-          var levelName = levelTabBar.getSelectedTab().getCaption();
-          var levelData = cn.LevelData.levels[levelName];
-          cn.controller.loadLevel(this.game_, this.ui_, levelName, levelData);
-        });
+      goog.ui.Component.EventType.SELECT,
+      function(e) {
+        // Deselect all other levels.
+        goog.array.forEach(this.levelTabBars_, function(otherTabBar) {
+          if (levelTabBar !== otherTabBar) {
+            otherTabBar.setSelectedTabIndex(-1);
+          }
+        }, this);
+        var levelName = levelTabBar.getSelectedTab().getCaption();
+        var levelData = cn.LevelData.levels[levelName];
+
+        var i = 0;
+
+        while (this.levelTabBars_[i] != levelTabBar) {
+          i++;
+        }
+
+        cn.controller.loadLevel(this.game_, this.ui_, levelName, levelData);
+        var level = [i, levelTabBar.getSelectedTabIndex()];
+        window.sessionStorage.setItem('level', JSON.stringify(level));
+      });
   }, this);
-  this.levelTabBars_[0].setSelectedTabIndex(0);
+
+  var savedLevel = JSON.parse(window.sessionStorage.getItem('level'));
+
+  if (savedLevel == null) {
+    savedLevel = [0,0];
+    window.sessionStorage.setItem('level', JSON.stringify(savedLevel));
+  }
+  
+  this.levelTabBars_[savedLevel[0]].setSelectedTabIndex(savedLevel[1]);
 };
 
 

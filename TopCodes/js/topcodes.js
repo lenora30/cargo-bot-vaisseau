@@ -52,8 +52,9 @@ var TopCodes = {
       var vh = parseInt(canvas.getAttribute('height'));
       var vc = {  audio: false, 
                   video: {deviceId: videoSource ? {exact: videoSource} : undefined,
-                          width: {min: vw, max: vw},
-                          height: {min: vh, max: vh}}}; 
+                  width: {ideal: vw},
+                  height: {ideal: vh},
+                  facingMode: { ideal: 'environment' }}}; 
       navigator.mediaDevices.getUserMedia(vc)
         .then(function(mediaStream) {
           video.srcObject = mediaStream;

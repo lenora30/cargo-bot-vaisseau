@@ -99,13 +99,10 @@ function tri_fonction(topcodes, hauteur_case, haut_droite, haut_gauche)
   tableau_points = [[], [], [], []];
   topcodes.forEach(e => {
     let num_fonc;
-    if(isvertices(e) || (e.y + 10) < haut_gauche.y || (e.y + 10) < haut_droite.y)
-    {
+
+    if(isvertices(e) || (e.y + 10) < haut_gauche.y || (e.y + 10) < haut_droite.y) {
       num_fonc = -1;
-    }
-    else
-    {
-      if(e.code >= 103 && e.code <= 143){
+    } else if(e.code >= 103 && e.code <= 143 || e.code >= 205) {
         num_fonc = Math.floor(e.y/hauteur_case);
         switch (num_fonc) {
           case 0:
@@ -123,10 +120,7 @@ function tri_fonction(topcodes, hauteur_case, haut_droite, haut_gauche)
           default:
             break;
         }
-      }
-      else{
-        if(e.code >= 157 && e.code <= 181)
-        {
+      } else if (e.code >= 157 && e.code <= 181) {
           num_fonc = Math.floor((e.y - (2 * hauteur_case / 3))/hauteur_case) + 1;
           console.log(num_fonc);
           switch (num_fonc) {
@@ -145,11 +139,7 @@ function tri_fonction(topcodes, hauteur_case, haut_droite, haut_gauche)
             default:
               break;
           }
-        }
       }
-    }
-
-    
   });
 }
 
@@ -258,6 +248,7 @@ function send(tab) {
 	console.log(hash);
 	var frame = document.getElementById("frame");
 	frame.src="cargo-not/index.html#"+hash;
+  frame.contentWindow.location.reload(true);
 }
 
 function difficultySelect(code) {

@@ -21,6 +21,8 @@ cn.controller.init = function() {
   //game.id = prompt('Enter your UTEID') || 'unknown';
   var ui = new cn.ui.GameUi(game);
   ui.render();
+
+  cn.controller.scan(game, ui);  
 };
 
 
@@ -278,8 +280,6 @@ cn.controller.showHint = function(game, ui) {
 
 cn.controller.scan = function (game, ui) {
   if (window.location.hash != "") {
-    cn.controller.clearProgram(game,ui);
-
     //Transform the Hash from the URL into an array with the data that has been scanned
     var codesArray = JSON.parse(atob(window.location.hash.replace("#","")));
   
@@ -288,79 +288,83 @@ cn.controller.scan = function (game, ui) {
       var levelString = cn.constants.LEVEL_CODE[codesArray[0][0]];
       cn.controller.loadLevel(game,ui,levelString,cn.LevelData.levels[levelString]);    
     }
-  
-    var commands = goog.dom.getElementsByClass("cn_-command_-register_");
-    var conditions = goog.dom.getElementsByClass("cn_-condition_-register_");
 
-    commands.forEach(e => {
-      goog.style.setTransparentBackgroundImage(e, "png/drag_bottom.png");
-    });
-
-    conditions.forEach(e => {
-      goog.style.setTransparentBackgroundImage(e, "png/drag_top.png");
-    });
-
-    codesArray.forEach(e => {
-      //Set command or condition
-      switch (e[0]) {
-        case 103:
-          cn.controller.setCommand(game,e[1],e[2],cn.model.Command.RIGHT);
-          goog.style.setTransparentBackgroundImage(commands[e[1]*8+e[2]], "png/right.svg");
-          break;
-        case 107:
-          cn.controller.setCommand(game,e[1],e[2],cn.model.Command.LEFT);
-          goog.style.setTransparentBackgroundImage(commands[e[1]*8+e[2]], "png/left.svg");
-          break;
-        case 109:
-          cn.controller.setCommand(game,e[1],e[2],cn.model.Command.DOWN);
-          goog.style.setTransparentBackgroundImage(commands[e[1]*8+e[2]], "png/down.svg");
-          break;
-        case 115:
-          cn.controller.setCommand(game,e[1],e[2],cn.model.Command.F0);
-          goog.style.setTransparentBackgroundImage(commands[e[1]*8+e[2]], "png/f0.svg");
-          break;
-        case 117:
-          cn.controller.setCommand(game,e[1],e[2],cn.model.Command.F1);
-          goog.style.setTransparentBackgroundImage(commands[e[1]*8+e[2]], "png/f1.svg");
-          break;
-        case 121:
-          cn.controller.setCommand(game,e[1],e[2],cn.model.Command.F2);
-          goog.style.setTransparentBackgroundImage(commands[e[1]*8+e[2]], "png/f2.svg");
-          break;
-        case 143:
-          cn.controller.setCommand(game,e[1],e[2],cn.model.Command.F3);
-          goog.style.setTransparentBackgroundImage(commands[e[1]*8+e[2]], "png/f3.svg");
-          break;
-        case 157:
-          cn.controller.setCondition(game,e[1],e[2],cn.model.Condition.NONE);
-          goog.style.setTransparentBackgroundImage(conditions[e[1]*8+e[2]], "png/none.svg");
-          break;
-        case 167:
-          cn.controller.setCondition(game,e[1],e[2],cn.model.Condition.YELLOW);
-          goog.style.setTransparentBackgroundImage(conditions[e[1]*8+e[2]], "png/yellow.svg");
-          break;
-        case 171:
-          cn.controller.setCondition(game,e[1],e[2],cn.model.Condition.GREEN);
-          goog.style.setTransparentBackgroundImage(conditions[e[1]*8+e[2]], "png/green.svg");
-          break;
-        case 173:
-          cn.controller.setCondition(game,e[1],e[2],cn.model.Condition.RED);
-          goog.style.setTransparentBackgroundImage(conditions[e[1]*8+e[2]], "png/red.svg");
-          break;
-        case 179:
-          cn.controller.setCondition(game,e[1],e[2],cn.model.Condition.BLUE);
-          goog.style.setTransparentBackgroundImage(conditions[e[1]*8+e[2]], "png/blue.svg");
-          break;
-        case 181:
-          cn.controller.setCondition(game,e[1],e[2],cn.model.Condition.ANY);
-          goog.style.setTransparentBackgroundImage(conditions[e[1]*8+e[2]], "png/any.svg");
-          break;
-        default:
-          break;
-      };
-    });
+    cn.controller.setScan(game, codesArray);
   }
 };
+
+cn.controller.setScan = function (game, codesArray) {
+  var commands = goog.dom.getElementsByClass("cn_-command_-register_");
+  var conditions = goog.dom.getElementsByClass("cn_-condition_-register_");
+
+  commands.forEach(e => {
+    goog.style.setTransparentBackgroundImage(e, "png/drag_bottom.png");
+  });
+
+  conditions.forEach(e => {
+    goog.style.setTransparentBackgroundImage(e, "png/drag_top.png");
+  });
+
+  codesArray.forEach(e => {
+    //Set command or condition
+    switch (e[0]) {
+      case 103:
+        cn.controller.setCommand(game,e[1],e[2],cn.model.Command.RIGHT);
+        goog.style.setTransparentBackgroundImage(commands[e[1]*8+e[2]], "png/right.svg");
+        break;
+      case 107:
+        cn.controller.setCommand(game,e[1],e[2],cn.model.Command.LEFT);
+        goog.style.setTransparentBackgroundImage(commands[e[1]*8+e[2]], "png/left.svg");
+      break;
+    case 109:
+      cn.controller.setCommand(game,e[1],e[2],cn.model.Command.DOWN);
+      goog.style.setTransparentBackgroundImage(commands[e[1]*8+e[2]], "png/down.svg");
+      break;
+    case 115:
+      cn.controller.setCommand(game,e[1],e[2],cn.model.Command.F0);
+      goog.style.setTransparentBackgroundImage(commands[e[1]*8+e[2]], "png/f0.svg");
+      break;
+    case 117:
+      cn.controller.setCommand(game,e[1],e[2],cn.model.Command.F1);
+      goog.style.setTransparentBackgroundImage(commands[e[1]*8+e[2]], "png/f1.svg");
+      break;
+    case 121:
+      cn.controller.setCommand(game,e[1],e[2],cn.model.Command.F2);
+      goog.style.setTransparentBackgroundImage(commands[e[1]*8+e[2]], "png/f2.svg");
+      break;
+    case 143:
+      cn.controller.setCommand(game,e[1],e[2],cn.model.Command.F3);
+      goog.style.setTransparentBackgroundImage(commands[e[1]*8+e[2]], "png/f3.svg");
+      break;
+    case 157:
+      cn.controller.setCondition(game,e[1],e[2],cn.model.Condition.NONE);
+      goog.style.setTransparentBackgroundImage(conditions[e[1]*8+e[2]], "png/none.svg");
+      break;
+    case 167:
+      cn.controller.setCondition(game,e[1],e[2],cn.model.Condition.YELLOW);
+      goog.style.setTransparentBackgroundImage(conditions[e[1]*8+e[2]], "png/yellow.svg");
+      break;
+    case 171:
+      cn.controller.setCondition(game,e[1],e[2],cn.model.Condition.GREEN);
+      goog.style.setTransparentBackgroundImage(conditions[e[1]*8+e[2]], "png/green.svg");
+      break;
+    case 173:
+      cn.controller.setCondition(game,e[1],e[2],cn.model.Condition.RED);
+      goog.style.setTransparentBackgroundImage(conditions[e[1]*8+e[2]], "png/red.svg");
+      break;
+    case 179:
+      cn.controller.setCondition(game,e[1],e[2],cn.model.Condition.BLUE);
+      goog.style.setTransparentBackgroundImage(conditions[e[1]*8+e[2]], "png/blue.svg");
+      break;
+    case 181:
+      cn.controller.setCondition(game,e[1],e[2],cn.model.Condition.ANY);
+      goog.style.setTransparentBackgroundImage(conditions[e[1]*8+e[2]], "png/any.svg");
+      break;
+    default:
+      break;
+    }
+  });
+}
 
 /**
  * @param {!cn.model.Game} game The current game.

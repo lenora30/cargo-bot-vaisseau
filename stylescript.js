@@ -1,6 +1,7 @@
 var camButton = document.getElementById("camInButton");
 var imgButton = document.getElementById("imgInButton");
 var phoneButton = document.getElementById("phoneInButton");
+var reloadButton = document.getElementById("reloadButton");
 var modal = document.getElementById("modal");
 var modalImg = document.getElementById("modalImg");
 var fileInput = document.getElementById("fileIn");

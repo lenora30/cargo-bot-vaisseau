@@ -143,7 +143,6 @@ cn.LevelData.levelpacks = {
 	'Roumanie',
 	'Permutation circulaire',
 	'Chèvre deviendra barbichette',
-	'Evasion',
 	'Trier par couleurs',
 	'Rassemblement',
 	'May the odds be ever in your favour',

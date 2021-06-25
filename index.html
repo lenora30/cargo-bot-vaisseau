@@ -34,7 +34,7 @@
   </div>
 
   <div id="modalQr" class="modal">
-    <div id="qrcode"></div>
+    <div id="qrcode" class="scanner" style="height: 800px;"></div>
     <br>
     <div id="buttonContainerQr">
       <button id="closeButtonQr" class="scannerButton"></button>
@@ -51,7 +51,7 @@
     </div>
 
     <div id="fileIn" style="display: none;">
-      <input type="file" accept="image/*" id="fileInput">
+      <input type="file" accept="image/*" id="fileInput" capture="camera">
     </div>
 
     <div id="selectorCam" style="display: none;">
@@ -73,6 +73,34 @@
   <script src="stylescript.js"></script>
   <script src="perspective-transform.js"></script>
   <script src="test_script_rotation.js"></script>
+
+  <script>
+    // register a callback function with the TopCode library
+    TopCodes.setVideoFrameCallback("video-canvas", function (jsonString) {
+
+    // convert the JSON string to an object
+    var json = JSON.parse(jsonString);
+
+    // get the list of topcodes from the JSON object
+    topcodes = json.topcodes;
+
+    // draw a circle over the top of each TopCode
+    ctx.fillStyle = "rgba(255, 0, 0)";   // very translucent red
+    for (i = 0; i < topcodes.length; i++) {      
+      ctx.font = '24px serif';
+      ctx.fillText(topcodes[i].code.toString(), topcodes[i].x, topcodes[i].y + 50);
+      // ctx.strokeRect(200, 60, 900, 600);
+    };
+
+    document.getElementById("scanButton").onclick = function(){
+      scan(json.topcodes, true);  
+      TopCodes.stopVideoScan('video-canvas');
+      document.getElementById("modal").style.display = "none";
+    }
+    });
+
+    var ctx = document.querySelector("#video-canvas").getContext('2d');
+  </script>
 
 </body>
 </html>

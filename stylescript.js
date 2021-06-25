@@ -4,10 +4,16 @@ var phoneButton = document.getElementById("phoneInButton");
 var reloadButton = document.getElementById("reloadButton");
 var modal = document.getElementById("modal");
 var modalImg = document.getElementById("modalImg");
+var modalQr = document.getElementById("modalQr");
+var closeButton = document.getElementById("closeButton");
+var closeButtonImg = document.getElementById("closeButtonImg");
+var closeButtonQr = document.getElementById("closeButtonQr");
 var fileInput = document.getElementById("fileIn");
 var imgInput = document.getElementById("imgInput");
 var selectorCam = document.getElementById('selectorCam');
 var videoSelect = document.getElementById('videoSource');
+var qrcode = new QRCode("qrcode");
+var peer = new Peer(); 
 var w = window.innerWidth;
 var h = window.innerHeight;
 var jsonImg;
@@ -83,6 +89,11 @@ fileInput.oninput = function() {
     }
 }
 
+phoneButton.onclick = function() {
+	modalQr.style.display = "block";
+	makeCode();
+}
+
 closeButtonImg.onclick = function() {
 	modalImg.style.display = "none";
 }
@@ -90,6 +101,10 @@ closeButtonImg.onclick = function() {
 closeButton.onclick = function() {
 	modal.style.display = "none";
 	TopCodes.stopVideoScan('video-canvas');
+}
+
+closeButtonQr.onclick = function() {
+	modalQr.style.display = "none";
 }
 
 document.getElementById("scanButtonImg").onclick = function(){
@@ -117,3 +132,19 @@ function gotDevices(deviceInfos) {
 }
 
 getDevices().then(gotDevices);
+
+function makeCode () {    
+	var elText = peer.id;
+
+	console.log(peer.id);
+	
+	qrcode.makeCode(elText);
+}
+
+peer.on('connection', function(conn) {
+	conn.on('data', function(data){
+	  	// Will print 'hi!'
+	  	console.log(data);
+		modalQr.style.display = "none";
+	});
+});

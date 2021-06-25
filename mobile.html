@@ -107,7 +107,6 @@
 		function connect(computerID) {
 			conn = peer.connect(computerID);
 			conn.on('open', function () {
-				console.log("uwu");
 				document.getElementById("statut").innerHTML = "Connecté";
 				imageInput.disabled=false;
 			});

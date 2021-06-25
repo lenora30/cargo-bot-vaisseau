@@ -192,7 +192,7 @@ function levelSelect(code) {
   }
 }
 
-function scan(topcodes) {
+function scan(topcodes, send) {
   let haut_droite;
   let haut_gauche;
   let bas_droite;
@@ -255,36 +255,12 @@ function scan(topcodes) {
   });
   tableau_instruc[0][0] = difficulty*6+level;
 
-  send(tableau_instruc);
+  if (send) {
+    send(tableau_instruc);
+  }
 }
 
-// register a callback function with the TopCode library
-TopCodes.setVideoFrameCallback("video-canvas", function (jsonString) {
-
-  // convert the JSON string to an object
-  var json = JSON.parse(jsonString);
-
-  // get the list of topcodes from the JSON object
-  topcodes = json.topcodes;
-
-  // draw a circle over the top of each TopCode
-  ctx.fillStyle = "rgba(255, 0, 0)";   // very translucent red
-  for (i = 0; i < topcodes.length; i++) {      
-    ctx.font = '24px serif';
-    ctx.fillText(topcodes[i].code.toString(), topcodes[i].x, topcodes[i].y + 50);
-    // ctx.strokeRect(200, 60, 900, 600);
-  };
-
-  document.getElementById("scanButton").onclick = function(){
-    scan(json.topcodes);  
-    TopCodes.stopVideoScan('video-canvas');
-    document.getElementById("modal").style.display = "none";
-  }
-});
-
 var topcodes = [];
-
-var ctx = document.querySelector("#video-canvas").getContext('2d');
 
 var tableau_instruc = [];
 var tableau_points = [];

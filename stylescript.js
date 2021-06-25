@@ -109,7 +109,7 @@ closeButtonQr.onclick = function() {
 
 document.getElementById("scanButtonImg").onclick = function(){
 	var json = JSON.parse(jsonImg);
-    scan(json.topcodes);  
+    scan(json.topcodes, true);  
     document.getElementById("modalImg").style.display = "none";
 }
 
@@ -134,17 +134,13 @@ function gotDevices(deviceInfos) {
 getDevices().then(gotDevices);
 
 function makeCode () {    
-	var elText = peer.id;
-
-	console.log(peer.id);
-	
-	qrcode.makeCode(elText);
+	qrcode.makeCode(peer.id);
 }
 
 peer.on('connection', function(conn) {
 	conn.on('data', function(data){
-	  	// Will print 'hi!'
 	  	console.log(data);
 		modalQr.style.display = "none";
+		send(JSON.parse(data));
 	});
 });

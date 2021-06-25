@@ -1,0 +1,103 @@
+:root {
+    --main-color: #968C83;
+    --sec-color: #D6D2C4;
+    --ter-color: #FFF5EA;
+    --quad-color: #F7DAD9;
+    --txt-color: rgb(54, 54, 54);
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    background-color: var(--ter-color);
+}
+
+#main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button {
+    background-color: var(--main-color);
+    border-radius: 20%;
+    height: 600px; 
+    width: 600px;
+    border: none;
+    cursor: pointer;
+}
+
+#imgButton {
+    display: inline-block;
+}
+
+#imgButton input[type=file] {
+    display:none;
+}
+
+#imageSpan {
+    display: inline-block;
+    height: 600px; 
+    width: 600px;
+    cursor: pointer;
+}
+
+.modal {
+    overflow: auto;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    margin: 0;
+    padding: 5px;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+}
+
+.scanner {
+    margin: 20px 80px 20px 20px;
+}
+
+
+#modalImg {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+#image-canvas {
+    width: 90%;
+    height: 90%;
+    background-color: var(--ter-color);
+    border-radius: 10px 10px;
+}
+
+#closeButtonImg {
+    right: 15px;
+    top: 15px;
+    background-image: url("img/close.svg");
+    background-color: rgb(255, 56, 30);
+    border-radius: 30%;
+}
+
+#scanButtonImg {
+    right: 15px;
+    bottom: 15px;
+    background-image: url("img/check.svg");
+    background-color: rgb(89, 255, 56);
+    border-radius: 30%;
+}
+
+.scannerButton {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer; 
+}

@@ -2,13 +2,25 @@
 <html>
 <head>
 	<title>Cargo Tangible</title>
+	<link rel="stylesheet" href="mobileStyle.css">
 </head>
 
 <body>
-	<div id="QRreader" width="600px" height="600px">
+	<div id="modalQR">
+		<div id="QRreader" width="600px" height="600px"></div>
+		<button id="closeQR"></button>
 	</div>
 
-	<button id="QRbutton" style="height: 600px; width: 600px;">Send</button>
+	<div id=main>
+		<button id="QRbutton" class="button">Connect</button>
+		<label for="statut">Statut :</label><p id="statut">Non connecté</p>
+		<div id="imgButton" class="button">
+			<label>
+				<input type="file" accept="image/*" id="imageInput" capture="camera" disabled>
+			  	<span id="imageSpan"></span>
+			</label>
+		</div>
+	</div>
 
 	<div id="selectorCam" style="display: none;">
 		<select id="videoSource" style="height: 600px; width: 600px;">
@@ -16,14 +28,35 @@
 		</select>
 	</div>
 
+	<div id="modalImg" class="modal">
+		<div id="scannerImg" class="scanner">
+		  <canvas id="image-canvas" width="1280" height="720"></canvas>
+		  <br>
+		  <div id="buttonContainerImg" class="buttonContainer">
+			<button id="scanButtonImg" class="scannerButton"></button>
+			<button id="closeButtonImg" class="scannerButton"></button>
+		  </div>
+		</div>
+	  </div>
+
+	<script src="TopCodes/js/adapter-0.2.9.js"></script>
+	<script src="TopCodes/js/topcodes.js"></script>
+	<script defer src="TopCodes/dart/main.dart.js"></script>
+	<script src="perspective-transform.js"></script>
+	<script src="test_script_rotation.js"></script>
 	<script src="connect/html5-qrcode.min.js"></script>
-  <script src="connect/peerjs.min.js"></script>
+  	<script src="connect/peerjs.min.js"></script>
 	<script>
 		var QRbutton = document.getElementById("QRbutton");
-		var selectorCam = document.getElementById('selectorCam');
+		var modalQR = document.getElementById('modalQR');
+		var modalImg = document.getElementById('modalImg');
 		var videoSelect = document.getElementById('videoSource');
+		var imageInput = document.getElementById("imageInput");
+		var closeButtonImg = document.getElementById("closeButtonImg");
     	var computerID = null;
 		var peer = new Peer();
+		var conn;
+		var tabInstruc;
 
 		QRbutton.onclick = function() {
 			if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
@@ -31,21 +64,21 @@
 				return;
 			}
 
-			if (selectorCam.style.display == "none") {
-				selectorCam.style.display = "block";
+			if (modalQR.style.display == "none") {
+				modalQR.style.display = "block";
 			} else {
-				selectorCam.style.display = "none";
+				modalQR.style.display = "none";
 			}	
 		}
 
 
 		videoSelect.oninput = function () {
-			startScan(videoSelect.value, "QRreader");
+			startScan(videoSelect.value);
 		}
 
+		const html5QrCode = new Html5Qrcode("QRreader");
 
-		function startScan(cameraId, QRreaderID) {
-			const html5QrCode = new Html5Qrcode(QRreaderID);
+		function startScan(cameraId) {
 			html5QrCode.start(
 				cameraId,
 				{
@@ -54,8 +87,7 @@
 				},
 				(decodedText, decodedResult) => {
 					computerID = decodedText;
-          	connect(computerID);
-          	return;
+          			connect(computerID);
 				},
 				(errorMessage) => {
 					// console.log(errorMessage);
@@ -66,11 +98,56 @@
 		}
 
 		function connect(computerID) {
-		var conn = peer.connect(computerID);
-		conn.on('open', function () {
-			console.log("uwu")
-			conn.send('uwu');
-		});
+			conn = peer.connect(computerID);
+			conn.on('open', function () {
+				console.log("uwu");
+				document.getElementById("statut").innerHTML = "Connecté";
+				imageInput.disabled=false;
+			});
+
+			conn.on('close', function () {
+				document.getElementById("statut").innerHTML = "Déconnecté";
+				imageInput.disabled=true;
+			});
+		}
+
+		document.getElementById("scanButtonImg").onclick = function(){
+			var json = JSON.parse(jsonImg);
+			tabInstruc = scan(json.topcodes, false);  
+			document.getElementById("modalImg").style.display = "none";
+			conn.send(JSON.stringify(tabInstruc));
+		}
+
+		imageInput.oninput = function() {
+			modalImg.style.display = "flex";
+
+			var imageLoader = document.getElementById('imageInput');
+			imageLoader.addEventListener('change', handleImage, false);
+			var canvas = document.getElementById('image-canvas');
+			var ctx = canvas.getContext('2d');
+
+			function handleImage(e){
+				var reader = new FileReader();
+				reader.onload = function(event){
+					var img = new Image();
+					img.onload = function(){
+						canvas.width = img.width;
+						canvas.height = img.height;
+						jsonImg = scanCanvas(img);
+
+						var ar = 1;
+
+						if (ctx.canvas.width > window.innerWidth-40) {
+							ar = (window.innerWidth-40)/ctx.canvas.width;
+						}
+						if (ctx.canvas.height > window.innerHeight-120) {
+							ar = (window.innerHeight-40)/ctx.canvas.height;
+						}
+					}
+					img.src = event.target.result;
+				}
+				reader.readAsDataURL(e.target.files[0]);     
+			}
 		}
 
 		function getDevices() {
@@ -89,6 +166,10 @@
 					videoSelect.appendChild(option);
 				}
 			}
+		}
+		
+		closeButtonImg.onclick = function() {
+			modalImg.style.display = "none";
 		}
 
 		getDevices().then(gotDevices);

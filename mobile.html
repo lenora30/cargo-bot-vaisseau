@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cargo Tangible</title>
+</head>
+
+<body>
+	<div id="QRreader" width="600px" height="600px">
+	</div>
+
+	<button id="QRbutton" style="height: 600px; width: 600px;">Send</button>
+
+	<div id="selectorCam" style="display: none;">
+		<select id="videoSource" style="height: 600px; width: 600px;">
+			<option value="" selected disabled hidden>Sélectionnez la caméra</option>
+		</select>
+	</div>
+
+	<script src="connect/html5-qrcode.min.js"></script>
+  <script src="connect/peerjs.min.js"></script>
+	<script>
+		var QRbutton = document.getElementById("QRbutton");
+		var selectorCam = document.getElementById('selectorCam');
+		var videoSelect = document.getElementById('videoSource');
+    	var computerID = null;
+		var peer = new Peer();
+
+		QRbutton.onclick = function() {
+			if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
+				console.log("enumerateDevices() not supported.");
+				return;
+			}
+
+			if (selectorCam.style.display == "none") {
+				selectorCam.style.display = "block";
+			} else {
+				selectorCam.style.display = "none";
+			}	
+		}
+
+
+		videoSelect.oninput = function () {
+			startScan(videoSelect.value, "QRreader");
+		}
+
+
+		function startScan(cameraId, QRreaderID) {
+			const html5QrCode = new Html5Qrcode(QRreaderID);
+			html5QrCode.start(
+				cameraId,
+				{
+					fps: 15,
+					qrbox: 300
+				},
+				(decodedText, decodedResult) => {
+					computerID = decodedText;
+          	connect(computerID);
+          	return;
+				},
+				(errorMessage) => {
+					// console.log(errorMessage);
+				})
+			.catch((err) => {
+				console.log(err);
+			});
+		}
+
+		function connect(computerID) {
+		var conn = peer.connect(computerID);
+		conn.on('open', function () {
+			console.log("uwu")
+			conn.send('uwu');
+		});
+		}
+
+		function getDevices() {
+			// AFAICT in Safari this only gets default devices until gUM is called :/
+			return navigator.mediaDevices.enumerateDevices();
+		}
+			
+		function gotDevices(deviceInfos) {
+			window.deviceInfos = deviceInfos; // make available to console
+			console.log('Available input and output devices:', deviceInfos);
+			for (const deviceInfo of deviceInfos) {
+				const option = document.createElement('option');
+				option.value = deviceInfo.deviceId;
+				if (deviceInfo.kind === 'videoinput') {
+					option.text = deviceInfo.label || `Camera ${videoSelect.length + 1}`;
+					videoSelect.appendChild(option);
+				}
+			}
+		}
+
+		getDevices().then(gotDevices);
+	</script>
+</body>
+</html>

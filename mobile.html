@@ -6,9 +6,10 @@
 </head>
 
 <body>
-	<div id="modalQR">
-		<div id="QRreader" width="600px" height="600px"></div>
-		<button id="closeQR"></button>
+	<div id="modalQR" class="modal" style="display: none;">
+		<!-- <div id="QRreader" width="600px" height="600px"></div> -->
+		<input type="text" id="deviceId" style="width: 100%; height: 100px;">
+		<button id="closeQR" class="scannerButton"></button>
 	</div>
 
 	<div id=main>
@@ -53,7 +54,9 @@
 		var videoSelect = document.getElementById('videoSource');
 		var imageInput = document.getElementById("imageInput");
 		var closeButtonImg = document.getElementById("closeButtonImg");
+		var closeQR = document.getElementById("closeQR");
     	var computerID = null;
+		var cameras = [];
 		var peer = new Peer();
 		var conn;
 		var tabInstruc;
@@ -64,19 +67,23 @@
 				return;
 			}
 
-			if (modalQR.style.display == "none") {
-				modalQR.style.display = "block";
-			} else {
-				modalQR.style.display = "none";
-			}	
+			modalQR.style.display = "block";
+
+			//GR code scan WIP
+
+			// getDevices().then(gotDevices);
+
+			// if (cameras.length == 0) {
+			// 	return;
+			// } else if (cameras.length == 1) {
+			// 	startScan(cameras[0]);
+			// 	console.log(cameras[1]);
+			// } else {
+			// 	startScan(cameras[1]);
+			// }
 		}
 
-
-		videoSelect.oninput = function () {
-			startScan(videoSelect.value);
-		}
-
-		const html5QrCode = new Html5Qrcode("QRreader");
+		// const html5QrCode = new Html5Qrcode("QRreader");
 
 		function startScan(cameraId) {
 			html5QrCode.start(
@@ -149,30 +156,31 @@
 				reader.readAsDataURL(e.target.files[0]);     
 			}
 		}
-
-		function getDevices() {
-			// AFAICT in Safari this only gets default devices until gUM is called :/
-			return navigator.mediaDevices.enumerateDevices();
-		}
-			
-		function gotDevices(deviceInfos) {
-			window.deviceInfos = deviceInfos; // make available to console
-			console.log('Available input and output devices:', deviceInfos);
-			for (const deviceInfo of deviceInfos) {
-				const option = document.createElement('option');
-				option.value = deviceInfo.deviceId;
-				if (deviceInfo.kind === 'videoinput') {
-					option.text = deviceInfo.label || `Camera ${videoSelect.length + 1}`;
-					videoSelect.appendChild(option);
-				}
-			}
-		}
 		
 		closeButtonImg.onclick = function() {
 			modalImg.style.display = "none";
 		}
 
-		getDevices().then(gotDevices);
+		closeQR.onclick = function() {
+			modalQR.style.display = "none";
+			connect(document.getElementById("deviceId").value);
+		}
+
+		function getDevices() {
+			// AFAICT in Safari this only gets default devices until gUM is called :/
+			return navigator.mediaDevices.enumerateDevices();
+		}
+		
+		function gotDevices(deviceInfos) {
+			cameras = [];
+			window.deviceInfos = deviceInfos; // make available to console
+			console.log('Available input and output devices:', deviceInfos);
+			for (const deviceInfo of deviceInfos) {
+				if (deviceInfo.kind === 'videoinput') {
+					cameras += deviceInfo.deviceId;
+				}
+			}
+		}
 	</script>
 </body>
 </html>

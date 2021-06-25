@@ -92,6 +92,7 @@ fileInput.oninput = function() {
 phoneButton.onclick = function() {
 	modalQr.style.display = "block";
 	makeCode();
+	document.getElementById("deviceId").innerHTML = (peer.id);
 }
 
 closeButtonImg.onclick = function() {

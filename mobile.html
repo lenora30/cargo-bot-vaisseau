@@ -6,35 +6,21 @@
 </head>
 
 <body>
-	<div id="modalQR" class="modal" style="display: none;">
-		<!-- <div id="QRreader" width="600px" height="600px"></div> -->
-		<input type="text" id="deviceId" style="width: 100%; height: 100px;">
-		<button id="closeQR" class="scannerButton"></button>
-	</div>
-
 	<div id=main>
-		<button id="QRbutton" class="button">Connect</button>
 		<label for="statut">Statut :</label><p id="statut">Non connecté</p>
+
 		<div id="imgButton" class="button">
 			<label>
-				<input type="file" accept="image/*" id="imageInput" capture="camera" disabled>
+				<input type="file" accept="image/*" id="imageInput" capture="camera">
 			  	<span id="imageSpan"></span>
 			</label>
 		</div>
 	</div>
 
-	<div id="selectorCam" style="display: none;">
-		<select id="videoSource" style="height: 600px; width: 600px;">
-			<option value="" selected disabled hidden>Sélectionnez la caméra</option>
-		</select>
-	</div>
-
 	<div id="modalImg" class="modal">
 		<div id="scannerImg" class="scanner">
 		  <canvas id="image-canvas" width="1280" height="720"></canvas>
-		  <br>
 		  <div id="buttonContainerImg" class="buttonContainer">
-			<button id="scanButtonImg" class="scannerButton"></button>
 			<button id="closeButtonImg" class="scannerButton"></button>
 		  </div>
 		</div>
@@ -48,61 +34,23 @@
 	<script src="connect/html5-qrcode.min.js"></script>
   	<script src="connect/peerjs.min.js"></script>
 	<script>
-		var QRbutton = document.getElementById("QRbutton");
-		var modalQR = document.getElementById('modalQR');
 		var modalImg = document.getElementById('modalImg');
 		var videoSelect = document.getElementById('videoSource');
 		var imageInput = document.getElementById("imageInput");
 		var closeButtonImg = document.getElementById("closeButtonImg");
-		var closeQR = document.getElementById("closeQR");
-    	var computerID = null;
+    	var computerID = window.location.hash;
 		var cameras = [];
 		var peer = new Peer();
 		var conn;
 		var tabInstruc;
 
-		QRbutton.onclick = function() {
-			if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
-				console.log("enumerateDevices() not supported.");
-				return;
+		var delayInMilliseconds = 1000;
+
+		setTimeout(function() {
+			if (computerID) {
+				connect(computerID.substring(1));
 			}
-
-			modalQR.style.display = "block";
-
-			//GR code scan WIP
-
-			// getDevices().then(gotDevices);
-
-			// if (cameras.length == 0) {
-			// 	return;
-			// } else if (cameras.length == 1) {
-			// 	startScan(cameras[0]);
-			// 	console.log(cameras[1]);
-			// } else {
-			// 	startScan(cameras[1]);
-			// }
-		}
-
-		// const html5QrCode = new Html5Qrcode("QRreader");
-
-		function startScan(cameraId) {
-			html5QrCode.start(
-				cameraId,
-				{
-					fps: 15,
-					qrbox: 300
-				},
-				(decodedText, decodedResult) => {
-					computerID = decodedText;
-          			connect(computerID);
-				},
-				(errorMessage) => {
-					// console.log(errorMessage);
-				})
-			.catch((err) => {
-				console.log(err);
-			});
-		}
+		}, delayInMilliseconds);
 
 		function connect(computerID) {
 			conn = peer.connect(computerID);
@@ -117,52 +65,21 @@
 			});
 		}
 
-		document.getElementById("scanButtonImg").onclick = function(){
-			var json = JSON.parse(jsonImg);
-			tabInstruc = scan(json.topcodes, false);  
-			document.getElementById("modalImg").style.display = "none";
-			conn.send(JSON.stringify(tabInstruc));
-		}
+		document.addEventListener('DOMContentLoaded', event => {
+			imageInput.onchange = function(event) {
+				var file = event.target.files[0]
+				var blob = new Blob(event.target.files, { type: file.type })
 
-		imageInput.oninput = function() {
-			modalImg.style.display = "flex";
-
-			var imageLoader = document.getElementById('imageInput');
-			imageLoader.addEventListener('change', handleImage, false);
-			var canvas = document.getElementById('image-canvas');
-			var ctx = canvas.getContext('2d');
-
-			function handleImage(e){
-				var reader = new FileReader();
-				reader.onload = function(event){
-					var img = new Image();
-					img.onload = function(){
-						canvas.width = img.width;
-						canvas.height = img.height;
-						jsonImg = scanCanvas(img);
-
-						var ar = 1;
-
-						if (ctx.canvas.width > window.innerWidth-40) {
-							ar = (window.innerWidth-40)/ctx.canvas.width;
-						}
-						if (ctx.canvas.height > window.innerHeight-120) {
-							ar = (window.innerHeight-40)/ctx.canvas.height;
-						}
-					}
-					img.src = event.target.result;
-				}
-				reader.readAsDataURL(e.target.files[0]);     
+        conn.send({
+          file: blob,
+          filename: file.name,
+          filetype: file.type
+        });
 			}
-		}
+		});
 		
 		closeButtonImg.onclick = function() {
 			modalImg.style.display = "none";
-		}
-
-		closeQR.onclick = function() {
-			modalQR.style.display = "none";
-			connect(document.getElementById("deviceId").value);
 		}
 
 		function getDevices() {

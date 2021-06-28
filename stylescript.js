@@ -12,7 +12,7 @@ var fileInput = document.getElementById("fileIn");
 var imgInput = document.getElementById("imgInput");
 var selectorCam = document.getElementById('selectorCam');
 var videoSelect = document.getElementById('videoSource');
-var qrcode = new QRCode("qrcode");
+var qrcode = new QRCode("qrcode", {width: 500, height: 500});
 var peer = new Peer(); 
 var w = window.innerWidth;
 var h = window.innerHeight;
@@ -57,42 +57,29 @@ imgButton.onclick = function() {
 fileInput.oninput = function() {
 	modalImg.style.display = "flex";
 
-    var imageLoader = document.getElementById('fileInput');
-    imageLoader.addEventListener('change', handleImage, false);
-    var canvas = document.getElementById('image-canvas');
-    var ctx = canvas.getContext('2d');
+  var imageLoader = document.getElementById('fileInput');
+  imageLoader.addEventListener('change', handleImage, false);
+  var canvas = document.getElementById('image-canvas');
+  var ctx = canvas.getContext('2d');
 
-    function handleImage(e){
-        var reader = new FileReader();
-        reader.onload = function(event){
-            var img = new Image();
-            img.onload = function(){
-                canvas.width = img.width;
-                canvas.height = img.height;
-                jsonImg = scanCanvas(img);
-
-				var ar = 1;
-
-				if (ctx.canvas.width > window.innerWidth-40) {
-					ar = (window.innerWidth-40)/ctx.canvas.width;
-				}
-				if (ctx.canvas.height > window.innerHeight-120) {
-					ar = (window.innerHeight-40)/ctx.canvas.height;
-				}
-
-				document.getElementById("sannerImg").style.width = img.width*ar;
-				document.getElementById("sannerImg").style.height = img.height*ar;
-            }
-            img.src = event.target.result;
-        }
-        reader.readAsDataURL(e.target.files[0]);     
+  function handleImage(e){
+    var reader = new FileReader();
+    reader.onload = function(event){
+      var img = new Image();
+      img.onload = function(){
+        canvas.width = img.width;
+        canvas.height = img.height;
+        jsonImg = scanCanvas(img);
+      }
+      img.src = event.target.result;
     }
+    reader.readAsDataURL(e.target.files[0]);     
+  }
 }
 
 phoneButton.onclick = function() {
 	modalQr.style.display = "block";
 	makeCode();
-	document.getElementById("deviceId").innerHTML = (peer.id);
 }
 
 closeButtonImg.onclick = function() {
@@ -134,14 +121,62 @@ function gotDevices(deviceInfos) {
 
 getDevices().then(gotDevices);
 
-function makeCode () {    
-	qrcode.makeCode(peer.id);
+function makeCode () {
+	var peerId = peer.id; 
+	var adress = "http://192.168.129.140:5501/mobile.html";
+	var qr = adress + "#" + peerId; 
+	qrcode.makeCode(qr);
 }
 
 peer.on('connection', function(conn) {
-	conn.on('data', function(data){
-	  	console.log(data);
-		modalQr.style.display = "none";
-		send(JSON.parse(data));
+	modalQr.style.display = "none";
+
+  var canvas = document.getElementById('image-canvas');
+  var ctx = canvas.getContext('2d');
+
+  conn.on('data', data => {
+    modalImg.style.display = "flex";
+
+		if (data.filetype.includes('image')) {
+			var bytes = new Uint8Array(data.file);
+			var img = new Image();
+			img.src = 'data:image/png;base64,' + encode(bytes);
+      img.onload = function(){
+        canvas.width = img.width;
+        canvas.height = img.height;
+        jsonImg = scanCanvas(img);
+      }
+		}
 	});
 });
+
+const encode = input => {
+	const keyStr =
+	  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
+	let output = ''
+	let chr1, chr2, chr3, enc1, enc2, enc3, enc4
+	let i = 0
+  
+	while (i < input.length) {
+		chr1 = input[i++]
+		chr2 = i < input.length ? input[i++] : Number.NaN // Not sure if the index
+		chr3 = i < input.length ? input[i++] : Number.NaN // checks are needed here
+	
+		enc1 = chr1 >> 2
+		enc2 = ((chr1 & 3) << 4) | (chr2 >> 4)
+		enc3 = ((chr2 & 15) << 2) | (chr3 >> 6)
+		enc4 = chr3 & 63
+	
+		if (isNaN(chr2)) {
+			enc3 = enc4 = 64
+		} else if (isNaN(chr3)) {
+			enc4 = 64
+		}
+		output +=
+			keyStr.charAt(enc1) +
+			keyStr.charAt(enc2) +
+			keyStr.charAt(enc3) +
+			keyStr.charAt(enc4)
+	}
+	return output
+}

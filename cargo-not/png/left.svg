@@ -1,1 +1,41 @@
-<svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 81.18 81.38"><defs><style>.cls-1{fill:none;}.cls-2{fill:#e6007e;}.cls-3{fill:#951b81;}.cls-4{clip-path:url(#clip-path);}</style><clipPath id="clip-path" transform="translate(-0.71 -0.5)"><rect class="cls-1" x="0.01" y="0.01" width="82.37" height="82.37"/></clipPath><symbol id="Gauche" data-name="Gauche" viewBox="0 0 82 82.2"><path class="cls-2" d="M39.45,80.45a.89.89,0,0,1-.18-.1.67.67,0,0,1-.15-.14L7.17,44.59A.62.62,0,0,1,7,44.18V38a.59.59,0,0,1,.16-.41L39.17,2l.33-.25A11.46,11.46,0,0,1,44.36,0c-2,0-.84,0-5.27,0h-2a.69.69,0,0,0-.51.22L.17,40.7a.57.57,0,0,0,0,.82L36.59,82a.71.71,0,0,0,.52.22h8.77C45.88,82.08,39.69,80.57,39.45,80.45Z"/><path class="cls-3" d="M39.3,1.83,4.42,40.7a.62.62,0,0,0,0,.84L39.3,80.37a5.6,5.6,0,0,0,4.16,1.83H76.52A5.32,5.32,0,0,0,82,77.06V5.14A5.32,5.32,0,0,0,76.52,0H43.46A5.64,5.64,0,0,0,39.3,1.83Z"/></symbol></defs><g class="cls-4"><use width="82" height="82.21" transform="matrix(0.99, 0, 0, -0.99, 0, 81.38)" xlink:href="#Gauche"/></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.2.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 81.2 81.4" style="enable-background:new 0 0 81.2 81.4;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#E6007E;}
+	.st1{fill:#951B81;}
+	.st2{fill:#D2D2D2;}
+	.st3{clip-path:url(#SVGID_2_);}
+</style>
+<symbol  id="Gauche" viewBox="-41 -41.1 82 82.2">
+	<path class="st0" d="M-1.5,39.3c-0.1,0-0.1-0.1-0.2-0.1c-0.1,0-0.1-0.1-0.2-0.1l-32-35.6C-33.9,3.4-34,3.2-34,3.1v-6.2
+		c0-0.2,0.1-0.3,0.2-0.4l32-35.6l0.3-0.2c1.5-0.9,3.1-1.5,4.9-1.8c-2,0-0.8,0-5.3,0h-2c-0.2,0-0.4,0.1-0.5,0.2L-40.8-0.4
+		c-0.2,0.2-0.2,0.6,0,0.8c0,0,0,0,0,0l36.4,40.5c0.1,0.1,0.3,0.2,0.5,0.2h8.8C4.9,41-1.3,39.5-1.5,39.3z"/>
+	<path class="st1" d="M-1.7-39.3L-36.6-0.4c-0.2,0.2-0.2,0.6,0,0.8l34.9,38.8c1.1,1.2,2.6,1.8,4.2,1.8h33.1c2.9,0.1,5.4-2.2,5.5-5.1
+		V-36c-0.1-2.9-2.5-5.2-5.5-5.1H2.5C0.9-41.1-0.6-40.4-1.7-39.3z"/>
+</symbol>
+<rect x="0" y="0.1" class="st2" width="81.2" height="81.2"/>
+<g>
+	<defs>
+		<rect id="SVGID_1_" x="-0.7" y="-0.5" width="82.4" height="82.4"/>
+	</defs>
+	<clipPath id="SVGID_2_">
+		<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+	</clipPath>
+	<g class="st3">
+		<g>
+			<defs>
+				<rect id="SVGID_3_" y="0" width="81.2" height="81.4"/>
+			</defs>
+			<clipPath id="SVGID_4_">
+				<use xlink:href="#SVGID_3_"  style="overflow:visible;"/>
+			</clipPath>
+			<g transform="matrix(1 0 0 1 0 0)" style="clip-path:url(#SVGID_4_);">
+				
+					<use xlink:href="#Gauche"  width="82" height="82.2" x="-41" y="-41.1" transform="matrix(0.99 0 0 -0.99 40.5299 40.7638)" style="overflow:visible;"/>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

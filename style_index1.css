@@ -1,56 +1,125 @@
 :root {
-    --main-color: #968C83;
-    --sec-color: #D6D2C4;
-    --ter-color: #FFF5EA;
-    --quad-color: #F7DAD9;
+    --main-color: #0d6164;
+    --sec-color: #79b9bb;
+    --ter-color: #F07C32;
+    --quad-color: #179489a2;
     --txt-color: rgb(54, 54, 54);
 }
-
 body {
     margin: 0;
     padding: 0;
-    background-color: var(--ter-color);
+    background-color: var(--sec-color);
     font-family: sans-serif;
 }
 
 header{
-    margin: 0;
-    padding: 1px;
-    font-variant-caps: small-caps;
-    font-size: larger;
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
     background-color: var(--main-color);
+    font-family: sans-serif;
+    font-size: larger;
     color: var(--ter-color);
+    box-shadow: 0 0 30px rgb(0, 0, 0);
 }
 
-button {
-    width: 55px;
-    height: 55px;
-    border: none;
-    background-color: var(--ter-color);
-    border-radius: 10px;
-    background-repeat: no-repeat;
+#title {
+    background: none;
+    text-decoration: none;
+    color: #eeeeee;
+    cursor: pointer;
     transition: all 0.2s;
 }
 
-#main {
+#title:hover {
+    transform: scale(1.1);
+}
+
+#ban {
+    padding: 0;
+    margin: 0;
+}
+
+#box {
     display: flex;
     flex-direction: column;
-    margin-left: auto;
-    margin-right: auto;
-    width: 52%;
-    background-color: var(--sec-color);
-    padding: 30px;
+    background-color: var(--main-color);
+    border-radius: 10px;
+    padding: 2%;
+    margin: 0;
+    position: relative;
+    top: 40%;
+    left: 10%;
+    color: white;
+    font-size: 30px;
+    width: 600px;
+}
+
+#play {
+    align-self: flex-end;
+    background-color: white;
+    border: none;
+    background-image: url("img/play_arrow_black_48dp.svg");
+    background-size: cover;
+    border-radius: 10px;
+    height: 70px;
+    width: 70px;
+    padding: 1%;
+    cursor: pointer;
+}
+
+#play:hover {
+    box-shadow: 0 0 10px var(--quad-color);
+    border-bottom: 25px solid var(--quad-color);
+    transition: all 0.2s;
+}
+
+#debut{
+    background-image: url("img/fond_test3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover, contain;
+    width: 100%;
+    height: 100vh;
 }
 
 #content {
-
     background-color: #eeeeee;
-    color: #58595b;
+    width: 60%;
+    margin: auto;
+    padding: 2%;
+    text-align: justify;
+}
 
-    padding: 30px;
+h3 {
+    text-align: center;
+}
+
+#genese {
+    text-align: center;
 }
 
 footer {
-    margin-top: 30px;
+    background-color: var(--txt-color);
+    color: #eeeeee;
+    height: 80px;
+    margin-top: 10%;
+    padding: 2%;
     text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: var(--sec-color)
+}
+
+
+@media screen and (min-width: 800px) {
+    #debut{
+        height: 650px;
+    }
 }

@@ -192,7 +192,8 @@ function levelSelect(code) {
   }
 }
 
-function scan(topcodes, send) {
+function scan(topcodes, sendBool) {
+  
   let haut_droite;
   let haut_gauche;
   let bas_droite;
@@ -255,7 +256,7 @@ function scan(topcodes, send) {
   });
   tableau_instruc[0][0] = difficulty*6+level;
 
-  if (send) {
+  if (sendBool) {
     send(tableau_instruc);
   }
 }

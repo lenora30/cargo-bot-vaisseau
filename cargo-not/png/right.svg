@@ -1,1 +1,30 @@
-<svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 81.18 81.38"><defs><style>.cls-1{fill:#f9b233;}.cls-2{fill:#e94e1b;}</style><symbol id="Droite" data-name="Droite" viewBox="0 0 82 82.21"><path class="cls-1" d="M42.55,1.7a1.32,1.32,0,0,1,.18.11,1.07,1.07,0,0,1,.16.14l32,35.62A.63.63,0,0,1,75,38v6.2a.61.61,0,0,1-.15.41l-32,35.62-.34.24a11.66,11.66,0,0,1-5.83,1.75H44.9a.69.69,0,0,0,.52-.22L81.84,41.51a.61.61,0,0,0,0-.82L45.41.22A.7.7,0,0,0,44.9,0H36.46C36.32,0,42.29,1.59,42.55,1.7Z"/><path class="cls-2" d="M42.75,80.37,77.59,41.52a.62.62,0,0,0,0-.84L42.75,1.83A5.67,5.67,0,0,0,38.55,0H5.5A5.32,5.32,0,0,0,0,5.14H0V77.06A5.32,5.32,0,0,0,5.49,82.2H38.55A5.63,5.63,0,0,0,42.75,80.37Z"/></symbol></defs><use width="82" height="82.21" transform="matrix(0.99, 0, 0, -0.99, 0, 81.38)" xlink:href="#Droite"/></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.2.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 81.2 81.4" style="enable-background:new 0 0 81.2 81.4;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#F9B233;}
+	.st1{fill:#E94E1B;}
+	.st2{fill:#D2D2D2;}
+</style>
+<symbol  id="Droite" viewBox="-41 -41.1 82 82.2">
+	<path class="st0" d="M1.6-39.4c0.1,0,0.1,0.1,0.2,0.1c0.1,0,0.1,0.1,0.2,0.1l32,35.6C34-3.4,34-3.3,34-3.1v6.2
+		c0,0.2-0.1,0.3-0.2,0.4l-32,35.6l-0.3,0.2c-1.8,1.1-3.8,1.7-5.8,1.8h8.2c0.2,0,0.4-0.1,0.5-0.2L40.8,0.4c0.2-0.2,0.2-0.6,0-0.8
+		L4.4-40.9c-0.1-0.1-0.3-0.2-0.5-0.2h-8.4C-4.7-41.1,1.3-39.5,1.6-39.4z"/>
+	<path class="st1" d="M1.8,39.3L36.6,0.4c0.2-0.2,0.2-0.6,0-0.8L1.8-39.3c-1.1-1.2-2.6-1.8-4.2-1.8h-33c-2.9-0.1-5.4,2.2-5.5,5.1
+		c0,0,0,0,0,0l0,0V36c0.1,2.9,2.6,5.2,5.5,5.1h33.1C-0.9,41.1,0.7,40.4,1.8,39.3z"/>
+</symbol>
+<rect x="0" y="0.2" class="st2" width="81.2" height="81.2"/>
+<g>
+	<defs>
+		<rect id="SVGID_1_" y="0" width="81.2" height="81.4"/>
+	</defs>
+	<clipPath id="SVGID_2_">
+		<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+	</clipPath>
+	<g transform="matrix(1 0 0 1 0 0)" style="clip-path:url(#SVGID_2_);">
+		
+			<use xlink:href="#Droite"  width="82" height="82.2" x="-41" y="-41.1" transform="matrix(0.99 0 0 -0.99 40.5892 40.7795)" style="overflow:visible;"/>
+	</g>
+</g>
+</svg>

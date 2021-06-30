@@ -97,8 +97,8 @@ closeButtonQr.onclick = function() {
 
 document.getElementById("scanButtonImg").onclick = function(){
 	var json = JSON.parse(jsonImg);
-    scan(json.topcodes, true);  
-    document.getElementById("modalImg").style.display = "none";
+  scan(json.topcodes, true);  
+  document.getElementById("modalImg").style.display = "none";
 }
 
 function getDevices() {

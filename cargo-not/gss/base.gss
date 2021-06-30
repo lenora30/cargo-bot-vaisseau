@@ -21,7 +21,7 @@ div:after {
 }
 
 .cn-game-ui {
-  width: 750px;
+  width: 800px;
   text-align: center;
   background-color: #eeeeee;
   padding: 5px 25px 25px 25px;

@@ -8,7 +8,8 @@ var modalQr = document.getElementById("modalQr");
 var closeButton = document.getElementById("closeButton");
 var closeButtonImg = document.getElementById("closeButtonImg");
 var closeButtonQr = document.getElementById("closeButtonQr");
-var fileInput = document.getElementById("fileIn");
+var closeButtonSelect = document.getElementById("closeButtonSelect");
+var fileInput = document.getElementById("fileInput");
 var imgInput = document.getElementById("imgInput");
 var selectorCam = document.getElementById('selectorCam');
 var videoSelect = document.getElementById('videoSource');
@@ -22,7 +23,7 @@ var jsonImg;
 camButton.onclick = function() {
 	if (videoSelect.value == "") {
 		if (selectorCam.style.display == "none") {
-			selectorCam.style.display = "block";
+			selectorCam.style.display = "flex";
 		} else {
 			selectorCam.style.display = "none";
 		}	
@@ -30,10 +31,6 @@ camButton.onclick = function() {
 		modal.style.display = "flex";
 		TopCodes.startVideoScan("video-canvas");
 		selectorCam.style.display = "none";
-	}
-
-	if (fileInput.style.display == "block") {
-		fileInput.style.display = "none";
 	}
 }
 
@@ -43,19 +40,8 @@ videoSelect.oninput = function() {
 	selectorCam.style.display = "none";
 }
 
-imgButton.onclick = function() {
-	if (fileInput.style.display == "none") {
-		fileInput.style.display = "block";
-	} else {
-		fileInput.style.display = "none";
-	}
-	if (selectorCam.style.display == "block") {
-		selectorCam.style.display = "none";
-	}	
-}
-
 fileInput.oninput = function() {
-	modalImg.style.display = "flex";
+  modalImg.style.display = "flex";
 
   var imageLoader = document.getElementById('fileInput');
   imageLoader.addEventListener('change', handleImage, false);
@@ -78,7 +64,7 @@ fileInput.oninput = function() {
 }
 
 phoneButton.onclick = function() {
-	modalQr.style.display = "block";
+	modalQr.style.display = "flex";
 	makeCode();
 }
 
@@ -93,6 +79,10 @@ closeButton.onclick = function() {
 
 closeButtonQr.onclick = function() {
 	modalQr.style.display = "none";
+}
+
+closeButtonSelect.onclick = function() {
+	selectorCam.style.display = "none";
 }
 
 document.getElementById("scanButtonImg").onclick = function(){

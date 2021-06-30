@@ -7,7 +7,7 @@
 
 <body>
   <header>
-    <h1>Cargo Tangible</h1>
+    <h1 id="title" onclick="window.location.href = 'index.html';">Cargo Tangible</h1>
   </header>
 
   <div id="modal" class="modal">
@@ -32,7 +32,8 @@
   </div>
 
   <div id="modalQr" class="modal">
-    <div id="qrcode" class="scanner" style="height: 800px;"></div>
+    <p id="qrcodeText">Scannez ce QRCode pour vous connecter à cette page via votre smartphone et ainsi pouvoir transmettre les photos des programmes facilement.</p>
+    <div id="qrcode"></div>
     <div id="buttonContainerQr">
       <button id="closeButtonQr" class="scannerButton"></button>
     </div>
@@ -41,21 +42,23 @@
   <div id="main">
     <div id="inputMethod">
       <button id="camInButton" class="button"></button>
-      <button id="imgInButton" class="button"></button>
+      <label>
+				<input type="file" accept="image/*" id="fileInput" capture="camera">
+			  <div id="imgInButton" class="button"></div>
+			</label>
       <button id="phoneInButton" class="button"></button>
     </div>
 
-    <div id="fileIn" style="display: none;">
-      <input type="file" accept="image/*" id="fileInput" capture="camera">
-    </div>
-
-    <div id="selectorCam" style="display: none;">
+    <div id="selectorCam" class="select" style="display: none;">
       <select id="videoSource">
         <option value="" selected disabled hidden>Sélectionnez la caméra</option>
       </select>
+      <div id="buttonContainerSelect">
+        <button id="closeButtonSelect" class="scannerButton"></button>
+      </div>
     </div>
 
-    <iframe id="frame" src="cargo-not/index.html" width="820" height="1400"></iframe>
+    <iframe id="frame" src="cargo-not/index.html" width="1000" height="1400"></iframe> 
   </div>
 
   <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>

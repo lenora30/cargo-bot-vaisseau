@@ -62,7 +62,7 @@ cn.ui.HSLevels.prototype.enterDocument = function () {
 
   var LevelSelector;
   LevelSelector = goog.dom.getElementByClass(cn.constants.LEVEL_SELECTOR_CLASS_NAME);
-  goog.style.setElementShown(LevelSelector, false);
+  
   var show = false;
 
   var EventType = goog.ui.Component.EventType;

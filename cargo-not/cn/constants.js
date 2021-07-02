@@ -123,6 +123,14 @@ cn.constants.CONDITION_CLASS_NAME = goog.getCssName('cn-condition');
 /** @type {string} @const */
 cn.constants.COMMAND_CLASS_NAME = goog.getCssName('cn-command');
 
+/** @type {string} @const */
+cn.constants.HSLEVELS_CLASS_NAME = goog.getCssName('cn-hideshow-levels');
+
+/** @type {string} @const */
+cn.constants.HSGOAL_CLASS_NAME = goog.getCssName('cn-hideshow-goal');
+
+/** @type {string} @const */
+cn.constants.GOAL_CLASS_NAME = goog.getCssName('cn-goal');
 
 /**
  * Enum of CSS class names for all possible program commands.

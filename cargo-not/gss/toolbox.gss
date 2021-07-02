@@ -79,7 +79,7 @@
   background-size: 18%;
   position: fixed;
   left: 450px;
-  top: 52px;
+  top: 231px;
   background-color: transparent;
   background-repeat: no-repeat; 
 }

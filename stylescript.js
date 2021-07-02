@@ -113,7 +113,7 @@ getDevices().then(gotDevices);
 
 function makeCode () {
 	var peerId = peer.id; 
-	var adress = "https://pinguee.github.io/cargo-not/mobile.html";
+	var adress = "192.168.157.140:5501/mobile.html";
 	var qr = adress + "#" + peerId; 
 	qrcode.makeCode(qr);
 }
@@ -121,21 +121,21 @@ function makeCode () {
 peer.on('connection', function(conn) {
 	modalQr.style.display = "none";
 
-  var canvas = document.getElementById('image-canvas');
-  var ctx = canvas.getContext('2d');
+  	var canvas = document.getElementById('image-canvas');
+  	var ctx = canvas.getContext('2d');
 
-  conn.on('data', data => {
-    modalImg.style.display = "flex";
+  	conn.on('data', data => {
+    	modalImg.style.display = "flex";
 
 		if (data.filetype.includes('image')) {
 			var bytes = new Uint8Array(data.file);
 			var img = new Image();
 			img.src = 'data:image/png;base64,' + encode(bytes);
-      img.onload = function(){
-        canvas.width = img.width;
-        canvas.height = img.height;
-        jsonImg = scanCanvas(img);
-      }
+			img.onload = function(){
+				canvas.width = img.width;
+				canvas.height = img.height;
+				jsonImg = scanCanvas(img);
+			}
 		}
 	});
 });
@@ -169,4 +169,16 @@ const encode = input => {
 			keyStr.charAt(enc4)
 	}
 	return output
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+	if (document.body.scrollTop > 120 || document.documentElement.scrollTop > 120) {
+		document.getElementById("inputMethod").style.position = "fixed";
+		document.getElementById("inputMethod").style.top = "0";
+	} else {
+		document.getElementById("inputMethod").style.position = "absolute";
+		document.getElementById("inputMethod").style.top = "auto";
+	}
 }

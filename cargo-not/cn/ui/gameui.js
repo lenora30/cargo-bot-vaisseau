@@ -14,6 +14,7 @@ goog.require('cn.ui.ClassContainer');
 goog.require('cn.ui.Controls');
 goog.require('cn.ui.GameCanvas');
 goog.require('cn.ui.HintButton');
+goog.require('cn.ui.HideShow');
 goog.require('cn.ui.LevelSelector');
 goog.require('cn.ui.ProgramEditor');
 goog.require('goog.style');
@@ -31,7 +32,9 @@ cn.ui.GameUi = function(game, opt_domHelper) {
   goog.base(this, cn.constants.GAME_UI_CLASS_NAME, opt_domHelper);
 
   this.levelSelector = new cn.ui.LevelSelector(game, this, opt_domHelper);
-  this.goalCanvas = new cn.ui.GameCanvas(
+  this.hsLevels = new cn.ui.HSLevels(game, this, null, opt_domHelper);
+  this.hsGoal = new cn.ui.HSGoal(game, this, null, opt_domHelper);
+  this.goalCanvas = new cn.ui.GoalCanvas(
       cn.constants.GOAL_WIDTH, cn.constants.GOAL_HEIGHT, opt_domHelper);
   this.animatedCanvas = new cn.ui.AnimatedGameCanvas(
       cn.constants.GAME_WIDTH, cn.constants.GAME_HEIGHT, opt_domHelper);
@@ -41,6 +44,8 @@ cn.ui.GameUi = function(game, opt_domHelper) {
 
   this.addChild(new cn.ui.ClassComponent(
       cn.constants.GAME_LOGO_CLASS_NAME), true);
+  this.addChild(this.hsLevels, true);
+  this.addChild(this.hsGoal, true);
   this.addChild(new cn.ui.ClassContainer([],
       [
         new cn.ui.ClassContainer(cn.constants.LEVEL_SELECTOR_CONTAINER,

@@ -8,6 +8,10 @@
   background-color: #ffffff;
 }
 
+.cn-goal {
+  background-color: #ffffff;
+}
+
 .cn-game-canvas-animated {
   margin: 25px auto 0 auto;
 }

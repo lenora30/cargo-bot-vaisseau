@@ -14,7 +14,12 @@ var imgInput = document.getElementById("imgInput");
 var selectorCam = document.getElementById('selectorCam');
 var videoSelect = document.getElementById('videoSource');
 var qrcode = new QRCode("qrcode", {width: 500, height: 500});
-var peer = new Peer(); 
+var peer = new Peer({
+	config: {'iceServers': [
+		{ url: 'stun:stun.l.google.com:19302' },
+		{ url: 'turn:cargobot-tangible.u-strasbg.fr', username: 'azertyuiop', credential: 'azertyuiop' }
+	]}
+}); 
 var w = window.innerWidth;
 var h = window.innerHeight;
 var jsonImg;
@@ -112,30 +117,30 @@ function gotDevices(deviceInfos) {
 getDevices().then(gotDevices);
 
 function makeCode () {
-	var peerId = peer.id; 
-	var adress = "https://pinguee.github.io/cargo-not/mobile.html";
-	var qr = adress + "#" + peerId; 
+	var peerId = peer.id;
+	var address = window.location.origin + "/mobile.html";
+	var qr = address + "#" + peerId; 
 	qrcode.makeCode(qr);
 }
 
 peer.on('connection', function(conn) {
 	modalQr.style.display = "none";
 
-  var canvas = document.getElementById('image-canvas');
-  var ctx = canvas.getContext('2d');
+  	var canvas = document.getElementById('image-canvas');
+  	var ctx = canvas.getContext('2d');
 
-  conn.on('data', data => {
-    modalImg.style.display = "flex";
+  	conn.on('data', data => {
+    	modalImg.style.display = "flex";
 
 		if (data.filetype.includes('image')) {
 			var bytes = new Uint8Array(data.file);
 			var img = new Image();
 			img.src = 'data:image/png;base64,' + encode(bytes);
-      img.onload = function(){
-        canvas.width = img.width;
-        canvas.height = img.height;
-        jsonImg = scanCanvas(img);
-      }
+			img.onload = function(){
+				canvas.width = img.width;
+				canvas.height = img.height;
+				jsonImg = scanCanvas(img);
+			}
 		}
 	});
 });
@@ -169,4 +174,16 @@ const encode = input => {
 			keyStr.charAt(enc4)
 	}
 	return output
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+	if (document.body.scrollTop > 120 || document.documentElement.scrollTop > 120) {
+		document.getElementById("inputMethod").style.position = "fixed";
+		document.getElementById("inputMethod").style.top = "0";
+	} else {
+		document.getElementById("inputMethod").style.position = "absolute";
+		document.getElementById("inputMethod").style.top = "auto";
+	}
 }

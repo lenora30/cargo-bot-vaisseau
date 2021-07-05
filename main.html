@@ -7,7 +7,7 @@
 
 <body>
   <header>
-    <h1 id="title" onclick="window.location.href = 'index.html';">Cargo Tangible</h1>
+    <h1 id="title" href="/">Cargo Tangible</h1>
   </header>
 
   <div id="modal" class="modal">
@@ -85,19 +85,16 @@
         var image = new Image();
         image.src = "img/instruction/" + topcodes[i].code.toString() +".svg";
         ctx.translate(topcodes[i].x, topcodes[i].y);
-        // ctx.rotate(topcodes[i].radius);
         ctx.drawImage(image, -topcodes[i].radius*1.5, -topcodes[i].radius*1.5, topcodes[i].radius * 3, topcodes[i].radius * 3);
-        // ctx.rotate(-topcodes[i].radius);
-        ctx.translate(-topcodes[i].x, -topcodes[i].y);
+        ctx.translate(-topcodes[i].x, -topcodes[i].y);        
       }
       if (topcodes[i].code >= 157 && topcodes[i].code <= 181) {
         var image = new Image();
         image.src = "img/instruction/" + topcodes[i].code.toString() +".svg";
         ctx.translate(topcodes[i].x, topcodes[i].y);
-        // ctx.rotate(topcodes[i].radius);
         ctx.drawImage(image, -topcodes[i].radius*3, -topcodes[i].radius*1.5, topcodes[i].radius * 4.5, topcodes[i].radius * 2.25);
-        // ctx.rotate(-topcodes[i].radius);
         ctx.translate(-topcodes[i].x, -topcodes[i].y);
+
       } 
     }
 

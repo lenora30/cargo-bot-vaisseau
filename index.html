@@ -12,66 +12,121 @@
   <div id="main">
 
            
-      <div id="debut">
-        <!--<img src="fond3.png">-->
-        <div id="box">
-          <h2 id="ban">Apprenez les bases de l'algorithmie et de la programmation</h2>
-          <button id="play" onclick="window.location.href = 'main.html';"></button>
-        </div>
+    <div id="debut">
+      <!--<img src="fond3.png">-->
+      <div id="box">
+        <h2 id="ban">Apprenez les bases de l'algorithmie et de la programmation</h2>
+        <button id="play" onclick="window.location.href = 'main.html';"></button>
       </div>
+    </div>
+      
+    <div id="begin-content">
+      <h2>Quel est le but du jeu ?</h2>
+      Le Cargo Tangible est un jeu conçu pour apprendre les bases de l'algorithmie et de la programmation.
+      Le principe de ce jeu est de déplacer des blocs de différentes couleurs grâce à une pince 
+      en partant d'une disposition donnée pour arriver à l'objectif demandé.
+    </div>  
+
+    <div id="regles">
+
+      <!--
+      <h3>Comment y jouer ?</h3>
+      Pour jouer, il faut commencer par appuyer sur le bouton <a href="main.html">Jouer</a> en haut de la page.
+      Une fois arrivé sur le jeu, vous trouverez les différents niveaux disponibles.
+      Pour donner les instructions à la pince, il faut remplir une grille détaillant les étapes à suivre 
+      (aller à gauche/droite, prendre...).
+      Ainsi pour le faire, il vous faut imprimer la grille et les blocs d'instructions que vous trouverez 
+      en appuyant sur l'icône .
+      <h3>Comment exécuter mon programme ?</h3>
+      Pour vérifier votre programme, il faut prendre une photo de votre feuille. Pour cela, 
+      il y a plusieurs posibilités qui s'offrent à vous. 
+      <ul>
+          <li>
+              Une première solution est de passer par l'icône  pour allumer la caméra 
+              et prendre une photo de la feuille à partir du site.
+          </li>
+          <li>
+              Une autre est de sélectionner l'icône pour prendre une image déjà existante.
+          </li>
+          <li>
+              Une dernière solution est de connecter votre téléphone qui prend la photo avec 
+              l'ordinateur qui va lancer le programme.
+          </li>
+      </ul>
+      Une fois la photo transmise, votre programme se place sur la grille virtuelle située en dessous de la pince. 
+      Vous pouvez ensuite lancer, mettre en pause, recommencer, supprimer et accélérer la pince grâce aux
+      commandes situées au-dessus de la grille.
+      -->
+
+      <div id="etapes">
+        <div>
+          <h3>
+            Etape 1
+          </h3>
+          <div id="etape1">
+            Choisis le niveau que tu veux faire et imprimes ta grille et les instructions. 
+            <br><button id="imprimer" onclick="window.open('PDF/CargoTangible.pdf');">Imprimer le pdf</button>
+          </div>
+        </div>
         
-      <div id="content">
         <div>
-            <h3>Quel est le but du jeu ?</h3>
-            Le Cargo Tangible est un jeu conçu pour apprendre les bases de l'algorithmie et de la programmation.
-            Le principe de ce jeu est de déplacer des blocs de différentes couleurs grâce à une pince 
-            en partant d'une disposition donnée pour arriver à l'objectif demandé.
-            <h3>Comment y jouer ?</h3>
-            Pour jouer, il faut commencer par appuyer sur le bouton <a href="main.html">Jouer</a> en haut de la page.
-            Une fois arrivé sur le jeu, vous trouverez les différents niveaux disponibles.
-            Pour donner les instructions à la pince, il faut remplir une grille détaillant les étapes à suivre 
-            (aller à gauche/droite, prendre...).
-            Ainsi pour le faire, il vous faut imprimer la grille et les blocs d'instructions que vous trouverez 
-            en appuyant sur l'icône <!--insert icône-->.
-            <!--video-->
-            <h3>Comment exécuter mon programme ?</h3>
-            Pour vérifier votre programme, il faut prendre une photo de votre feuille. Pour cela, 
-            il y a plusieurs posibilités qui s'offrent à vous. 
-            <ul>
-                <li>
-                    Une première solution est de passer par l'icône <!--insert icône--> pour allumer la caméra 
-                    et prendre une photo de la feuille à partir du site.
-                </li>
-                <li>
-                    Une autre est de sélectionner l'icône <!--insert icône--> pour prendre une image déjà existante.
-                </li>
-                <li>
-                    Une dernière solution est de connecter votre téléphone qui prend la photo <!--insert icône-->  avec 
-                    l'ordinateur qui va lancer le programme.
-                </li>
-            </ul>
-            Une fois la photo transmise, votre programme se place sur la grille virtuelle située en dessous de la pince. 
-            Vous pouvez ensuite lancer, mettre en pause, recommencer, supprimer et accélérer la pince grâce aux
-            commandes situées au-dessus de la grille.
-            <!--video-->
-            <h3>Problèmes</h3>
-            Si une erreur apparaît une fois que vous avez pris votre photo ou que le programme affiché sur la grille 
-            ne correspond pas à ce que vous avez fait, la photo doit être reprise. 
-            Vous pouvez prendre en compte quelques conseils : faire attention à prendre la feuille entière en photo, 
-            surexposer la photo et prendre la photo bien au-dessus de la feuille.
+          <h3>
+            Etape 2
+          </h3>
+          <div>
+            Une fois que tu as fait ton programme, il faut que tu prennes une photo 
+            de ta feuille. Différentes façon de le faire s'offrent à toi : 
+              <br>- tu peux prendre une photo à partir d'une caméra connectée à l'ordinateur 
+                sur lequel tu veux lancer le programme.
+              <br>- tu peux utiliser une photo déjà existante dans tes documents.
+              <br>- tu peux connecter ton téléphone à l'odinateur à partir d'un QR code 
+                et prendre une photo qui sera envoyé à l'ordinateur.
+          </div>
         </div>
-        <h2 id="genese">Génèse de ce projet</h2>
+        
         <div>
-            Ce projet a été réalisé dans le cadre d'un stage au laboratoire ICube de Strasbourg encadré par Basile 
-            Sauvage, Julien Narboux et Gaëlle Thomas. Nous avons travaillé sur le thème de la programmation tangible, 
-            c'est-à-dire la programmation sans ordinateur. 
-            Notre motivation première était de proposer un dispositif accessible à tous et pouvant être utilisé 
-            dans le cadre d'un cours. Nous avons particulièrement pensé à certains collèges qui n'ont pas assez 
-            d'ordinateurs. Avec notre dispositif, le matériel informatique nécessaire est seulement composé d'un 
-            ordinateur central, pour lancer le programme, ainsi qu'un téléphone, que tout le monde a aujourd'hui, 
-            pour réaliser des photos.
+          <h3>
+            Etape 3
+          </h3>
+          <div>
+            Une fois que vous avez appuyé sur le bouton vert, le programme que tu as fait 
+            se retrouve dans la grille virtuelle en bas de la page.
+            Maintenant tu peux lancer, mettre en pause, accélérer, faire recommencer la pince 
+            et voir si ton programme est juste.
+          </div>
         </div>
       </div>
+
+      <div id="LEEEGO">
+        Vous avez maintenant toute les cartes en main, alors c'est à vous de jouer ! </div><br>
+        Appuyer sur le bouton Jouer en haut de la page pour commencer.
+      </div>
+
+    </div>
+          
+    <div id="end-content"></div>
+        
+          <!--
+          <h3>Problèmes</h3>
+          Si une erreur apparaît une fois que vous avez pris votre photo ou que le programme affiché sur la grille 
+          ne correspond pas à ce que vous avez fait, la photo doit être reprise. 
+          Vous pouvez prendre en compte quelques conseils : faire attention à prendre la feuille entière en photo, 
+          surexposer la photo et prendre la photo bien au-dessus de la feuille.
+          -->
+
+    <div id="content">
+      <h2 id="genese">Génèse de ce projet</h2>
+      <div>
+          Ce projet a été réalisé dans le cadre d'un stage au laboratoire ICube de Strasbourg encadré par Basile 
+          Sauvage, Julien Narboux et Gaëlle Thomas. Nous avons travaillé sur le thème de la programmation tangible, 
+          c'est-à-dire la programmation sans ordinateur. 
+          Notre motivation première était de proposer un dispositif accessible à tous et pouvant être utilisé 
+          dans le cadre d'un cours. Nous avons particulièrement pensé à certains collèges qui n'ont pas assez 
+          d'ordinateurs. Avec notre dispositif, le matériel informatique nécessaire est seulement composé d'un 
+          ordinateur central, pour lancer le programme, ainsi qu'un téléphone, que tout le monde a aujourd'hui, 
+          pour réaliser des photos.
+      </div>
+    </div>
   </div>
   <footer>
       <div>2021 | Benjamin Gliech & Salwa El Fatini</div>

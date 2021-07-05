@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Cargo Tangible</title>
-	<link rel="stylesheet" href="mobileStyle.css">
+	<link rel="stylesheet" href="style/mobileStyle.css">
 </head>
 
 <body>
@@ -13,97 +13,16 @@
 
 		<div id="imgButton" class="button">
 			<label>
-				<input type="file" accept="image/*" id="imageInput" capture="camera">
+				<input type="file" accept="image/*" id="imageInput" capture="camera" disabled>
 			  	<span id="imageSpan"></span>
 			</label>
-		</div>
-	</div>
-
-	<div id="modalImg" class="modal">
-		<div id="scannerImg" class="scanner">
-		  <canvas id="image-canvas" width="1280" height="720"></canvas>
-		  <div id="buttonContainerImg" class="buttonContainer">
-			<button id="closeButtonImg" class="scannerButton"></button>
-		  </div>
 		</div>
 	</div>
 
 	<script src="TopCodes/js/adapter-0.2.9.js"></script>
 	<script src="TopCodes/js/topcodes.js"></script>
 	<script defer src="TopCodes/dart/main.dart.js"></script>
-	<script src="perspective-transform.js"></script>
-	<script src="test_script_rotation.js"></script>
-	<script src="connect/html5-qrcode.min.js"></script>
-  	<script src="connect/peerjs.min.js"></script>
-	<script type="text/javascript">
-		var modalImg = document.getElementById('modalImg');
-		var videoSelect = document.getElementById('videoSource');
-		var imageInput = document.getElementById("imageInput");
-		var closeButtonImg = document.getElementById("closeButtonImg");
-    	var computerID = window.location.hash;
-		var cameras = [];
-		var peer = new Peer({
-			config: {'iceServers': [
-				{ url: 'stun:stun.l.google.com:19302' },
-				{ url: 'turn:cargobot-tangible.u-strasbg.fr', username: 'azertyuiop', credential: 'azertyuiop' }
-			]}
-		});
-		var conn;
-		var tabInstruc;
-
-		var delayInMilliseconds = 1000;
-
-		setTimeout(function() {
-			if (computerID) {
-				connect(computerID.substring(1));
-			}
-		}, delayInMilliseconds);
-
-		function connect(computerID) {
-			conn = peer.connect(computerID);
-			conn.on('open', function () {
-				document.getElementById("statut").innerHTML = "Connecté";
-				imageInput.disabled=false;
-			});
-
-			conn.on('close', function () {
-				document.getElementById("statut").innerHTML = "Déconnecté";
-				imageInput.disabled=true;
-			});
-		}
-
-		document.addEventListener('DOMContentLoaded', event => {
-			imageInput.onchange = function(event) {
-				var file = event.target.files[0]
-				var blob = new Blob(event.target.files, { type: file.type })
-
-        conn.send({
-          file: blob,
-          filename: file.name,
-          filetype: file.type
-        });
-			}
-		});
-		
-		closeButtonImg.onclick = function() {
-			modalImg.style.display = "none";
-		}
-
-		function getDevices() {
-			// AFAICT in Safari this only gets default devices until gUM is called :/
-			return navigator.mediaDevices.enumerateDevices();
-		}
-		
-		function gotDevices(deviceInfos) {
-			cameras = [];
-			window.deviceInfos = deviceInfos; // make available to console
-			console.log('Available input and output devices:', deviceInfos);
-			for (const deviceInfo of deviceInfos) {
-				if (deviceInfo.kind === 'videoinput') {
-					cameras += deviceInfo.deviceId;
-				}
-			}
-		}
-	</script>
+  	<script src="scripts/peerjs.min.js"></script>
+	<script src="scripts/mobile.js"></script>
 </body>
 </html>

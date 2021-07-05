@@ -2,12 +2,12 @@
 <html>
 <head>
   <title>Cargo Tangible</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style/mainStyle.css">
 </head>
 
 <body>
   <header>
-    <h1 id="title" href="/">Cargo Tangible</h1>
+    <h1 id="title" onclick="window.location.href = 'index.html';">Cargo Tangible</h1>
   </header>
 
   <div id="modal" class="modal">
@@ -62,52 +62,13 @@
   </div>
 
   <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
-  <script src="connect/peerjs.min.js"></script>
+  <script src="scripts/peerjs.min.js"></script>
   <script src="TopCodes/js/adapter-0.2.9.js"></script>
   <script src="TopCodes/js/topcodes.js"></script>
   <script defer src="TopCodes/dart/main.dart.js"></script>
-  <script src="stylescript.js"></script>
-  <script src="perspective-transform.js"></script>
-  <script src="test_script_rotation.js"></script>
-
-  <script>
-    // register a callback function with the TopCode library
-    TopCodes.setVideoFrameCallback("video-canvas", function (jsonString) {
-
-    // convert the JSON string to an object
-    var json = JSON.parse(jsonString);
-
-    // get the list of topcodes from the JSON object
-    topcodes = json.topcodes;
-
-    for (i = 0; i < topcodes.length; i++) { 
-      if (topcodes[i].code >= 103 && topcodes[i].code <= 143) {
-        var image = new Image();
-        image.src = "img/instruction/" + topcodes[i].code.toString() +".svg";
-        ctx.translate(topcodes[i].x, topcodes[i].y);
-        ctx.drawImage(image, -topcodes[i].radius*1.5, -topcodes[i].radius*1.5, topcodes[i].radius * 3, topcodes[i].radius * 3);
-        ctx.translate(-topcodes[i].x, -topcodes[i].y);        
-      }
-      if (topcodes[i].code >= 157 && topcodes[i].code <= 181) {
-        var image = new Image();
-        image.src = "img/instruction/" + topcodes[i].code.toString() +".svg";
-        ctx.translate(topcodes[i].x, topcodes[i].y);
-        ctx.drawImage(image, -topcodes[i].radius*3, -topcodes[i].radius*1.5, topcodes[i].radius * 4.5, topcodes[i].radius * 2.25);
-        ctx.translate(-topcodes[i].x, -topcodes[i].y);
-
-      } 
-    }
-
-    document.getElementById("scanButton").onclick = function(){
-      scan(json.topcodes, true);  
-      TopCodes.stopVideoScan('video-canvas');
-      document.getElementById("modal").style.display = "none";
-    }
-    });
-
-    var canvas = document.querySelector("#video-canvas");
-    var ctx = canvas.getContext('2d');
-  </script>
-
+  <script src="scripts/styleScript.js"></script>
+  <script src="scripts/perspectiveTransform.js"></script>
+  <script src="scripts/main.js"></script>
+  <script src="scripts/scanReader.js"></script>
 </body>
 </html>

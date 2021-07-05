@@ -1,7 +1,7 @@
 :root {
     --main-color: #0d6164;
     --sec-color: #79b9bb;
-    --ter-color: #F07C32;
+    --ter-color: #084446ee;
     --quad-color: #179489a2;
     --txt-color: rgb(54, 54, 54);
 }
@@ -48,8 +48,8 @@ header{
 #box {
     display: flex;
     flex-direction: column;
-    background-color: var(--main-color);
-    border-radius: 10px;
+    background-color: var(--ter-color);
+    border-radius: 5px;
     padding: 2%;
     margin: 0;
     position: relative;
@@ -87,19 +87,100 @@ header{
     height: 100vh;
 }
 
-#content {
+#begin-content {
     background-color: #eeeeee;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     width: 60%;
     margin: auto;
+    margin-top: 2%;
     padding: 2%;
     text-align: justify;
 }
 
-h3 {
+#end-content {
+    background-color: #eeeeee;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: relative;
+    z-index: -1;
+    width: 60%;
+    margin: auto;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 2%;
+    text-align: justify;
+}
+
+#content {
+    background-color: #eeeeee;
+    border-radius: 5px;
+    width: 60%;
+    margin: auto;
+    margin-top: 1%;
+    padding: 2%;
+    text-align: justify;
+}
+
+#regles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    border-radius: 5px;
+    margin: auto;
+    width: 90%;
+    padding: 2%;
+    background-color: var(--main-color);
+    color: #eeeeee;
+    text-align: justify;
+    box-shadow: 0 0 5px rgb(0, 0, 0);
+}
+
+#etapes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: flex-start;
+    padding-bottom: 1%;
+    border-bottom: solid #084446ee;
+}
+
+#LEEEGO {
+    text-align: center;
+    justify-content: center;
+    padding-top: 1%;
+    width: 60%;
+    
+}
+
+#etapes > div {
+    width: 30%;
+}
+
+#regles h3 {
     text-align: center;
 }
 
-#genese {
+#etape1 {
+    display: flex;
+    flex-direction: column;
+}
+
+#imprimer {
+    align-self: center;
+    justify-content: space-between;
+    background-color: white;
+    border: none;
+    background-size: cover;
+    font-size: larger;
+    border-radius: 10px;
+    padding: 3%;
+    margin-top: 3%;
+    cursor: pointer;
+}
+
+h2 {
     text-align: center;
 }
 

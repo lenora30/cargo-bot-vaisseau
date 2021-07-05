@@ -9,7 +9,6 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--sec-color);
-    font-family: sans-serif;
 }
 
 header{
@@ -23,8 +22,8 @@ header{
     height: 100px;
     background-color: var(--main-color);
     font-family: sans-serif;
+    color: white;
     font-size: larger;
-    color: var(--ter-color);
     box-shadow: 0 0 30px rgb(0, 0, 0);
 }
 
@@ -80,7 +79,7 @@ header{
 }
 
 #debut{
-    background-image: url("img/fond_test3.jpg");
+    background-image: url("img/fond.jpg");
     background-repeat: no-repeat;
     background-size: cover, contain;
     width: 100%;
@@ -178,6 +177,11 @@ header{
     padding: 3%;
     margin-top: 3%;
     cursor: pointer;
+}
+
+#imprimer:hover {
+    box-shadow: 0 0 10px var(--quad-color);
+    transition: all 0.2s;
 }
 
 h2 {

@@ -14,7 +14,12 @@ var imgInput = document.getElementById("imgInput");
 var selectorCam = document.getElementById('selectorCam');
 var videoSelect = document.getElementById('videoSource');
 var qrcode = new QRCode("qrcode", {width: 500, height: 500});
-var peer = new Peer(); 
+var peer = new Peer({
+	config: {'iceServers': [
+		{ url: 'stun:stun.l.google.com:19302' },
+		{ url: 'turn:cargobot-tangible.u-strasbg.fr', username: 'azertyuiop', credential: 'azertyuiop' }
+	]}
+}); 
 var w = window.innerWidth;
 var h = window.innerHeight;
 var jsonImg;
@@ -112,9 +117,9 @@ function gotDevices(deviceInfos) {
 getDevices().then(gotDevices);
 
 function makeCode () {
-	var peerId = peer.id; 
-	var adress = "192.168.157.140:5501/mobile.html";
-	var qr = adress + "#" + peerId; 
+	var peerId = peer.id;
+	var address = window.location.origin + "/mobile.html";
+	var qr = address + "#" + peerId; 
 	qrcode.makeCode(qr);
 }
 

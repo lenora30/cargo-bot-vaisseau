@@ -73,7 +73,7 @@ getDevices().then(gotDevices);
 
 function makeCode () {
 	var peerId = peer.id;
-	var address = window.location.origin + "/mobile.html";
+	var address = "https://pinguee.github.io/cargo-not/mobile.html";
 	var qr = address + "#" + peerId; 
 	qrcode.makeCode(qr);
 }
@@ -81,7 +81,6 @@ function makeCode () {
 
 // handle incoming data from phone
 peer.on('connection', function(conn) {
-    console.log("uwu");
 	modalQr.style.display = "none";
 
   	var canvas = document.getElementById('image-canvas');

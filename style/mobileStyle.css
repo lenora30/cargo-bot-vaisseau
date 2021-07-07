@@ -1,28 +1,34 @@
-:root {
-    --main-color: #0d6164;
-    --sec-color: #79b9bb;
-    --ter-color: #F07C32;
-    --quad-color: #179489a2;
-    --txt-color: rgb(54, 54, 54);
-}
-
-body {
-    height: 100%;
-    margin: 0;
-    background-color: var(--sec-color);
-}
-
 #statutContainer {
     padding: 20px;
     margin: 20px;
     color: white;
-    font-family: sans-serif;
     text-align: center;
     background-color: var(--main-color);
-    width: 200px;
-    border-radius: 20px;
-    font-size: larger;
+    width: 320px;
+    border-radius: 40px;
 }
+
+#statut {
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(22, 0, 0, 0.315);
+    border-radius: 40px;
+    height: 60px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#sLabel {
+    font-size: 1.5em;
+}
+
+#sIcon {
+    height: 35px;
+    margin-right: 10px;
+} 
 
 #main{
     width: 100%;
@@ -58,4 +64,10 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 200px;
+}
+
+#instruc {
+    font-size: 2em;
+    text-align: center;
+    width: 600px;
 }

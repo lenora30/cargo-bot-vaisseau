@@ -26,12 +26,14 @@ setTimeout(function() {
 function connect(computerID) {
     conn = peer.connect(computerID);
     conn.on('open', function () {
-        document.getElementById("statut").innerHTML = "Connecté";
+        document.getElementById("sText").innerHTML = "Connecté";
+        document.getElementById("sIcon").src = "style/img/connected.svg";
         imageInput.disabled=false;
     });
 
     conn.on('close', function () {
-        document.getElementById("statut").innerHTML = "Déconnecté";
+        document.getElementById("sText").innerHTML = "Déconnecté";
+        document.getElementById("sIcon").src = "style/img/disconnected.svg";
         imageInput.disabled=true;
     });
 }

@@ -42,12 +42,16 @@
 
   <div id="main">
     <div id="inputMethod">
-      <button id="camInButton" class="button"></button>
+      <button id="camInButton" class="button">
+        <span class="mouseOver">Scan avec la webcam</span>
+      </button>
       <label>
 				<input type="file" accept="image/*" id="fileInput" capture="camera">
-			  <div id="imgInButton" class="button"></div>
+			  <div id="imgInButton" class="button"><span class="mouseOverDiv">Importer une image</span></div>
 			</label>
-      <button id="phoneInButton" class="button"></button>
+      <button id="phoneInButton" class="button">
+        <span class="mouseOver">Connecter un téléphone</span>
+      </button>
     </div>
 
     <div id="selectorCam" class="select" style="display: none;">

@@ -8,18 +8,17 @@ function drawLine(start, end, ctx) {
 }
 
 // check if the object is a corner
-function isvertices(obj) {
-  return (obj.code == 55 || obj.code == 59 || obj.code == 47 || obj.code == 61);
+function isVertices(obj) {
+  return (obj.code == CORNER.top_left || obj.code == CORNER.top_right || obj.code == CORNER.bottom_left || obj.code == CORNER.bottom_rigth);
 }
 
 // push the code, the function and the index of each instruction into an array
 function index(tab_points, tab_instruc, top_right, top_left, case_width) {
   for (let i = 0; i < tab_points.length; i++) {
     for (let j = 0; j < tab_points[i].length; j++) {
-      let cote = top_right.x + (case_width / 2);
-      if (tab_points[i][j].x > cote && tab_points[i][j].x < (top_left.x - (case_width / 2))) {
-        let index = (tab_points[i][j].x - cote) / case_width;
-        index = index - (index % 1);
+      if (tab_points[i][j].x > side && tab_points[i][j].x < (top_left.x - (case_width / 2))) {
+        let index = (tab_points[i][j].x - side) / case_width;
+        index = Math.floor(index);
         tab_instruc.push([tab_points[i][j].code, i, 7 - index]);
       }
     }
@@ -32,12 +31,12 @@ function tri_fonction(topcodes, case_height, top_right, top_left) {
   topcodes.forEach(e => {
     let num_fonc;
 
-    if (isvertices(e) || (e.y + 10) < top_left.y || (e.y + 10) < top_right.y) {
+    if (isVertices(e) || (e.y + 10) < top_left.y || (e.y + 10) < top_right.y) {
       num_fonc = -1;
-    } else if (e.code >= 103 && e.code <= 143 || e.code >= 205) {   // check if the instruction is a command or a level code
+    } else if (e.code >= CODE_MIN_COMMAND && e.code <= CODE_MAX_COMMAND || e.code >= CODE_MIN_DIFFICULTY) {   // check if the instruction is a command or a level code
       num_fonc = Math.floor(e.y / case_height);
       tab_points[num_fonc].push(e);
-    } else if (e.code >= 157 && e.code <= 181) {                    // check if the instruction is a condition
+    } else if (e.code >= CODE_MIN_CONDITION && e.code <= CODE_MAX_CONDITION) {                    // check if the instruction is a condition
       num_fonc = Math.floor((e.y - (2 * case_height / 3)) / case_height) + 1;
       tab_points[num_fonc].push(e);
     }
@@ -55,84 +54,40 @@ function send(tab) {
   frame.contentWindow.location.reload(true);
 }
 
-function difficulty(code) {
-  switch (code) {
-    case 205:
-      return 0;
-    case 211:
-      return 1;
-    case 213:
-      return 2;
-    case 217:
-      return 3;
-    case 227:
-      return 4;
-    case 229:
-      return 5;
-    case 233:
-      return 6;
-    case 241:
-      return 7;
-    case 271:
-      return 8;
-    default:
-      return 0;
-  }
-}
-
-function level(code) {
-  switch (code) {
-    case 279:
-      return 1;
-    case 283:
-      return 2;
-    case 285:
-      return 3;
-    case 295:
-      return 4;
-    case 299:
-      return 5;
-    case 301:
-      return 6;
-    default:
-      return 0;
-  }
-}
-
 function levelSelect() {
   var difficulty = 0;
   var level = 0;
 
   tab_instruc.forEach(e => {
-    if (e[1] == 3 && e[2] == 6) {
-      difficulty = difficulty(e[0]);
+    if (e[1] == 3 && e[2] == 6 && (e[0] in DIFFICULTY)) {
+      difficulty = DIFFICULTY[e[0]];
     };
-    if (e[1] == 3 && e[2] == 7) {
-      level = level(e[0]);
+    if (e[1] == 3 && e[2] == 7 && (e[0] in LEVEL)) {
+      level = LEVEL[e[0]];
     };
   });
   tab_instruc[0][0] = difficulty * 6 + level; 
 }
 
 function checkCorner(topcodes) {
-  for (let i = 0; i < topcodes.length; i++) {
-    switch (topcodes[i].code) {
-      case 55:
-        top_left = topcodes[i];
+  topcodes.forEach(e => {
+    switch (e.code) {
+      case CORNER.top_left:
+        top_left = e;
         break;
-      case 59:
-        top_right = topcodes[i];
+      case CORNER.top_right:
+        top_right = e;
         break;
-      case 47:
-        bottom_left = topcodes[i];
+      case CORNER.bottom_left:
+        bottom_left = e;
         break;
-      case 61:
-        bottom_rigth = topcodes[i];
+      case CORNER.bottom_rigth:
+        bottom_rigth = e;
         break;
       default:
         break;
     }
-  }
+  });
 
   if (top_right === null || top_left === null || bottom_left === null || bottom_rigth === null) {
     alert("Les quatres coins n'ont pas été détecté");
@@ -154,7 +109,7 @@ function scan(topcodes, sendBool) {
     rotation_matrix(topcodes, bottom_rigth, bottom_left);
 
     var srcCorners = [top_right.x, top_right.y, top_left.x, top_left.y, bottom_left.x, bottom_left.y, bottom_rigth.x, bottom_rigth.y];
-    var dstCorners = [0, 0, 1200, 0, 1200, 800, 0, 800];
+    var dstCorners = [DST_CORNER.top_left_x, DST_CORNER.top_left_y, DST_CORNER.top_right_x, DST_CORNER.top_right_y, DST_CORNER.bottom_right_x, DST_CORNER.bottom_right_y, DST_CORNER.bottom_left_x, DST_CORNER.bottom_left_y];
     var perspT = PerspT(srcCorners, dstCorners);
 
     perspective(topcodes, perspT);
@@ -163,12 +118,13 @@ function scan(topcodes, sendBool) {
     let width = top_left.x - top_right.x;
     let case_height = (height / 4);
     let case_width = (width / 9);
+    let side = top_right.x + (case_width / 2);
 
     tri_fonction(topcodes, case_height, top_right, top_left);
 
     tab_instruc = [[0]];
 
-    index(tab_points, tab_instruc, top_right, top_left, case_width);
+    index(tab_points, tab_instruc, top_right, top_left, case_width, side);
     levelSelect();
 
     // check if the array needs to be sent

@@ -59,8 +59,22 @@ function difficulty(code) {
   switch (code) {
     case 205:
       return 0;
-    case 221:
+    case 211:
       return 1;
+    case 213:
+      return 2;
+    case 217:
+      return 3;
+    case 227:
+      return 4;
+    case 229:
+      return 5;
+    case 233:
+      return 6;
+    case 241:
+      return 7;
+    case 271:
+      return 8;
     default:
       return 0;
   }

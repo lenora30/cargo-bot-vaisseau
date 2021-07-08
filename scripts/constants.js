@@ -1,3 +1,7 @@
+/**
+ * Enum of difficulty number for each difficulty code.
+ * @enum {string}
+ */
 const DIFFICULTY = { 
     "205": 0,
     "211": 1,
@@ -10,6 +14,10 @@ const DIFFICULTY = {
     "271": 8
 };
 
+/**
+ * Enum of level number for each level code.
+ * @enum {string}
+ */
 const LEVEL = {
     "279": 1,
     "283": 2,
@@ -19,16 +27,40 @@ const LEVEL = {
     "301": 6
 };
 
+/**
+ * Minimal code for a command
+ * @type {number} @const 
+ */
 const CODE_MIN_COMMAND = 103;
 
+/** @type {number} @const */
 const CODE_MAX_COMMAND = 143;
 
+/** @type {number} @const */
 const CODE_MIN_CONDITION = 157;
 
+/** @type {number} @const */
 const CODE_MAX_CONDITION = 181;
 
+/** @type {number} @const */
 const CODE_MIN_DIFFICULTY = 205;
 
+/** @type {number} @const */
+const FONCTION_DIFFICULTY = 3;
+
+/** @type {number} @const */
+const INDEX_DIFFICULTY = 6;
+
+/** @type {number} @const */
+const FONCTION_LEVEL = 3;
+
+/** @type {number} @const */
+const INDEX_LEVEL = 7;
+
+/**
+ * Enum of code for all the corners.
+ * @enum {string}
+ */
 const CORNER = {
     top_left: 55,
     top_right: 59,
@@ -36,6 +68,10 @@ const CORNER = {
     bottom_rigth: 61
 };
 
+/**
+ * Enum of corners coordinates for the quadrilateral destination for the perspective transformation.
+ * @enum {string}
+ */
 const DST_CORNER  = {
     top_left_x : 0,
     top_left_y : 0,

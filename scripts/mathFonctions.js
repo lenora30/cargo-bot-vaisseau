@@ -1,15 +1,34 @@
+/**
+ * @param {array} vec Array with the coordonate x in index 0 and y in index 1
+ * @returns 
+ */
 function norm(vec) {
     return Math.sqrt(vec[0] * vec[0] + vec[1] * vec[1]);
 }
   
+/**
+ * @param {array} vec1 Vector with the coordonate x in index 0 and y in index 1
+ * @param {array} vec2 Vector with the coordonate x in index 0 and y in index 1
+ * @returns 
+ */
 function angle(vec1, vec2) {
     return (Math.acos(dot_product(vec1, vec2) / (norm(vec1) * norm(vec2))));
 }
   
+/**
+ * @param {array} vec1 Vector with the coordonate x in index 0 and y in index 1
+ * @param {array} vec2 Vector with the coordonate x in index 0 and y in index 1
+ * @returns 
+ */
 function dot_product(vec1, vec2) {
     return (vec1[0] * vec2[0] + vec1[1] * vec2[1]);
 }
   
+/**
+ * @param {array} mat Array 2D. Each index is a row of the matrix
+ * @param {array} vec Vector with the coordonate x in index 0 and y in index 1
+ * @returns 
+ */
 function matrix_vec_mult(mat, vec) {
     let result = [];
     for (let i = 0; i < mat.length; i++) {
@@ -21,6 +40,11 @@ function matrix_vec_mult(mat, vec) {
     return result;
 }
 
+/**
+ * Translate a group of point compared to a single point
+ * @param {*} tab 
+ * @param {*} point 
+ */
 function translation(tab, point) {
     console.log(tab.length);
     for (let i = 0; i < tab.length; i++) {
@@ -33,17 +57,23 @@ function translation(tab, point) {
     point.y = 0;
 }
   
-function rotation_matrix(topcodes, bottom_rigth, bottom_left) {
+/**
+ * Function for rotate all the coordinates of the points with the angle between bottom_left and the y-axis
+ * @param {array} topcodes Array of objects(points)
+ * @param {object} bottom_left 
+ * @param {object} bottom_right 
+ */
+function rotation_matrix(topcodes, bottom_left, bottom_right) {
     let cos_a;
     let sin_a;
   
-    if (bottom_rigth.y > bottom_left.y) {
-      cos_a = Math.cos(angle([bottom_rigth.x, bottom_rigth.y], [0, 1]));
-      sin_a = Math.sin(angle([bottom_rigth.x, bottom_rigth.y], [0, 1]));
+    if (bottom_left.y > bottom_right.y) {
+      cos_a = Math.cos(angle([bottom_left.x, bottom_left.y], [0, 1]));
+      sin_a = Math.sin(angle([bottom_left.x, bottom_left.y], [0, 1]));
     }
     else {
-      cos_a = Math.cos(-angle([bottom_rigth.x, bottom_rigth.y], [0, 1]));
-      sin_a = Math.sin(-angle([bottom_rigth.x, bottom_rigth.y], [0, 1]));
+      cos_a = Math.cos(-angle([bottom_left.x, bottom_left.y], [0, 1]));
+      sin_a = Math.sin(-angle([bottom_left.x, bottom_left.y], [0, 1]));
     }
   
   
@@ -55,6 +85,10 @@ function rotation_matrix(topcodes, bottom_rigth, bottom_left) {
     }
 }
 
+/**
+ * @param {array} topcodes Array of objects
+ * @param pers 
+ */
 function perspective(topcodes, pers) {
     topcodes.forEach(e => {
       let srcPt = [e.x, e.y];

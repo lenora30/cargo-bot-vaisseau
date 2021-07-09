@@ -1,32 +1,50 @@
 
 /**
- * check if the object is a corner
+ * Check if the object is a corner
+ * @param {object} obj The object to test
+ * @return {boolean}
  */
 function isVertices(obj) {
-  return (obj.code == CORNER.top_left || obj.code == CORNER.top_right || obj.code == CORNER.bottom_left || obj.code == CORNER.bottom_rigth);
+  return (obj.code == CORNER.top_right || obj.code == CORNER.top_left || obj.code == CORNER.bottom_right || obj.code == CORNER.bottom_left);
 }
 
 /**
- * check if the point is between the border left and the right of the grid
+ * Check if the point is between the top and the bottom of the grid
+ * @param {object} top_left 
+ * @param {object} top_right 
+ * @param {object} bottom_right 
+ * @param {object} bottom_left 
+ * @param {object} e The object to test
+ * @return {boolean}
  */
-function inIndex(top_left, case_width, side, points) {
-  return (points.x > side && points.x < (top_left.x - (case_width / 2)));
+function inFunction(top_left, top_right, bottom_right, bottom_left, e) {
+  return (((e.y + 10) > top_left.y || (e.y + 10) > top_right.y) && ((e.y + 10) < bottom_left.y || (e.y + 10) < bottom_right.y));
 }
 
 /**
- * check if the point is between the top and the bottom of the grid
+ * Check if the point is between the border left and the right of the grid
+ * @param {object} top_right 
+ * @param {number} case_width 
+ * @param {number} side The left side of the grid
+ * @param {object} point The object to test
+ * @return {boolean}
  */
-function inFunction(top_right, top_left, bottom_left, bottom_rigth, y) {
-  return ((y + 10) < top_left.y || (y + 10) < top_right.y || (y + 10) > bottom_left.y || (y + 10) > bottom_rigth.y);
+function inIndex(top_right, case_width, side, point) {
+  return (point.x > side && point.x < (top_right.x - (case_width / 2)));
 }
 
 /**
- * push the code, the function and the index of each instruction into an array
+ * Push the code, the function and the index of each instruction into an array
+ * @param {array} tab_points Array 2D with objects (points) in the right index according to this function (ex : [[a],[]] => a is in f0)
+ * @param {array} tab_instruc Array with [0] in the first index.
+ * @param {object} top_right
+ * @param {number} case_width 
+ * @param {number} side 
  */
-function index(tab_points, tab_instruc, top_left, case_width, side) {
+function index(tab_points, tab_instruc, top_right, case_width, side) {
   for (let i = 0; i < tab_points.length; i++) {
     for (let j = 0; j < tab_points[i].length; j++) {
-      if (inIndex(top_left, case_width, side, tab_points[i][j])) {
+      if (inIndex(top_right, case_width, side, tab_points[i][j])) {
         let index = Math.floor((tab_points[i][j].x - side) / case_width);
         tab_instruc.push([tab_points[i][j].code, i, 7 - index]); // push for each instructions and commands : the code, the function number and the index in this function
       }
@@ -35,27 +53,37 @@ function index(tab_points, tab_instruc, top_left, case_width, side) {
 }
 
 /**
- * put the codes in the right function
+ * Put the codes in the right function : f0, f1, f2, f3. On the array tab_points on the form [[A], [B]] => A is in f0 and f1 is in f1.
+ * @param {array} topcodes The array with all the objects scan
+ * @param {number} case_height 
+ * @param {object} top_right 
+ * @param {object} top_left
+ * @param {object} bottom_left 
+ * @param {object} bottom_right 
+ * @return {array} tab_points
  */
-function tri_fonction(topcodes, case_height, top_right, top_left, bottom_left, bottom_rigth) {
-  tab_points = [[], [], [], []];
+function tri_fonction(topcodes, case_height, top_right, top_left, bottom_left, bottom_right) {
+  let tab_points = [[], [], [], []];
   topcodes.forEach(e => {
     let num_fonc;
 
-    if (isVertices(e) || inFunction(top_right, top_left, bottom_left, bottom_rigth, e.y)) { 
-
-    } else if (e.code >= CODE_MIN_COMMAND && e.code <= CODE_MAX_COMMAND || e.code >= CODE_MIN_DIFFICULTY) {   // check if the instruction is a command or a difficulty/level code
-      num_fonc = Math.floor(e.y / case_height);
-      tab_points[num_fonc].push(e);
-    } else if (e.code >= CODE_MIN_CONDITION && e.code <= CODE_MAX_CONDITION) {                    // check if the instruction is a condition
-      num_fonc = Math.floor((e.y - (2 * case_height / 3)) / case_height) + 1;
-      tab_points[num_fonc].push(e);
+    if (!(isVertices(e)) && inFunction(top_left, top_right, bottom_right, bottom_left, e)) {
+      if (e.code >= 103 && e.code <= 143 || e.code >= 205) {   // check if the instruction is a command or a level code
+        num_fonc = Math.floor(e.y / case_height);
+        tab_points[num_fonc].push(e);
+      } else if (e.code >= 157 && e.code <= 181) {                    // check if the instruction is a condition
+        num_fonc = Math.floor((e.y - (2 * case_height / 3)) / case_height) + 1;
+        tab_points[num_fonc].push(e);
+      }
     }
   });
+  return tab_points;
 }
 
+
 /**
- * send the instructions to the cargo-bot iframe
+ * Send the instructions to the cargo-bot iframe
+ * @param {array} tab The final array with for each instruction : his code, his function, his index in the function
  */
 function send(tab) {
   console.log(tab);
@@ -67,44 +95,52 @@ function send(tab) {
   frame.contentWindow.location.reload(true);
 }
 
-
+/**
+ * Put on the array the number of the level selected
+ * (0 if there isn't the card level on the grid)
+ */
 function levelSelect() {
   var difficulty = 0;
   var level = 0;
 
   tab_instruc.forEach(e => {
-    if (e[1] == FONCTION_DIFFICULTY && e[2] == FONCTION_LEVEL && (e[0] in DIFFICULTY)) {
+    if (e[1] == DIFFICULTY_FONCTION && e[2] == DIFFICULTY_INDEX) {
       difficulty = DIFFICULTY[e[0]];
     };
-    if (e[1] == INDEX_DIFFICULTY && e[2] == INDEX_LEVEL && (e[0] in LEVEL)) {
+    if (e[1] == LEVEL_FONCTION && e[2] == LEVEL_INDEX) {
       level = LEVEL[e[0]];
     };
   });
-  tab_instruc[0][0] = difficulty * 6 + level; 
+  tab_instruc[0][0] = difficulty * 6 + level;
 }
 
-
+/**
+ * This function check if they are all the corners on the array, (if not, a alert windows pop)
+ * and put them on the variable.
+ * @param {array} topcodes The array with all the objects scan
+ * @returns {boolean}
+ */
 function checkCorner(topcodes) {
-  topcodes.forEach(e => {
-    switch (e.code) {
-      case CORNER.top_left:
-        top_left = e;
+  for (let i = 0; i < topcodes.length; i++) {
+    switch (topcodes[i].code) {
+      case (CORNER.top_left):
+        top_left = topcodes[i];
         break;
-      case CORNER.top_right:
-        top_right = e;
+      case (CORNER.top_right):
+        top_right = topcodes[i];
         break;
-      case CORNER.bottom_left:
-        bottom_left = e;
+      case (CORNER.bottom_left):
+        bottom_left = topcodes[i];
         break;
-      case CORNER.bottom_rigth:
-        bottom_rigth = e;
+      case (CORNER.bottom_right):
+        bottom_right = topcodes[i];
         break;
       default:
         break;
     }
-  });
+  }
 
-  if (top_right === null || top_left === null || bottom_left === null || bottom_rigth === null) {
+  if (top_right === null || top_left === null || bottom_left === null || bottom_right === null) {
     alert("Les quatres coins n'ont pas été détecté");
     return false;
   } else {
@@ -113,56 +149,69 @@ function checkCorner(topcodes) {
 }
 
 /**
- * main function to transform the topcode tab into the instruction tab
+ * Main function to transform the topcode tab into the instruction tab
+ * @param {array} topcodes The array with all the objects scan
+ * @param {boolean} sendBool This boolean is for know if the array needs to be sent or not
  */
 function scan(topcodes, sendBool) {
   top_right = null;
   top_left = null;
-  bottom_rigth = null;
-  bottom_left = null; 
+  bottom_right = null;
+  bottom_left = null;
 
   if (checkCorner(topcodes)) {
 
-    // to fix the problem with the sheet rotate relative to the photo
-    translation(topcodes, top_right);
-    rotation_matrix(topcodes, bottom_rigth, bottom_left); 
+    // To fix the problem with the sheet rotate relative to the photo
+    translation(topcodes, top_left);
+    rotation_matrix(topcodes, bottom_left, bottom_right);
 
-    // to fix the problem of perspetive
-    var srcCorners = [top_right.x, top_right.y, top_left.x, top_left.y, bottom_left.x, bottom_left.y, bottom_rigth.x, bottom_rigth.y]; // actuals corners
-    var dstCorners = [DST_CORNER.top_left_x, DST_CORNER.top_left_y, DST_CORNER.top_right_x, DST_CORNER.top_right_y, DST_CORNER.bottom_right_x, DST_CORNER.bottom_right_y, DST_CORNER.bottom_left_x, DST_CORNER.bottom_left_y]; // destination corners
+    // To fix the problem of perspetive
+    var srcCorners = [top_left.x, top_left.y, top_right.x, top_right.y, bottom_right.x, bottom_right.y, bottom_left.x, bottom_left.y];
+    var dstCorners = [DST_CORNER.top_left_x, DST_CORNER.top_left_y, DST_CORNER.top_right_x, DST_CORNER.top_right_y, DST_CORNER.bottom_right_x, DST_CORNER.bottom_right_y, DST_CORNER.bottom_left_x, DST_CORNER.bottom_left_y];
     var perspT = PerspT(srcCorners, dstCorners);
 
     perspective(topcodes, perspT);
 
-    let grid_height = bottom_left.y - top_left.y;
-    let grid_width = top_left.x - top_right.x; 
-    let case_height = (grid_height / 4);    // because we have 4 functions
-    let case_width = (grid_width / 9);      //because we have 8 cases for each function + 1 case with the side right and the side left of the grid
-    let side_right = top_right.x + (case_width / 2);
+    let height = bottom_left.y - top_left.y;
+    let width = top_right.x - top_left.x;
+    let case_height = (height / 4);               // Because we have 4 functions
+    let case_width = (width / 9);                 // Because we have 8 cases for each function + 1 case with the side right and the side left of the grid
+    let side_left = top_left.x + (case_width / 2);
 
-    tri_fonction(topcodes, case_height, top_right, top_left, bottom_left, bottom_rigth);
+    let tab_points = tri_fonction(topcodes, case_height, top_right, top_left, bottom_left, bottom_right);
 
     tab_instruc = [[0]];
 
-    index(tab_points, tab_instruc, top_left, case_width, side_right);
-
+    index(tab_points, tab_instruc, top_right, case_width, side_left);
     levelSelect();
 
-    // check if the array needs to be sent
+    // Check if the array needs to be sent
     if (sendBool) {
       send(tab_instruc);
     }
   }
 }
 
-
+/**
+ * The array with all the objects scan
+ * @type {array}
+ */
 var topcodes = [];
 
+/**
+ * The array with the objects scan in the good function
+ * @type {array}
+ */
 var tab_instruc = [];
-var tab_points = [];
 
-// four vertices of the grid
+// /**
+//  * The final array. The array will have this shape : [[level choise], [code of the instruction, function, index in the function], [code of the instruction, function, index in the function]...]
+//  * @type {array}
+//  */
+// var tab_points = [];
+
+// The four vertices of the grid
 var top_right;
 var top_left;
-var bottom_rigth;
+var bottom_right;
 var bottom_left;

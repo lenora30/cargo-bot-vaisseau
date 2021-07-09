@@ -46,26 +46,26 @@ const CODE_MAX_CONDITION = 181;
 const CODE_MIN_DIFFICULTY = 205;
 
 /** @type {number} @const */
-const FONCTION_DIFFICULTY = 3;
+const DIFFICULTY_FONCTION = 3;
 
 /** @type {number} @const */
-const INDEX_DIFFICULTY = 6;
+const DIFFICULTY_INDEX = 6;
 
 /** @type {number} @const */
-const FONCTION_LEVEL = 3;
+const LEVEL_FONCTION = 3;
 
 /** @type {number} @const */
-const INDEX_LEVEL = 7;
+const LEVEL_INDEX = 7;
 
 /**
  * Enum of code for all the corners.
  * @enum {string}
  */
 const CORNER = {
-    top_left: 55,
-    top_right: 59,
-    bottom_left: 47,
-    bottom_rigth: 61
+    top_left: 59,
+    top_right: 55,
+    bottom_left: 61,
+    bottom_right: 47
 };
 
 /**

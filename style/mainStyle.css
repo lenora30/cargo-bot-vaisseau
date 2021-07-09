@@ -51,7 +51,7 @@ h1:hover {
 }
 
 #inputMethod {
-    display: block;
+    display: flex;
     flex-direction: column;
     overflow: auto;
     position: fixed;
@@ -62,7 +62,7 @@ h1:hover {
 .button {
     width: 55px;
     height: 55px;
-    margin: 20px 10px 20px 10px;
+    margin: 10px;
     border: none;
     background-color: white;
     border-radius: 10px;
@@ -79,17 +79,12 @@ h1:hover {
 
 #camInButton {
     background-image: url("img/cam.svg");
-    background-position: top 3px right 3px;
+    background-position: top 6px right 6px;
 }
 
 #imgInButton {
     background-image: url("img/addPhoto.svg"); 
-    background-position: top 3px right 5px;
-}
-
-#imgInButtonFake {
-    background-color: tan; 
-    position: fixed;
+    background-position: top 6px right 8px;
 }
 
 #imgInButton:hover {
@@ -98,16 +93,17 @@ h1:hover {
 
 #phoneInButton {
     background-image: url("img/phone.svg");
-    background-position: top 3px right 3px;
+    background-position: top 6px right 6px;
 }
 
-#dlPDFButton {
-    background-image: url("img/dlPDF.svg");
-    background-position: top 3px right 3px;
+#saveButton {
+    background-image: url("img/save.svg");
+    background-position: top 6px right 6px;
 }
 
-#dlPDFButton:hover {
-    height: 30px;
+#loadButton {
+    background-image: url("img/load.svg");
+    background-position: top 6px right 6px;
 }
 
 #modal {
@@ -261,6 +257,38 @@ h1:hover {
     top: 15px;
     background-image: url("img/close.svg");
     background-color: rgb(255, 56, 30);
+    border-radius: 30%;
+}
+
+#closeButtonSave {
+    right: 15px;
+    top: 15px;
+    background-image: url("img/close.svg");
+    background-color: rgb(255, 56, 30);
+    border-radius: 30%;
+}
+
+#okButtonSave {
+    right: 15px;
+    bottom: 15px;
+    background-image: url("img/check.svg");
+    background-color: rgb(89, 255, 56);
+    border-radius: 30%;
+}
+
+#closeButtonLoad {
+    right: 15px;
+    top: 15px;
+    background-image: url("img/close.svg");
+    background-color: rgb(255, 56, 30);
+    border-radius: 30%;
+}
+
+#okButtonLoad {
+    right: 15px;
+    bottom: 15px;
+    background-image: url("img/check.svg");
+    background-color: rgb(89, 255, 56);
     border-radius: 30%;
 }
 

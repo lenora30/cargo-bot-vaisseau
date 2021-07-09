@@ -1,4 +1,10 @@
 var videoSelect = document.getElementById('videoSource');
+var saveLevel = document.getElementById('saveLevel');
+var loadLevel = document.getElementById('loadLevel');
+var saveNameInput = document.getElementById('saveNameInput');
+var okButtonSave = document.getElementById('okButtonSave');
+var okButtonLoad = document.getElementById('okButtonLoad');
+var levelSelector = document.getElementById('levelSelector');
 var qrcode = new QRCode("qrcode", {width: 500, height: 500});
 var peer = new Peer({
 	config: {'iceServers': [
@@ -6,7 +12,22 @@ var peer = new Peer({
 		{ url: 'turn:cargobot-tangible.u-strasbg.fr', username: 'azertyuiop', credential: 'azertyuiop' }
 	]}
 }); 
+var currentProgram = null;
 
+
+/**
+ * Send the instructions to the cargo-bot iframe
+ * @param {array} tab The final array with for each instruction : his code, his function, his index in the function
+ */
+function send(tab) {
+	console.log(tab);
+	var array = tab;
+	var hash = btoa(JSON.stringify(array));
+	console.log(hash);
+	var frame = document.getElementById("frame");
+	frame.src = "cargo-not/index.html#" + hash;
+	frame.contentWindow.location.reload(true);
+}
 
 
 // register a callback function with the TopCode library
@@ -19,6 +40,7 @@ TopCodes.setVideoFrameCallback("video-canvas", function (jsonString) {
     topcodes = json.topcodes;
 
     for (i = 0; i < topcodes.length; i++) {
+		// Draw the instructions on the scanner
         if (topcodes[i].code >= 103 && topcodes[i].code <= 143) {
             var image = new Image();
             image.src = "img/instruction/" + topcodes[i].code.toString() + ".svg";
@@ -32,7 +54,6 @@ TopCodes.setVideoFrameCallback("video-canvas", function (jsonString) {
             ctx.translate(topcodes[i].x, topcodes[i].y);
             ctx.drawImage(image, -topcodes[i].radius * 3, -topcodes[i].radius * 1.5, topcodes[i].radius * 4.5, topcodes[i].radius * 2.25);
             ctx.translate(-topcodes[i].x, -topcodes[i].y);
-
         }
     }
 
@@ -55,7 +76,6 @@ function getDevices() {
   
 function gotDevices(deviceInfos) {
 	window.deviceInfos = deviceInfos; // make available to console
-	// console.log('Available input and output devices:', deviceInfos);
 	for (const deviceInfo of deviceInfos) {
 		const option = document.createElement('option');
 		option.value = deviceInfo.deviceId;
@@ -70,7 +90,7 @@ function gotDevices(deviceInfos) {
 getDevices().then(gotDevices);
 
 
-
+// Generate the QR code with the URL of the mobile page and the peerID of the computer
 function makeCode () {
 	var peerId = peer.id;
 	var address = "https://pinguee.github.io/cargo-not/mobile.html";
@@ -87,6 +107,7 @@ peer.on('connection', function(conn) {
   	var canvas = document.getElementById('image-canvas');
   	var ctx = canvas.getContext('2d');
 
+	// Display and scan incoming images from the phone
   	conn.on('data', data => {
     	modalImg.style.display = "flex";
 
@@ -132,4 +153,75 @@ const encode = input => {
 			keyStr.charAt(enc4)
 	}
 	return output
+}
+
+
+/**
+ * save the program in the local storage
+ * @param {srting} name name of the save
+ * @param {array} program array of the program to send to the cargo-bot
+ */
+function save(name, program) {
+	/**
+	 * the cargo-bot keep the level in the session storage
+	 * @param {array} levelArray 2D array with the level pack index in the first index and the level index in the second
+	 * @param {number} levelNum the number of the level
+	 * @param {string} level the level name
+	 * @param {object} savedCurrent
+	 * @param {array} savedLevels array of all the saved levels
+	 */
+	var levelArray = JSON.parse(window.sessionStorage.getItem("level"));
+	var levelNum = levelArray[0]*6+levelArray[1]+1;
+	var level = LEVEL_CODE[levelNum];
+	var saveCurrent = new savedLevel(name, level, program);
+	var savedLevels = JSON.parse(window.localStorage.getItem("savedLevels"));
+
+	program[0] = [levelNum];
+
+	if (savedLevels == null) {
+		savedLevels = [];
+	}
+	savedLevels.push(saveCurrent);
+	window.localStorage.setItem("savedLevels", JSON.stringify(savedLevels));
+}
+
+/**
+ * object for the saved programs
+ * @param {string} name name of the save
+ * @param {string} level name of the level
+ * @param {array} program array of the program to send to the cargo-bot
+ */
+const savedLevel = class {
+	constructor(name, level, program) {
+		this.name = name;
+		this.level = level;
+		this.program = program;
+	}
+}
+
+// launch the save is there's a program and a name for the save
+function launchSave() {
+	if (!(currentProgram == null || saveNameInput.value == "")) {
+		var name = saveNameInput.value;
+		save(name, currentProgram);
+		saveLevel.style.display = "none";
+	}
+}
+
+saveNameInput.onkeydown = function () {
+	// check if the key pressed is the enter key
+	if (event.keyCode ==  13) {
+		launchSave();
+	}
+}
+
+okButtonSave.onclick = function () {
+	launchSave();
+	saveLevel.style.display = "none";
+}
+
+okButtonLoad.onclick = function () {
+	var program = JSON.parse(levelSelector.value);
+	send(program);
+	loadLevel.style.display = "none";
 }

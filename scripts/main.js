@@ -73,8 +73,8 @@ getDevices().then(gotDevices);
 
 function makeCode () {
 	var peerId = peer.id;
-	// var address = "https://pinguee.github.io/cargo-not/mobile.html";
-	var address = window.location.origin + "/mobile.html";
+	var address = "https://pinguee.github.io/cargo-not/mobile.html";
+	// var address = window.location.origin + "/mobile.html";
 	var qr = address + "#" + peerId; 
 	qrcode.makeCode(qr);
 }

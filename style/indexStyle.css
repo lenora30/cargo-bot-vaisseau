@@ -53,7 +53,7 @@ header{
     align-self: flex-end;
     background-color: white;
     border: none;
-    background-image: url("img/play_arrow_black_48dp.svg");
+    /* background-image: url("img/play_arrow_black_48dp.svg"); */
     background-size: cover;
     border-radius: 10px;
     height: 70px;
@@ -156,7 +156,7 @@ header{
     flex-direction: column;
 }
 
-#imprimer {
+.button {
     align-self: center;
     justify-content: space-between;
     background-color: white;
@@ -164,15 +164,17 @@ header{
     background-size: cover;
     font-size: larger;
     border-radius: 10px;
-    padding: 3%;
-    margin-top: 3%;
+    padding: 10px;
+    margin-top: 10px;
     cursor: pointer;
 }
 
-#imprimer:hover {
+.button:hover {
     box-shadow: 0 0 10px var(--quad-color);
     transition: all 0.2s;
 }
+
+
 
 #pdf {
     margin-left: auto;

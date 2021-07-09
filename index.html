@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Cargo Tangible</title>
+  <title>Cargo-Bot Tangible</title>
   <link rel="stylesheet" href="style/style.css">
   <link rel="stylesheet" href="style/indexStyle.css">
 </head>
 
 <body>
   <header>
-    <h1 id="title" onclick="window.location.href = 'index.html';">Cargo Tangible</h1>
+    <h1 id="title" onclick="window.location.href = 'index.html';">Cargo-Bot Tangible</h1>
   </header>
   <div id="main">
 
@@ -16,15 +16,15 @@
     <div id="debut">
       <!--<img src="fond3.png">-->
       <div id="box">
-        <h2 id="ban">Apprenez les bases de l'algorithmie et de la programmation</h2>
-        <button id="play" onclick="window.location.href = 'main.html';"></button>
+        <h2 id="ban">Apprenez les bases de l'algorithmique et de la programmation</h2>
+        <button id="play" onclick="window.location.href = 'main.html';">Jouer</button>
       </div>
     </div>
       
     <div id="begin-content">
       <h2>Quel est le but du jeu ?</h2>
       Le Cargo Tangible est un jeu conçu pour apprendre les bases de l'algorithmie et de la programmation.
-      Le principe de ce jeu est de déplacer des blocs de différentes couleurs grâce à une pince 
+      Le but de ce jeu est de déplacer des blocs de différentes couleurs grâce à une pince 
       en partant d'une disposition donnée pour arriver à l'objectif demandé.
     </div>  
 
@@ -67,7 +67,7 @@
           <div id="etape1">
             Choisis le niveau que tu veux faire et imprimes ta grille et les instructions. 
             <iframe type="application/pdf" src="PDF/CargoTangible.pdf" id="pdf" width="90%" height="300px"></iframe>
-            <br><button id="imprimer" onclick="document.getElementById('pdf').contentWindow.print();">Imprimer le pdf</button>
+            <br><button class="button" onclick="document.getElementById('pdf').contentWindow.print();">Imprimer le pdf</button>
           </div>
         </div>
         
@@ -82,7 +82,7 @@
                 sur lequel tu veux lancer le programme.
               <br>- tu peux utiliser une photo déjà existante dans tes documents.
               <br>- tu peux connecter ton téléphone à l'odinateur à partir d'un QR code 
-                et prendre une photo qui sera envoyé à l'ordinateur.
+                et prendre une photo qui sera envoyée à l'ordinateur.
           </div>
         </div>
         
@@ -93,28 +93,20 @@
           <div>
             Une fois que vous avez appuyé sur le bouton vert, le programme que tu as fait 
             se retrouve dans la grille virtuelle en bas de la page.
-            Maintenant tu peux lancer, mettre en pause, accélérer, faire recommencer la pince 
-            et voir si ton programme est juste.
+            Maintenant tu peux exécuter ton programme, le mettre en pause, accélérer sa vitesse d'exécution, faire recommencer la pince 
+            et voir si ton programme est correct
           </div>
         </div>
       </div>
 
       <div id="LEEEGO">
-        Vous avez maintenant toute les cartes en main, alors c'est à vous de jouer ! </div><br>
-        Appuyer sur le bouton Jouer en haut de la page pour commencer.
+        Vous avez maintenant toute les cartes en main, alors c'est à vous de jouer ! <br>
+        <button class="button" onclick="window.location.href = 'main.html';">Commencer à jouer</button>
       </div>
 
     </div>
           
     <div id="end-content"></div>
-        
-          <!--
-          <h3>Problèmes</h3>
-          Si une erreur apparaît une fois que vous avez pris votre photo ou que le programme affiché sur la grille 
-          ne correspond pas à ce que vous avez fait, la photo doit être reprise. 
-          Vous pouvez prendre en compte quelques conseils : faire attention à prendre la feuille entière en photo, 
-          surexposer la photo et prendre la photo bien au-dessus de la feuille.
-          -->
 
     <div id="content">
       <h2 id="genese">Génèse de ce projet</h2>
@@ -134,7 +126,7 @@
       <div>2021 | Benjamin Gliech & Salwa El Fatini</div>
       <a href="credit.html">Crédits</a>
        | 
-      <a href="https://github.com/Pinguee/cargo-not">GitHub</a>
+      <a href="https://github.com/Pinguee/cargo-bot-tangible">GitHub</a>
     </footer>
 
   <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

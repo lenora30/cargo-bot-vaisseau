@@ -82,20 +82,6 @@ function tri_fonction(topcodes, case_height, top_right, top_left, bottom_left, b
 
 
 /**
- * Send the instructions to the cargo-bot iframe
- * @param {array} tab The final array with for each instruction : his code, his function, his index in the function
- */
-function send(tab) {
-  console.log(tab);
-  var array = tab;
-  var hash = btoa(JSON.stringify(array));
-  console.log(hash);
-  var frame = document.getElementById("frame");
-  frame.src = "cargo-not/index.html#" + hash;
-  frame.contentWindow.location.reload(true);
-}
-
-/**
  * Put on the array the number of the level selected
  * (0 if there isn't the card level on the grid)
  */
@@ -185,6 +171,8 @@ function scan(topcodes, sendBool) {
     index(tab_points, tab_instruc, top_right, case_width, side_left);
     levelSelect();
 
+    currentProgram = tab_instruc;
+
     // Check if the array needs to be sent
     if (sendBool) {
       send(tab_instruc);
@@ -199,13 +187,13 @@ function scan(topcodes, sendBool) {
 var topcodes = [];
 
 /**
- * The array with the objects scan in the good function
+ * The array with the objects scan in the good function 
  * @type {array}
  */
 var tab_instruc = [];
 
 // /**
-//  * The final array. The array will have this shape : [[level choise], [code of the instruction, function, index in the function], [code of the instruction, function, index in the function]...]
+//  * The final array. The array will have this shape : [[level choice], [code of the instruction, function, index in the function], [code of the instruction, function, index in the function]...]
 //  * @type {array}
 //  */
 // var tab_points = [];

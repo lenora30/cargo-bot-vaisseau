@@ -52,6 +52,12 @@
       <button id="phoneInButton" class="button">
         <span class="mouseOver">Connecter un téléphone</span>
       </button>
+      <button id="saveButton" class="button">
+        <span class="mouseOver">Sauvegarder le programme</span>
+      </button>
+      <button id="loadButton" class="button">
+        <span class="mouseOver">Charger un programme</span>
+      </button>
     </div>
 
     <div id="selectorCam" class="select" style="display: none;">
@@ -60,6 +66,24 @@
       </select>
       <div id="buttonContainerSelect">
         <button id="closeButtonSelect" class="scannerButton"></button>
+      </div>
+    </div>
+
+    <div id="saveLevel" class="select" style="display: none;">
+      <input type='text' id="saveNameInput">
+      <div id="buttonContainerSelect">
+        <button id="okButtonSave" class="scannerButton"></button>
+        <button id="closeButtonSave" class="scannerButton"></button>
+      </div>
+    </div>
+
+    <div id="loadLevel" class="select" style="display: none;">
+      <select id="levelSelector">
+        <option value="" selected disabled hidden>Sélectionnez le niveau</option>
+      </select>
+      <div id="buttonContainerLoad">
+        <button id="okButtonLoad" class="scannerButton"></button>
+        <button id="closeButtonLoad" class="scannerButton"></button>
       </div>
     </div>
 

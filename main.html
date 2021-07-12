@@ -70,6 +70,7 @@
     </div>
 
     <div id="saveLevel" class="select" style="display: none;">
+      <label for="saveNameInput">Entrez le nom du programme : </label>
       <input type='text' id="saveNameInput">
       <div id="buttonContainerSelect">
         <button id="okButtonSave" class="scannerButton"></button>
@@ -78,9 +79,10 @@
     </div>
 
     <div id="loadLevel" class="select" style="display: none;">
-      <select id="levelSelector">
+      <select id="levelSelector" multiple>
         <option value="" selected disabled hidden>Sélectionnez le niveau</option>
       </select>
+      <button id="deleteSave">Supprimer le programme</button>
       <div id="buttonContainerLoad">
         <button id="okButtonLoad" class="scannerButton"></button>
         <button id="closeButtonLoad" class="scannerButton"></button>

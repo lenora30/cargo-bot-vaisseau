@@ -135,6 +135,7 @@ h1:hover {
 }
 
 #qrcode {
+    border: solid white 10px;
     height: 500px;
 }
 

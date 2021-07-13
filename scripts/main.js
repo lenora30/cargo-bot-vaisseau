@@ -4,6 +4,7 @@ var loadLevel = document.getElementById('loadLevel');
 var saveNameInput = document.getElementById('saveNameInput');
 var okButtonSave = document.getElementById('okButtonSave');
 var okButtonLoad = document.getElementById('okButtonLoad');
+var deleteSave = document.getElementById('deleteSave');
 var levelSelector = document.getElementById('levelSelector');
 var qrcode = new QRCode("qrcode", {width: 500, height: 500});
 var peer = new Peer({
@@ -162,18 +163,14 @@ const encode = input => {
  * @param {array} program array of the program to send to the cargo-bot
  */
 function save(name, program) {
-	/**
-	 * the cargo-bot keep the level in the session storage
-	 * @param {array} levelArray 2D array with the level pack index in the first index and the level index in the second
-	 * @param {number} levelNum the number of the level
-	 * @param {string} level the level name
-	 * @param {object} savedCurrent
-	 * @param {array} savedLevels array of all the saved levels
-	 */
+	// 2D array with the level pack index in the first index and the level index in the second
 	var levelArray = JSON.parse(window.sessionStorage.getItem("level"));
+	// the number of the level
 	var levelNum = levelArray[0]*6+levelArray[1]+1;
+	// the level name
 	var level = LEVEL_CODE[levelNum];
 	var saveCurrent = new savedLevel(name, level, program);
+	// savedLevels array of all the saved levels
 	var savedLevels = JSON.parse(window.localStorage.getItem("savedLevels"));
 
 	program[0] = [levelNum];
@@ -212,6 +209,7 @@ saveNameInput.onkeydown = function () {
 	// check if the key pressed is the enter key
 	if (event.keyCode ==  13) {
 		launchSave();
+		loadLevel.style.display = "none";
 	}
 }
 
@@ -221,7 +219,28 @@ okButtonSave.onclick = function () {
 }
 
 okButtonLoad.onclick = function () {
-	var program = JSON.parse(levelSelector.value);
-	send(program);
-	loadLevel.style.display = "none";
+	if (!(levelSelector.selectedIndex == 0)) {
+		var program = JSON.parse(levelSelector.value);
+		send(program);
+		loadLevel.style.display = "none";
+	}
+}
+
+deleteSave.onclick = function () {
+	var savedLevels = JSON.parse(window.localStorage.getItem("savedLevels"));
+
+	optionIndex = levelSelector.selectedIndex;
+
+	// check if the list isn't empty
+	if (optionIndex > 0) {
+		// delete the option in the selector
+		optionToDelete = levelSelector.childNodes[optionIndex];
+		levelSelector.removeChild(optionToDelete);
+
+		// delete the save in the local storage
+		savedLevels.splice(optionIndex-1, 1);
+		window.localStorage.setItem("savedLevels", JSON.stringify(savedLevels));
+	}
+
+
 }

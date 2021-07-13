@@ -22,6 +22,7 @@ var w = window.innerWidth;
 var h = window.innerHeight;
 var jsonImg;
 
+drawLoadingScreen();
 
 camButton.onclick = function() {
 	// Ask the user which camera to use (only for the first scan)
@@ -97,6 +98,8 @@ loadButton.onclick = function () {
 
 closeButtonImg.onclick = function() {
 	modalImg.style.display = "none";
+
+	drawLoadingScreen();
 }
 
 closeButton.onclick = function() {
@@ -124,8 +127,10 @@ closeButtonLoad.onclick = function() {
 // Close the scanner and scan the codes then send it to the iframe
 document.getElementById("scanButtonImg").onclick = function(){
 	var json = JSON.parse(jsonImg);
-  scan(json.topcodes, true);  
-  document.getElementById("modalImg").style.display = "none";
+  	scan(json.topcodes, true);  
+  	document.getElementById("modalImg").style.display = "none";
+
+	drawLoadingScreen();
 }
 
 
@@ -139,5 +144,22 @@ function scrollFunction() {
 	} else {
 		document.getElementById("inputMethod").style.position = "absolute";
 		document.getElementById("inputMethod").style.top = "auto";
+	}
+}
+
+
+// draw a loading screen on the image canvas
+function drawLoadingScreen() {
+	var canvas = document.getElementById('image-canvas');
+	var ctx = canvas.getContext('2d');
+  
+	var imageLoad = new Image();
+	imageLoad.src = "img/loading.png";
+  
+	canvas.width = 1280;
+	canvas.height = 720;
+
+	imageLoad.onload = function () {
+		ctx.drawImage(imageLoad, 0, 0);
 	}
 }

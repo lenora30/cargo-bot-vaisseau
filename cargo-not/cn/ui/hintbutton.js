@@ -30,7 +30,7 @@ cn.ui.HintButton = function(game, ui, opt_renderer, opt_domHelper) {
       opt_domHelper);
   this.game_ = game;
   this.ui_ = ui;
-  this.setTooltip('Show hint');
+  this.setTooltip('Afficher un indice');
 };
 goog.inherits(cn.ui.HintButton, goog.ui.Button);
 

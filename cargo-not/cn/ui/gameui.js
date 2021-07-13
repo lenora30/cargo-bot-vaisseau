@@ -49,9 +49,9 @@ cn.ui.GameUi = function(game, opt_domHelper) {
   this.addChild(new cn.ui.ClassContainer([],
       [
         new cn.ui.ClassContainer(cn.constants.LEVEL_SELECTOR_CONTAINER,
-            this.levelSelector, 'LEVELS', opt_domHelper),
+            this.levelSelector, 'NIVEAUX', opt_domHelper),
         new cn.ui.ClassContainer(cn.constants.GAME_CANVAS_CONTAINER,
-            this.goalCanvas, 'GOAL', opt_domHelper)
+            this.goalCanvas, 'BUT', opt_domHelper)
       ],
       null, opt_domHelper), true);
   this.addChild(this.animatedCanvas, true);

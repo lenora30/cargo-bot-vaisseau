@@ -35,7 +35,7 @@ cn.controller.play = function(game, ui) {
     // TODO(joseph): Handle winning differently.
     var stars = game.getStars();
     game.log.record('won ' + stars + ' stars');
-    alert('You won with ' + stars + ' stars!');
+    alert('Le but est atteint !\nCompacité du programme : ' + (stars + 1) + '/4');
     return;
   }
   var command = game.program.next(game.bot);
@@ -61,6 +61,8 @@ cn.controller.play = function(game, ui) {
       default:
         throw Error('Animation not implemented for "' + command + '"');
     }
+  } else {
+    alert('Le but n\'est pas atteint');
   }
 };
 
@@ -88,7 +90,7 @@ cn.controller.resume = function(ui) {
 cn.controller.moveLeft = function(game, ui) {
   if (game.bot.position == 0) {
     // TODO(joseph): Add a cleaner error notification.
-    alert('Cannot move the bot any further left.');
+    alert('Une instruction est impossible à réaliser :\nLe robot ne peut pas aller plus à gauche');
     return;
   }
   var nextStack = game.level.stacks[game.bot.position - 1];
@@ -110,7 +112,7 @@ cn.controller.moveLeft = function(game, ui) {
 cn.controller.moveRight = function(game, ui) {
   if (game.bot.position == game.level.stacks.length - 1) {
     // TODO(joseph): Add a cleaner error notification.
-    alert('Cannot move the bot any further right.');
+    alert('Une instruction est impossible à réaliser :\nLe robot ne peut pas aller plus à droite');
     return;
   }
   var nextStack = game.level.stacks[game.bot.position + 1];

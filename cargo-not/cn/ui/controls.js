@@ -33,10 +33,10 @@ cn.ui.Controls = function(game, ui, opt_domHelper) {
     button.setTooltip(tooltip);
     return button;
   };
-  this.playButton_ = newButton('Play');
+  this.playButton_ = newButton('Jouer');
   this.pauseButton_ = newButton('Pause');
-  this.rewindButton_ = newButton('Rewind');
-  this.resetButton_ = newButton('Reset');
+  this.rewindButton_ = newButton('Rembobiner');
+  this.resetButton_ = newButton('Réinitialiser');
   this.slider_ = new goog.ui.Slider();
 
   this.pauseButton_.setEnabled(false);

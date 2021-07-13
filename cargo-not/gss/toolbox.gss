@@ -59,7 +59,7 @@
   background-image: url('png/showLess.png');
   background-size: 18%;
   position: fixed;
-  left: 440px;
+  left: 435px;
   top: 22px;
   background-color: transparent;
   background-repeat: no-repeat;
@@ -79,7 +79,7 @@
   background-image: url('png/showLess.png');
   background-size: 18%;
   position: fixed;
-  left: 450px;
+  left: 459px;
   top: 231px;
   background-color: transparent;
   background-repeat: no-repeat; 

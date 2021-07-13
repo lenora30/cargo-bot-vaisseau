@@ -14,10 +14,10 @@
   background-size: 80%;
 }
 
-.goog-button[title=Play]   { background-image: url('png/play.png'); }
+.goog-button[title=Jouer]   { background-image: url('png/play.png'); }
 .goog-button[title=Pause]  { background-image: url('png/pause.png'); }
-.goog-button[title=Rewind] { background-image: url('png/rewind.png'); }
-.goog-button[title=Reset]  { background-image: url('png/reset.png'); }
+.goog-button[title=Rembobiner] { background-image: url('png/rewind.png'); }
+.goog-button[title=Réinitialiser]  { background-image: url('png/reset.png'); }
 
 .goog-button:hover, .goog-button-disabled {
   opacity: 0.2;

@@ -53,13 +53,13 @@
 
 .cn-hideshow-levels {
   display: block;
-  width: 110px;
+  width: 210px;
   height: 20px;
   border: none;
   background-image: url('png/showLess.png');
-  background-size: 18%;
+  background-size: 9.5%;
   position: fixed;
-  left: 435px;
+  left: 391px;
   top: 22px;
   background-color: transparent;
   background-repeat: no-repeat;

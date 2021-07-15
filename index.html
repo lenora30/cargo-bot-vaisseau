@@ -44,12 +44,13 @@
             1<br>Ecrire un programme
           </h3>
           <div id="etape1">
-            Commencez par choisir le niveau que vous voulez réaliser dans le sélecteur de niveau. Trouver le nom correspondant à ce niveau dans les cartes de niveaux. 
+            Commencez par choisir le niveau que vous voulez réaliser dans le sélecteur de niveau. Trouver le nom
+            correspondant à ce niveau dans les cartes de niveaux.
+            <img id="carte_niveau" class="exemple" src="img/niveau.svg">
             Cette carte devra être placer sur la grille physique à l'emplacement prévu à cet effet.
-            Vous pouvez maintenant faire votre programme sur votre grille grâce aux blocs d'instructions. En savoir plus sur les règles.
+            Vous pouvez maintenant faire votre programme sur votre grille grâce aux blocs d'instructions.
+            <a href="#savoir_regles">En savoir plus sur les règles.</a>
           </div>
-          Votre programme doit commencer en P0 et à la première cartes. Faites attention à ne pas laisser 
-          de case vide au milieu de vos programmes. 
         </div>
 
         <div>
@@ -81,6 +82,10 @@
                 transmettre la photo
               </div>
             </div>
+
+            Un fois que vous remarquez que toutes les instructions sont détectées, comme sur la photo ci-dessous,
+            vous pouvez valider la photo en appuyant sur le bouton vert en bas à droite de l'écran.
+            <img class="exemple" src="img/transferer.png">
           </div>
         </div>
 
@@ -92,35 +97,7 @@
             Une fois que le programme est transféré à l'ordinateur, vous pouvez l'exécuter et voir la réaction du robot
             face à votre programme grâce à différentes touches.
             <div id="command_execution">
-              <div>
-                <div>
-                  <img class="image_command" src="cargo-not/png/play.png" width="40px" height="40px">
-                  <div>
-                    Démarrer
-                  </div>
-                </div>
-                <div>
-                  <img class="image_command" src="cargo-not/png/pause.png" width="40px" height="40px">
-                  <div>
-                    Mettre en pause
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div>
-                  <img class="image_command" src="cargo-not/png/rewind.png" width="40px" height="40px">
-                  <div>
-                    Recommencer
-                  </div>
-                </div>
-                <div>
-                  <img class="image_command" src="cargo-not/png/reset.png" width="40px" height="40px">
-                  <div>
-                    Effacer
-                  </div>
-                </div>
-              </div>
-              
+              <img class="exemple" src="img/execution.png">
             </div>
             <div id="save">
               <div>
@@ -143,54 +120,79 @@
 
     <div id="end-content">
       <div>
-        <h2>Quelles sont les règles ?</h2>
-        <div>
-          <img src="img/instruction/103.svg" width="40px" height="40px">
+        <h2 id="savoir_regles">Comment écrire un programme ?</h2>
+        Votre programme doit commencer en P0 et à la première case de gauche. Faites attention à ne pas laisser
+        de case vide au milieu de vos programmes.
+        <div id="deplacement" class="explications">
+          <h3>1 - Déplacements</h3>
+
           <div>
-            Cette instrcution permet d'aller à droite d'un pas.
+            <img src="img/instruction/103.svg" width="40px" height="40px">
+            <div>
+              Cette instrcution permet d'aller à droite d'un pas.
+            </div>
           </div>
+
+          <div>
+            <img src="img/instruction/107.svg" width="40px" height="40px">
+            <div>
+              Cette instruction permet d'aller à gauche d'un pas.
+            </div>
+          </div>
+
+          <div>
+            <img src="img/instruction/109.svg" width="40px" height="40px">
+            <div>
+              Cette instruction fait descendre le robot. Il dépose un bloc, si il en a un dans la pince,
+              sinon il prend le bloc situé en-dessous.
+            </div>
+          </div>
+
         </div>
-        <div>
-          <img src="img/instruction/107.svg" width="40px" height="40px">
+
+        <div id="appel_fonction" class="explications">
+          <h3>2 - Appel de programme/procédure</h3>
+
           <div>
-            Cette instruction permet d'aller à gauche d'un pas.
+            <img src="img/instruction/117.svg" width="40px" height="40px">
+            <div>
+              Ceci est un appel à un autre programme/procédure.
+              Vous pouvez mettre des instructions dans un autre programme et l'utiliser dans votre programme courant
+              grâce
+              à cette instruction.
+              Il est possible d'appeler un programme dans ce même programme et aussi d'appeler P0.
+            </div>
           </div>
+
         </div>
-        <div>
-          <img src="img/instruction/109.svg" width="40px" height="40px">
+
+        <div id="conditions" class="explications">
+          <h3>3 - Conditions</h3>
+          Ces petites cartes ne sont pas des commandes mais des conditions qui s'appliquent sur celles-ci.
+          Il faut les positionner dans les petites cases au-dessus des commandes auxquelles on veut l'appliquer.
+          Si la condition est vrai alors la commande sera réalisée.
           <div>
-            Cette instruction fait descendre le robot. Il dépose un bloc, si il en a un dans la pince, 
-            sinon il prend le bloc situé en-dessous.
+            <img src="img/instruction/157.svg" width="40px" height="40px">
+            <div>
+              Dans le cas de la condition de gauche, si le robot n'a pas de bloc dans la pince alors la commande est réalisée.
+            </div>
           </div>
-        </div>
-        <div>
-          <img src="img/instruction/117.svg" width="40px" height="40px">
+
           <div>
-            Ceci est un appel à un autre programme/procédure. 
-            Vous pouvez mettre des instructions dans un autre programme et l'utiliser dans votre programme courant grâce à cette instruction. 
-            Il est possible d'appeler un programme dans ce même programme et aussi d'appeler P0. 
+            <img src="img/instruction/167.svg" width="40px" height="40px">
+            <div>
+              Cette condition vérifie si le robot a un bloc jaune dans la pince. Cette condition existe aussi pour
+              toutes les autres couleur de bloc.
+            </div>
           </div>
-        </div>
-        <div>
-          <img src="img/instruction/157.svg" width="40px" height="40px">
+
           <div>
-            Cette carte n'est pas une instruction mais une condition qui s'applique sur celle-ci.
-            Il faut la positionner dans la petite case au-dessus de l'instruction à laquelle on veut l'appliquer. 
-            Si la condition est vrai alors l'instruction sera réalisée.
-            Dans le cas de la condition de gauche, si le robot est n'a pas de bloc dans la pince alors faire l'instruction.
+            <img src="img/instruction/181.svg" width="40px" height="40px">
+            <div>
+              Cette condition vérifie si le robot a un bloc dans la pince peu importe sa couleur.
+            </div>
           </div>
-        </div>
-        <div>
-          <img src="img/instruction/167.svg" width="40px" height="40px">
-          <div>
-            Cette condition vérifie si le robot a un bloc jaune dans la pince. Cette condition existe aussi pour toutes les autres couleur de bloc.
-          </div>
-        </div>
-        <div>
-          <img src="img/instruction/181.svg" width="40px" height="40px">
-          <div>
-            Cette condition vérifie si le le robot a un bloc dans la pince peu importe sa couleur.
-          </div>
+
         </div>
       </div>
       <div>
@@ -217,7 +219,7 @@
     </div>
 
     <div id="content">
-      <h2 id="genese">Génèse de ce projet</h2>
+      <h2 id="genese">A propos du projet</h2>
       <div>
         Ce projet a été réalisé dans le cadre d'un stage au laboratoire ICube de Strasbourg encadré par Basile
         Sauvage, Julien Narboux et Gaëlle Thomas. Nous avons travaillé sur le thème de la programmation tangible,
@@ -227,6 +229,16 @@
         d'ordinateurs. Avec notre dispositif, le matériel informatique nécessaire est seulement composé d'un
         ordinateur central, pour lancer le programme, ainsi qu'un téléphone, que tout le monde a aujourd'hui,
         pour réaliser des photos.
+        <h2>Crédits</h2>
+        Le Cargo-Bot est un jeu de Rui Viana, trademark of Two Lives Left (<a
+          href="https://twolivesleft.com/CargoBot/">Cargo-Bot</a>).<br>
+        L'adaptation en Javascript par Joe Tessler (<a href="https://github.com/jtessler/cargo-not">GitHub</a>).<br>
+        Des niveaux supplémentaires ont été tirés du <a href="http://www-verimag.imag.fr/~wack/CargoBot/">site du
+          Benjamin Wack</a>.<br>
+        Utilisation de la librairie TopCodes réalisée par TIDAL-Lab (<a
+          href="https://github.com/TIDAL-Lab/TopCodes">GitHub</a>).<br>
+        Modifications pour la création de cette version tangible par Benjamin Gliech et Salwa El Fatini (<a
+          href="https://github.com/Pinguee/cargo-bot-tangible">GitHub</a>).<br>
       </div>
     </div>
   </div>

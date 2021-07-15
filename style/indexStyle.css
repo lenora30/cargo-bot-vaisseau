@@ -159,15 +159,15 @@ header{
     
 }
 
-#etape1 > div {
+#etape1 {
     padding: 10px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
 }
 
-#etape1 > div > img {
-    margin: 10px;
+#etape1 > a {
+    align-self: flex-start;
 }
 
 #etape2 > div {
@@ -213,6 +213,16 @@ header{
     background-color: #eeeeee;
 }
 
+.exemple {
+    margin: 10px;
+    width: 100%;
+    height: auto;
+}
+
+#carte_niveau {
+    width: 60%;
+}
+
 .button {
     align-self: center;
     justify-content: space-between;
@@ -231,7 +241,18 @@ header{
     transition: all 0.2s;
 }
 
+.explications img {
+    margin: 10px;
+    width: 70px;
+    height: auto;
+}
 
+.explications > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px;
+}
 
 #pdf {
     margin-left: auto;

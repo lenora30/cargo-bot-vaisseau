@@ -222,7 +222,7 @@ cn.constants.LEVEL_CODE = {
   8: 'D\'en bas',
   9: 'La Trieuse',
   10: 'Translation',
-  11: 'Traduction des couleurs',
+  11: 'Translation des couleurs',
   12: 'Aller à gauche',
   13: 'Double Flip',
   14: 'Aller à gauche 2',

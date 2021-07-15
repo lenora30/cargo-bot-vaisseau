@@ -68,10 +68,10 @@ function tri_fonction(topcodes, case_height, top_right, top_left, bottom_left, b
     let num_fonc;
 
     if (!(isVertices(e)) && inFunction(top_left, top_right, bottom_right, bottom_left, e)) {
-      if (e.code >= 103 && e.code <= 143 || e.code >= 205) {   // check if the instruction is a command or a level code
+      if (e.code >= CODE_MIN_COMMAND && e.code <= CODE_MAX_COMMAND || e.code >= CODE_MIN_DIFFICULTY) {   // check if the instruction is a command or a level code
         num_fonc = Math.floor(e.y / case_height);
         tab_points[num_fonc].push(e);
-      } else if (e.code >= 157 && e.code <= 181) {                    // check if the instruction is a condition
+      } else if (e.code >= CODE_MIN_CONDITION && e.code <= CODE_MAX_CONDITION) {                    // check if the instruction is a condition
         num_fonc = Math.floor((e.y - (2 * case_height / 3)) / case_height) + 1;
         tab_points[num_fonc].push(e);
       }
@@ -135,6 +135,105 @@ function checkCorner(topcodes) {
 }
 
 /**
+ * Check if an instruction is a command
+ * @param {array} instruc 
+ */
+function isCommand(instruc) {
+  return (instruc[0] >= CODE_MIN_COMMAND && instruc[0] <= CODE_MAX_COMMAND);
+}
+
+/**
+ * Check if an instruction is a condition
+ * @param {array} instruc 
+ */
+function isCondition(instruc) {
+  return (instruc[0] >= CODE_MIN_CONDITION && instruc[0] <= CODE_MAX_CONDITION);
+}
+
+/**
+ * Check if a command has another command before, return true or false
+ * @param {array} c A command (an instruction with a code between CODE_MIN_COMMAND and CODE_MAX_COMMAND) 
+ * @param {array} tab_instruc
+ */
+function commandBefore(c, tab_instruc) {
+  var func = c[1];  // the function of c
+  var index = c[2]; // the index of c
+
+  var commandBefore = false;
+
+  if (index == 0) {
+    commandBefore = true;
+  } else { 
+    // try to find a command before, if it is found return true
+    tab_instruc.forEach(e => {
+      if (isCommand(e)) {
+        if (e[1] == func && e[2] == index-1) {
+          commandBefore = true;
+        }
+      }
+    });
+  }
+
+  return commandBefore;
+}
+
+/**
+ * Check if a command has another command before, return true or false
+ * @param {array} c A condition (an instruction with a code between CODE_MIN_CONDITION and CODE_MAX_CONDITION) 
+ * @param {array} tab_instruc
+ */
+function commandUnder(c, tab_instruc) {
+  var func = c[1];  // the function of c
+  var index = c[2]; // the index of c
+
+  var commandUnder = false;
+
+  // try to find a command under the condition
+  tab_instruc.forEach(e => {
+    if (isCommand(e)) {
+      console.log(e);
+      if (e[1] == func && e[2] == index) {
+        commandUnder = true;
+      }
+    }
+  });
+
+  return commandUnder;
+}
+
+/**
+ * Alert the user if the program is sus
+ * @param {array} tab_instruc 
+ */
+function checkProgram(tab_instruc) {
+  tab_instruc.forEach(e => {
+    if (isCommand(e)) {
+      if (!(commandBefore(e, tab_instruc))) {
+        warning(e[1], e[2]-1);
+      }
+    } else if (isCondition(e)) {
+      if (!(commandUnder(e, tab_instruc))) {
+        warning(e[1], e[2]);
+      }
+    }
+  });
+}
+
+function warning(func, index) {
+  var modalDialog = document.getElementById("modalDialog");
+  document.getElementById("dialogMsg").innerHTML = "ATTENTION<br><br>Il y a possiblement une erreur de syntaxe dans votre programme<br>(Il semble manquer une instruction dans P" + func + " à l'index " + index +")<br>";
+  document.getElementById("dialogYes").onclick = function () {
+    window.location.href = "index.html";
+    modalDialog.style.display = "none";
+  }
+  document.getElementById("dialogNo").onclick = function () {
+    modalDialog.style.display = "none";
+  }
+
+  modalDialog.style.display = "flex";
+}
+
+/**
  * Main function to transform the topcode tab into the instruction tab
  * @param {array} topcodes The array with all the objects scan
  * @param {boolean} sendBool This boolean is for know if the array needs to be sent or not
@@ -172,6 +271,8 @@ function scan(topcodes, sendBool) {
     levelSelect();
 
     currentProgram = tab_instruc;
+
+    checkProgram(tab_instruc);
 
     // Check if the array needs to be sent
     if (sendBool) {

@@ -28,7 +28,7 @@ cn.ui.HSLevels = function (game, ui, opt_renderer, opt_domHelper) {
     opt_domHelper);
   this.game_ = game;
   this.ui_ = ui;
-  this.setTooltip('Hide/Show level selector');
+  this.setTooltip('Cacher/Afficher le sélecteur de niveau');
 };
 goog.inherits(cn.ui.HSLevels, goog.ui.Button);
 
@@ -47,7 +47,7 @@ cn.ui.HSGoal = function (game, ui, opt_renderer, opt_domHelper) {
     opt_domHelper);
   this.game_ = game;
   this.ui_ = ui;
-  this.setTooltip('Hide/Show goal');
+  this.setTooltip('Cacher/Afficher le but');
 };
 goog.inherits(cn.ui.HSGoal, goog.ui.Button);
 

@@ -21,7 +21,7 @@ header {
     background-color: var(--main-color);
     color: white;
     text-align: center;
-    font-family: sans-serif;
+    font-family: 'Quicksand', sans-serif;
     font-size: larger;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.295);
 }

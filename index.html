@@ -44,8 +44,12 @@
             1<br>Ecrire un programme
           </h3>
           <div id="etape1">
-
+            Commencez par choisir le niveau que vous voulez réaliser dans le sélecteur de niveau. Trouver le nom correspondant à ce niveau dans les cartes de niveaux. 
+            Cette carte devra être placer sur la grille physique à l'emplacement prévu à cet effet.
+            Vous pouvez maintenant faire votre programme sur votre grille grâce aux blocs d'instructions. En savoir plus sur les règles.
           </div>
+          Votre programme doit commencer en P0 et à la première cartes. Faites attention à ne pas laisser 
+          de case vide au milieu de vos programmes. 
         </div>
 
         <div>
@@ -87,55 +91,107 @@
           <div id="executer">
             Une fois que le programme est transféré à l'ordinateur, vous pouvez l'exécuter et voir la réaction du robot
             face à votre programme grâce à différentes touches.
-            <div>
+            <div id="command_execution">
               <div>
-                <img class="image_command" src="cargo-not/png/play.png" width="40px" height="40px">
                 <div>
-                  Démarrer
+                  <img class="image_command" src="cargo-not/png/play.png" width="40px" height="40px">
+                  <div>
+                    Démarrer
+                  </div>
+                </div>
+                <div>
+                  <img class="image_command" src="cargo-not/png/pause.png" width="40px" height="40px">
+                  <div>
+                    Mettre en pause
+                  </div>
                 </div>
               </div>
               <div>
-                <img class="image_command" src="cargo-not/png/pause.png" width="40px" height="40px">
                 <div>
-                  Mettre en pause
+                  <img class="image_command" src="cargo-not/png/rewind.png" width="40px" height="40px">
+                  <div>
+                    Recommencer
+                  </div>
+                </div>
+                <div>
+                  <img class="image_command" src="cargo-not/png/reset.png" width="40px" height="40px">
+                  <div>
+                    Effacer
+                  </div>
                 </div>
               </div>
-              <div>
-                <img class="image_command" src="cargo-not/png/rewind.png" width="40px" height="40px">
-                <div>
-                  Recommencer
-                </div>
-              </div>
-              <div>
-                <img class="image_command" src="cargo-not/png/reset.png" width="40px" height="40px">
-                <div>
-                  Effacer
-                </div>
-              </div>
+              
             </div>
             <div id="save">
-              <img src="style/img/save.svg">
               <div>
-                Vous avez aussi la possibilité de sauvegarder le programme en cours grâce à l'icône de gauche et
-                d'y accéder à nouveau avec l'icône de droite.
+                <img src="style/img/save.svg">
+                <div>
+                  Vous avez aussi la possibilité de sauvegarder le programme en cours grâce à cette icône.
+                </div>
               </div>
-              <img src="style/img/load.svg">
+              <div>
+                <img src="style/img/load.svg">
+                <div>
+                  Cette icône vous permettra de les programmes enregistrés.
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      <div id="LEEEGO">
-        Vous avez maintenant toute les cartes en main, alors c'est à vous de jouer ! <br>
-        <button class="button" onclick="window.location.href = 'main.html';">Commencer à jouer</button>
-      </div>
-
     </div>
 
     <div id="end-content">
       <div>
         <h2>Quelles sont les règles ?</h2>
-
+        <div>
+          <img src="img/instruction/103.svg" width="40px" height="40px">
+          <div>
+            Cette instrcution permet d'aller à droite d'un pas.
+          </div>
+        </div>
+        <div>
+          <img src="img/instruction/107.svg" width="40px" height="40px">
+          <div>
+            Cette instruction permet d'aller à gauche d'un pas.
+          </div>
+        </div>
+        <div>
+          <img src="img/instruction/109.svg" width="40px" height="40px">
+          <div>
+            Cette instruction fait descendre le robot. Il dépose un bloc, si il en a un dans la pince, 
+            sinon il prend le bloc situé en-dessous.
+          </div>
+        </div>
+        <div>
+          <img src="img/instruction/117.svg" width="40px" height="40px">
+          <div>
+            Ceci est un appel à un autre programme/procédure. 
+            Vous pouvez mettre des instructions dans un autre programme et l'utiliser dans votre programme courant grâce à cette instruction. 
+            Il est possible d'appeler un programme dans ce même programme et aussi d'appeler P0. 
+          </div>
+        </div>
+        <div>
+          <img src="img/instruction/157.svg" width="40px" height="40px">
+          <div>
+            Cette carte n'est pas une instruction mais une condition qui s'applique sur celle-ci.
+            Il faut la positionner dans la petite case au-dessus de l'instruction à laquelle on veut l'appliquer. 
+            Si la condition est vrai alors l'instruction sera réalisée.
+            Dans le cas de la condition de gauche, si le robot est n'a pas de bloc dans la pince alors faire l'instruction.
+          </div>
+        </div>
+        <div>
+          <img src="img/instruction/167.svg" width="40px" height="40px">
+          <div>
+            Cette condition vérifie si le robot a un bloc jaune dans la pince. Cette condition existe aussi pour toutes les autres couleur de bloc.
+          </div>
+        </div>
+        <div>
+          <img src="img/instruction/181.svg" width="40px" height="40px">
+          <div>
+            Cette condition vérifie si le le robot a un bloc dans la pince peu importe sa couleur.
+          </div>
+        </div>
       </div>
       <div>
         <h2>Comment préparer le matériel ?</h2>

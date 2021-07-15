@@ -1,10 +1,4 @@
-:root {
-    --main-color: #0d6164;
-    --sec-color: #79b9bb;
-    --ter-color: #084446ee;
-    --quad-color: #179489a2;
-    --txt-color: rgb(54, 54, 54);
-}
+
 body {
     margin: 0;
     padding: 0;
@@ -64,7 +58,6 @@ header{
 
 #play:hover {
     box-shadow: 0 0 10px var(--quad-color);
-    border-bottom: 25px solid var(--quad-color);
     transition: all 0.2s;
 }
 
@@ -145,15 +138,11 @@ header{
     justify-content: space-between;
     align-content: flex-start;
     padding-bottom: 1%;
-    border-bottom: solid #084446ee;
 }
 
-#LEEEGO {
-    text-align: center;
-    justify-content: center;
-    padding-top: 1%;
-    width: 60%;
-    
+#executer {
+    display: flex;
+    flex-direction: column;
 }
 
 #etapes > div {
@@ -167,6 +156,18 @@ header{
 #etape1 {
     display: flex;
     flex-direction: column;
+    
+}
+
+#etape1 > div {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#etape1 > div > img {
+    margin: 10px;
 }
 
 #etape2 > div {
@@ -176,17 +177,40 @@ header{
 }
 
 #etape2 > div > img{
-    padding: 10px;
+    margin: 10px;
+}
+
+#executer > div > div > img {
+    margin: 10px;
 }
 
 #executer > div {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 #executer > div > div {
-    align-content: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     padding: 10px;
+}
+
+#command_execution > div > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+}
+
+#etapes img {
+    border-radius: 5px;
+    padding: 5px;
+    background-color: white;
+}
+
+#command_execution img {
+    background-color: #eeeeee;
 }
 
 .button {

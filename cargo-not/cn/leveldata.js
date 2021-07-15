@@ -95,7 +95,7 @@ cn.LevelData.levelpacks = {
     'D\'en bas',
     'La Trieuse',
     'Translation',
-    'Traduction des couleurs',
+    'Translation des couleurs',
     'Aller à gauche'
   ],
   'Easy': [
@@ -359,7 +359,7 @@ cn.LevelData.levels = {
     ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'red', 'none'], [[], ['red', 'red', 'red'], [], ['red', 'red', 'red', 'red', 'red'], [], ['red', 'red'], ['red', 'red', 'red', 'red'], []], [['red', 'red', 'red'], [], ['red', 'red', 'red', 'red', 'red'], [], ['red', 'red'], ['red', 'red', 'red', 'red'], [], []],
     'Utilisez les étiquettes pour savoir si vous avez fini de déplacer une pile, puis passez à la suivante.\n\nLa plus courte solution utilise 4 registres.'
   ),
-  'Traduction des couleurs': new cn.LevelData(
+  'Translation des couleurs': new cn.LevelData(
     1,
     [9, 5, 4],
     [8, 8, 8, 5],

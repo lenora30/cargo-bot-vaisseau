@@ -82,14 +82,23 @@
       <select id="levelSelector" multiple>
         <option value="" selected disabled hidden>Sélectionnez le niveau</option>
       </select>
-      <button id="deleteSave">Supprimer le programme</button>
-      <div id="buttonContainerLoad">
-        <button id="okButtonLoad" class="scannerButton"></button>
-        <button id="closeButtonLoad" class="scannerButton"></button>
+      <div id="Load">
+        <button id="okButtonLoad" class="button2">Charger le programme</button>
+        <button id="deleteSave" class="button2">Supprimer le programme</button>
+        <button id="closeButtonLoad" class="button2">Annuler</button>
       </div>
     </div>
 
-    <iframe id="frame" src="cargo-not/index.html" width="1000" height="1260"></iframe> 
+    <div id="modalDialog" style="display: none;" class="modal">
+      <div id="dialogMsg">
+      </div>
+      <div id="dialogButton">
+        <input type="button" value="Relire les règles" id="dialogYes" class="button"/>
+        <input type="button" value="Fermer" id="dialogNo" class="button"/>
+      </div>
+  </div>
+
+    <iframe id="frame" src="cargo-not/index.html" width="1000" height="1300"></iframe> 
   </div>
 
   <footer>

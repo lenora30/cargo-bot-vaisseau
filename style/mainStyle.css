@@ -225,16 +225,6 @@ option {
     color: white;
 }
 
-#deleteSave {
-    margin-top: 10px;
-    justify-self: center;
-    background-color: var(--main-color);
-    color: white;
-    border: solid white 1px;
-    outline: none;
-    border-radius: 10px;
-}
-
 .scanner {
     margin: 20px 80px 20px 20px;
 }
@@ -331,22 +321,6 @@ option {
     border-radius: 30%;
 }
 
-#closeButtonLoad {
-    right: 15px;
-    top: 15px;
-    background-image: url("img/close.svg");
-    background-color: rgb(255, 56, 30);
-    border-radius: 30%;
-}
-
-#okButtonLoad {
-    right: 15px;
-    bottom: 15px;
-    background-image: url("img/check.svg");
-    background-color: rgb(89, 255, 56);
-    border-radius: 30%;
-}
-
 .scannerButton {
     position: absolute;
     width: 40px;
@@ -402,6 +376,37 @@ option {
   
 .button:hover .mouseOverDiv {
     visibility: visible;
+}
+
+#modalDialog {
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+}
+
+.button2 {
+    margin-top: 10px;
+    justify-self: center;
+    background-color: var(--main-color);
+    color: white;
+    border: solid white 1px;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#dialogMsg {
+    background-color: var(--main-color);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border: solid white 5px;
+    border-radius: 10px;
+
+}
+
+#dialogButton {
+    flex-direction: row;
 }
 
 footer {

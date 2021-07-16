@@ -223,7 +223,7 @@ function warning(func, index) {
   var modalDialog = document.getElementById("modalDialog");
   document.getElementById("dialogMsg").innerHTML = "ATTENTION<br><br>Il y a possiblement une erreur de syntaxe dans votre programme<br>(Il semble manquer une instruction dans P" + func + " à l'index " + index +")<br>";
   document.getElementById("dialogYes").onclick = function () {
-    window.location.href = "index.html";
+    window.location.href = "index.html#savoir_regles";
     modalDialog.style.display = "none";
   }
   document.getElementById("dialogNo").onclick = function () {

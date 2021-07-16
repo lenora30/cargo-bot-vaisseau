@@ -2,6 +2,11 @@
 <html>
 <head>
   <title>Cargo-Bot Tangible</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Apprenez les bases de l'algorithmique et de la programmation">
+  <meta name="keywords" content="programmation, tangible, algorithmique, Cargo-Bot, Cargo-not, apprentissage, éducation, robot, jeu, physique, programmer, apprendre, école, collège, lycée, primaire, algorithme">
+  <meta name="author" content="Benjamin Gliech, Salwa El Fatini">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style/style.css">
   <link rel="stylesheet" href="style/mainStyle.css">
 </head>
@@ -58,6 +63,9 @@
       <button id="loadButton" class="button">
         <span class="mouseOver">Charger</span>
       </button>
+      <button id="problems" class="button" onclick="window.location.href='index.html#savoir_regles'">
+        <span class="mouseOver">Aides</span>
+      </button>
     </div>
 
     <div id="selectorCam" class="select" style="display: none;">
@@ -93,8 +101,8 @@
       <div id="dialogMsg">
       </div>
       <div id="dialogButton">
-        <input type="button" value="Relire les règles" id="dialogYes" class="button"/>
-        <input type="button" value="Fermer" id="dialogNo" class="button"/>
+        <input type="button" value="Relire les règles" id="dialogYes" class="button2"/>
+        <input type="button" value="Ignorer" id="dialogNo" class="button2"/>
       </div>
   </div>
 
@@ -103,9 +111,13 @@
 
   <footer>
     <div>2021 | Benjamin Gliech & Salwa El Fatini</div>
-    <a href="credit.html">Crédits</a>
+    <a href="index.html#credit">Crédits</a>
      | 
     <a href="https://github.com/Pinguee/cargo-not">GitHub</a>
+    <div>
+      <img src="img/logo_ICube.png" width="140px" height="auto">
+      <img src="img/Signature_Universite_Strasbourg_Unistra2_Blanc.png" width="140px" height="auto">
+    </div>
   </footer>
 
   <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>

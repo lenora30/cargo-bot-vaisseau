@@ -83,7 +83,7 @@ header{
     border-top-right-radius: 5px;
     width: 60%;
     margin: auto;
-    margin-top: 2%;
+    margin-top: 40px;
     padding: 2%;
     text-align: justify;
 }
@@ -97,7 +97,17 @@ header{
     width: 60%;
     margin: auto;
     padding: 2%;
+    padding-top: 0px;
     text-align: justify;
+}
+
+#between-content {
+    width: 60%;
+    margin: auto;
+    padding: 2%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #eeeeee;
 }
 
 #content {
@@ -120,7 +130,6 @@ header{
     display: flex;
     flex-direction: column;
     align-items: center;
-    
     padding: 10px;
     width: 600px;
 }
@@ -142,6 +151,18 @@ header{
     flex-direction: row;
     align-items: center;
     margin: 5px;
+}
+
+#ayuda {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    align-items: center;
+}
+
+#ayuda img {
+    margin: 10px;
+    
 }
 
 .open .carotte img{
@@ -262,7 +283,7 @@ header{
     margin: 10px;
 }
 
-#executer > div {
+#executer {
     display: flex;
     flex-direction: column;
 }
@@ -366,7 +387,6 @@ a {
     text-decoration: none;
     color: var(--sec-color)
 }
-
 
 @media screen and (max-width: 800px) {
     #box{

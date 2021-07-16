@@ -33,9 +33,7 @@
         <h2>Quel est le principe de ce jeu ?</h2>
         Le Cargo-Bot Tangible est un jeu conçu pour apprendre les bases de l'algorithmique et de la programmation.
         Un robot virtuel déplace des blocs de couleur entre une disposition de départ et un but. Le principe du jeu
-        d'écrire un programme sur une grille physique, tangible qui sera transmis pour commander le robot virtuel.
-
-
+        d'écrire un programme sur une grille physique, tangible, qui sera transmis pour commander le robot virtuel.
       </div>
     </div>
 
@@ -55,12 +53,10 @@
             <div id="carte">
               <img id="carte_niveau" class="exemple" src="img/niveau.svg">
               Ou bien à l'air d'une carte de niveau à placer sur la grille de programmation.
-
             </div>
 
-
-            Vous pouvez voir la disposition de départ des blocs dans la partie exécution du programme
-            et la disposition finale à atteindre dans la partie but.
+            Vous pouvez voir la disposition de départ des blocs dans la partie «exécution du programme»
+            et la disposition finale à atteindre dans la partie «but».
             <img class="exemple" src="img/but_arrivee.png">
             Vous pouvez maintenant écrire votre programme en plaçant les cartes d'instructions sur la grille.
             <a href="#savoir_regles">En savoir plus sur les règles de programmation.</a>
@@ -78,7 +74,7 @@
             <div>
               <img src="style/img/cam.svg">
               <div>
-                Prendre une photo à l'aide une webcam grâce à une caméra brancher à l'ordinateur.
+                Prendre une photo à l'aide une webcam.
               </div>
             </div>
 
@@ -92,12 +88,12 @@
             <div>
               <img src="style/img/phone.svg">
               <div>
-                Prendre une photo à l'aide un téléphone, connecté à l'ordinateur grâce à un QR Code.
+                Prendre une photo à l'aide d'un téléphone, connecté à l'ordinateur grâce à un QR Code.
               </div>
             </div>
             <div>
               <img src="img/tchek.png">
-              Quand toutes les instructions sont détéctées cliquez sur le bouton vert pour transmettre le programme.
+              Quand toutes les instructions sont détéctées, cliquez sur le bouton vert pour transmettre le programme.
             </div>
             Pour assurer une bonne détéction, prendre la photo bien en face de la feuille, éviter les flashs et les
             ombres.<br>
@@ -110,11 +106,16 @@
             3<br>Exécuter le programme
           </h3>
           <div id="executer">
-            Commander le robot en exécutant votre programme à l'aide des boutons de lecture et des réglages de vitesse.
-            Une aide est disponible si vous ne parvenez pas à résoudre le niveau.
+            Commander le robot en exécutant votre programme à l'aide des boutons de lecture et du régle de vitesse.
+
             <div id="command_execution">
               <img class="exemple" src="img/touches.png">
             </div>
+            <div id="ayuda">
+              <img src="img/aide.png" width="40px" height="auto">
+              Une aide est disponible si vous ne parvenez pas à résoudre le niveau.
+            </div>
+
             <div id="save">
               Vous avez la possibilité de sauvegarder des programmes, tant que la page web reste ouverte :
               <div>
@@ -126,7 +127,7 @@
               <div>
                 <img src="style/img/load.svg">
                 <div>
-                  Charger un programme enregistré.
+                  Charger un programme sauvegardé.
                 </div>
               </div>
             </div>
@@ -135,6 +136,8 @@
       </div>
     </div>
 
+    <div id="between-content"></div>
+
     <div>
       <div class="close">
         <h2 id="savoir_regles" class="title">Comment écrire un programme ?</h2>
@@ -142,7 +145,7 @@
         <div class="bloc">
           L'écriture d'un programme se fait en remplissant la grille avec des cartes d'instructions.
           Le remplissage se fait en partant de la gauche et sans laisser de case vide.
-          Le robot commencera par exécuter P0.
+          Le robot commencera par exécuter le programme P0.
           Il existe trois types d'instructions :
           <div class="grp_parties" id="part">
             <div id="deplacement" class="explications">
@@ -166,14 +169,14 @@
                 <img src="img/instruction/109.svg" width="40px" height="40px">
                 <div>
                   Descendre et remonter la pince du robot. S'il y a un bloc dans la pince, il est déposé,
-                  sinon il prend le bloc situé en dessous.
+                  sinon la pince prend le bloc situé en dessous.
                 </div>
               </div>
 
             </div>
 
             <div id="appel_fonction" class="explications">
-              <h3>2 - Appel de programme/procédure</h3>
+              <h3>2 - Appel de programme / procédure</h3>
 
               <div>
                 <img src="img/instruction/117.svg" width="40px" height="40px">
@@ -181,7 +184,6 @@
                   Il existe quatre programmes (P0, P1, P2, P3), qui peuvent être apellés les uns par les autres.
                   Quand un programme est appelé, il s'exécute entièrement, puis le programme qui a fait l'appel continue
                   de s'exécuter.
-
                 </div>
               </div>
 
@@ -208,20 +210,19 @@
                 <img src="img/instruction/167.svg" width="40px" height="40px">
                 <div>
                   La commande ne sera exécutée si la pince contient un bloc jaune (ou bleu, rouge, vert, selon la carte
-                  choisis).
+                  choisie).
                 </div>
               </div>
-
-
-
             </div>
           </div>
         </div>
       </div>
     </div>
 
+    <div id="between-content"></div>
+
     <div class="close">
-      <h2 class="title">Comment préparer le matériel ?</h2>
+      <h2 id="end" class="title">Comment préparer le matériel ?</h2>
       <div id="materiel" class="bloc">
         <div id="blabla">
           Il vous faut :
@@ -246,29 +247,31 @@
       </div>
     </div>
 
+    <div id="end-content"></div>
+
     <div id="content">
       <h2 id="genese">A propos du projet</h2>
       <div>
-        Ce projet a été réalisé dans le cadre d'un stage au laboratoire <a href="https://icube.unistra.fr/">ICube</a> de
-        Strasbourg encadré par Basile
-        Sauvage, Julien Narboux et Gaëlle Thomas. Nous avons travaillé sur le thème de la programmation tangible,
-        c'est-à-dire la programmation sans ordinateur.
-        Notre motivation première était de proposer un dispositif accessible à tous et pouvant être utilisé
-        dans le cadre d'un cours. Nous avons particulièrement pensé à certains collèges qui n'ont pas assez
-        d'ordinateurs. Avec notre dispositif, le matériel informatique nécessaire est seulement composé d'un
-        ordinateur central, pour lancer le programme, ainsi qu'un téléphone, que tout le monde a aujourd'hui,
+
+        Ce projet a été réalisé dans le cadre d'un stage à l'université de Strasbourg,
+        encadré par Julien Narboux et Basile Sauvage, en collaboration avec l'IREM de Strasbourg.
+        La programmation tangible se fait à l'aide d'objet physique à la place des habituels
+        programmes numériques.
+        La motivation première est de proposé un dispositif accéssible à tous et facile à déployer en classe.
+        Avec notre dispositif, le matériel informatique nécessaire est seulement composé d'un
+        ordinateur central, pour lancer le programme, ainsi qu'un téléphone ou une webcam
         pour réaliser des photos.
         <h2 id="credit">Crédits</h2>
         Le Cargo-Bot est un jeu de Rui Viana, trademark of Two Lives Left (<a
           href="https://twolivesleft.com/CargoBot/">Cargo-Bot</a>).<br>
-        L'adaptation en Javascript par Joe Tessler (<a href="https://github.com/jtessler/cargo-not">GitHub</a>).<br>
-        Des niveaux supplémentaires ont été tirés du <a href="http://www-verimag.imag.fr/~wack/CargoBot/">site de
+        L'adaptation en Javascript a été réaliser par Joe Tessler (<a
+          href="https://github.com/jtessler/cargo-not">GitHub</a>).<br>
+        Des niveaux supplémentaires sont tirés du <a href="http://www-verimag.imag.fr/~wack/CargoBot/">site de
           Benjamin Wack</a>.<br>
-        Utilisation de la librairie TopCodes réalisée par TIDAL-Lab (<a
+        La librairie TopCodes est réalisée par TIDAL-Lab (<a
           href="https://github.com/TIDAL-Lab/TopCodes">GitHub</a>).<br>
-        Modifications pour la création de cette version tangible par Benjamin Gliech et Salwa El Fatini (<a
+        Modifications pour la création de cette version tangible par Salwa El Fatini et Benjamin Gliech (<a
           href="https://github.com/Pinguee/cargo-bot-tangible">GitHub</a>).<br>
-        Merci au laboratoire ICube, l'université de Strasbourg ainsi que l'IREM de Strasbourg pour leur contribution.
       </div>
     </div>
   </div>
@@ -277,11 +280,10 @@
     <a href="index.html#credit">Crédits</a>
     |
     <a href="https://github.com/Pinguee/cargo-bot-tangible">GitHub</a>
-    <div>
+    <div id="logos">
       <img src="img/logoUnistra-07.svg" height="50px" width="auto">
       <img src="img/irem.jpg" height="50px" width="auto">
       <img src="img/logo_ICube.png" height="50px" width="auto">
-
     </div>
   </footer>
 

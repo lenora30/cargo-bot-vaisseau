@@ -21,6 +21,14 @@ header{
     transform: scale(1.1);
 }
 
+.title {
+    cursor: pointer;
+}
+
+.title:hover {
+    color: var(--sec-color);
+}
+
 #ban {
     padding: 0;
     margin: 0;
@@ -102,7 +110,7 @@ header{
     text-align: justify;
 }
 
-#materiel {
+.open #materiel {
     display: flex;
     flex-direction: row;
     /* justify-content: center; */
@@ -117,7 +125,50 @@ header{
     width: 600px;
 }
 
-#regles {
+.open .carotte {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px;
+}
+
+#bon {
+    display: flex;
+    justify-items: center;
+}
+
+#carte {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 5px;
+}
+
+.open .carotte img{
+    margin: 10px;
+}
+
+.open .explications {
+    width: 30%;
+    margin: 10px;
+}
+
+.open .bloc {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 1%;
+}
+
+.open #part {
+    
+}
+
+.close .bloc{
+    display: none;
+}
+
+.open {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -132,12 +183,26 @@ header{
     box-shadow: 0 0 5px rgb(0, 0, 0);
 }
 
-#etapes {
+.open #etapes {
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+.close h2 {
+    background-color: #eeeeee;
+    width: 60%;
+    margin: auto;
+    padding: 2%;
+}
+
+.bloc {
+    transition: all 2s;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-content: flex-start;
-    padding-bottom: 1%;
+    
 }
 
 #executer {
@@ -145,8 +210,17 @@ header{
     flex-direction: column;
 }
 
-#etapes > div {
-    width: 30%;
+.grp_parties {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+.parties {
+    display: flex;
+
 }
 
 #regles h3 {
@@ -206,6 +280,15 @@ header{
     align-items: center;
     width: 200px;
 }
+
+.etape {
+    width: 30%;
+}
+
+/* #etapes {
+    display: flex;
+    flex-direction: row;
+} */
 
 #etapes img {
     border-radius: 5px;

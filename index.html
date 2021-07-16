@@ -3,6 +3,11 @@
 
 <head>
   <title>Cargo-Bot Tangible</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Apprenez les bases de l'algorithmique et de la programmation">
+  <meta name="keywords" content="programmation, tangible, algorithmique, Cargo-Bot, Cargo-not, apprentissage, éducation, robot, jeu, physique, programmer, apprendre, école, collège, lycée, primaire, algorithme">
+  <meta name="author" content="Benjamin Gliech, Salwa El Fatini">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style/style.css">
   <link rel="stylesheet" href="style/indexStyle.css">
 </head>
@@ -15,12 +20,12 @@
 
 
     <div id="debut">
-      <!--<img src="fond3.png">-->
       <div id="box">
         <h2 id="ban">Apprenez les bases de l'algorithmique et de la programmation</h2>
         <button id="play" onclick="window.location.href = 'main.html';">JOUER</button>
       </div>
     </div>
+
 
     <div id="begin-content">
       <div>
@@ -30,10 +35,8 @@
         En partant d'une disposition de départ de différents blocs de couleurs, il faut créer un programme
         sur une grille physique qui sera transmit à l'ordinateur résoudre le niveau choisit.
       </div>
-
-
-
     </div>
+
 
     <div id="regles">
 
@@ -44,10 +47,14 @@
             1<br>Ecrire un programme
           </h3>
           <div id="etape1">
-            Commencez par choisir le niveau que vous voulez réaliser dans le sélecteur de niveau. Trouver le nom
-            correspondant à ce niveau dans les cartes de niveaux.
+            Commencez par choisir le niveau que vous voulez réaliser dans le sélecteur de niveau.
+            <img class="exemple" src="img/selecteur_niveau.png">
+            Vous pouvez voir la disposition de départ des blocs dans la partie exécution du programme
+            et la disposition finale à atteindre dans la partie but.
+            <img class="exemple" src="img/but_arrivee.png">
+            Trouver le nom correspondant à ce niveau dans les cartes de niveaux.
             <img id="carte_niveau" class="exemple" src="img/niveau.svg">
-            Cette carte devra être placer sur la grille physique à l'emplacement prévu à cet effet.
+            Cette carte devra être placée sur la grille physique à l'emplacement prévu à cet effet.
             Vous pouvez maintenant faire votre programme sur votre grille grâce aux blocs d'instructions.
             <a href="#savoir_regles">En savoir plus sur les règles.</a>
           </div>
@@ -83,7 +90,7 @@
               </div>
             </div>
 
-            Un fois que vous remarquez que toutes les instructions sont détectées, comme sur la photo ci-dessous,
+            Une fois que vous remarquez que toutes les instructions sont détectées, comme sur la photo ci-dessous,
             vous pouvez valider la photo en appuyant sur le bouton vert en bas à droite de l'écran.
             <img class="exemple" src="img/transferer.png">
           </div>
@@ -109,7 +116,7 @@
               <div>
                 <img src="style/img/load.svg">
                 <div>
-                  Cette icône vous permettra de les programmes enregistrés.
+                  Cette icône vous permettra de charger des programmes enregistrés.
                 </div>
               </div>
             </div>
@@ -121,6 +128,9 @@
     <div id="end-content">
       <div>
         <h2 id="savoir_regles">Comment écrire un programme ?</h2>
+        L'écriture d'un programme se fait sur une grille imprimée et grâce aux différents blocs d'instructions, comme dans 
+        l'exemple ci-dessous. 
+        N'oubliez pas de placer une carte de niveau dans la partie "Sélection du niveau" en bas à droite de la grille. 
         Votre programme doit commencer en P0 et à la première case de gauche. Faites attention à ne pas laisser
         de case vide au milieu de vos programmes.
         <div id="deplacement" class="explications">
@@ -143,8 +153,8 @@
           <div>
             <img src="img/instruction/109.svg" width="40px" height="40px">
             <div>
-              Cette instruction fait descendre le robot. Il dépose un bloc, si il en a un dans la pince,
-              sinon il prend le bloc situé en-dessous.
+              Cette instruction fait descendre le robot. Il dépose un bloc, s'il en a un dans la pince,
+              sinon il prend le bloc situé en dessous.
             </div>
           </div>
 
@@ -170,11 +180,12 @@
           <h3>3 - Conditions</h3>
           Ces petites cartes ne sont pas des commandes mais des conditions qui s'appliquent sur celles-ci.
           Il faut les positionner dans les petites cases au-dessus des commandes auxquelles on veut l'appliquer.
-          Si la condition est vrai alors la commande sera réalisée.
+          Si la condition est vraie alors la commande sera réalisée.
           <div>
             <img src="img/instruction/157.svg" width="40px" height="40px">
             <div>
-              Dans le cas de la condition de gauche, si le robot n'a pas de bloc dans la pince alors la commande est réalisée.
+              Dans le cas de la condition de gauche, si le robot n'a pas de bloc dans la pince alors la commande est
+              réalisée.
             </div>
           </div>
 
@@ -207,7 +218,7 @@
             d’une caméra. Enfin, il vous faudra une grille de jeu, où devra être placer votre programme, ainsi que les
             cartes
             de niveaux et d’instructions qui vont avec.
-            <br><button class="button" onclick="document.getElementById('pdf').contentWindow.print();">Imprimer le
+            <br><button class="button" onclick="window.open('tangible-grids/PDF/CargoTangible.pdf')">Ouvrir le
               pdf</button>
           </div>
           <div id="print">
@@ -221,7 +232,7 @@
     <div id="content">
       <h2 id="genese">A propos du projet</h2>
       <div>
-        Ce projet a été réalisé dans le cadre d'un stage au laboratoire ICube de Strasbourg encadré par Basile
+        Ce projet a été réalisé dans le cadre d'un stage au laboratoire <a href="https://icube.unistra.fr/">ICube</a> de Strasbourg encadré par Basile
         Sauvage, Julien Narboux et Gaëlle Thomas. Nous avons travaillé sur le thème de la programmation tangible,
         c'est-à-dire la programmation sans ordinateur.
         Notre motivation première était de proposer un dispositif accessible à tous et pouvant être utilisé
@@ -229,24 +240,29 @@
         d'ordinateurs. Avec notre dispositif, le matériel informatique nécessaire est seulement composé d'un
         ordinateur central, pour lancer le programme, ainsi qu'un téléphone, que tout le monde a aujourd'hui,
         pour réaliser des photos.
-        <h2>Crédits</h2>
+        <h2 id="credit">Crédits</h2>
         Le Cargo-Bot est un jeu de Rui Viana, trademark of Two Lives Left (<a
           href="https://twolivesleft.com/CargoBot/">Cargo-Bot</a>).<br>
         L'adaptation en Javascript par Joe Tessler (<a href="https://github.com/jtessler/cargo-not">GitHub</a>).<br>
-        Des niveaux supplémentaires ont été tirés du <a href="http://www-verimag.imag.fr/~wack/CargoBot/">site du
+        Des niveaux supplémentaires ont été tirés du <a href="http://www-verimag.imag.fr/~wack/CargoBot/">site de
           Benjamin Wack</a>.<br>
         Utilisation de la librairie TopCodes réalisée par TIDAL-Lab (<a
           href="https://github.com/TIDAL-Lab/TopCodes">GitHub</a>).<br>
         Modifications pour la création de cette version tangible par Benjamin Gliech et Salwa El Fatini (<a
           href="https://github.com/Pinguee/cargo-bot-tangible">GitHub</a>).<br>
+        Merci au laboratoire ICube, l'université de Strasbourg ainsi que l'IREM de Strasbourg pour leur contribution.
       </div>
     </div>
   </div>
   <footer>
     <div>2021 | Benjamin Gliech & Salwa El Fatini</div>
-    <a href="credit.html">Crédits</a>
+    <a href="index.html#credit">Crédits</a>
     |
     <a href="https://github.com/Pinguee/cargo-bot-tangible">GitHub</a>
+    <div>
+      <img src="img/logo_ICube.png" width="140px" height="auto">
+      <img src="img/Signature_Universite_Strasbourg_Unistra2_Blanc.png" width="140px" height="auto">
+    </div>
   </footer>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

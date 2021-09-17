@@ -54,7 +54,7 @@ cn.ui.GameUi = function(game, opt_domHelper) {
             this.goalCanvas, 'BUT', opt_domHelper)
       ],
       null, opt_domHelper), true);
-  this.addChild(new cn.ui.ClassContainer(cn.constants.ANIMATED_GAME_CANVAS_CLASS_NAME, this.animatedCanvas, 'ÉXÉCUTION DU PROGRAMME', opt_domHelper), true);
+  this.addChild(new cn.ui.ClassContainer(cn.constants.ANIMATED_GAME_CANVAS_CLASS_NAME, this.animatedCanvas, 'ÉXECUTION DU PROGRAMME', opt_domHelper), true);
   this.addChild(this.controls, true);
   this.addChild(this.programEditor, true);
   this.addChild(this.hintButton, true);

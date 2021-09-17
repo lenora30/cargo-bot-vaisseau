@@ -127,7 +127,7 @@ function checkCorner(topcodes) {
   }
 
   if (top_right === null || top_left === null || bottom_left === null || bottom_right === null) {
-    alert("Les quatres coins n'ont pas été détecté");
+    alert("Les quatre coins n'ont pas été détectés");
     return false;
   } else {
     return true;

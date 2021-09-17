@@ -506,8 +506,8 @@ cn.LevelData.levels = {
     [[], [], [], [], ['blue', 'blue', 'blue', 'blue'],
     ['blue', 'blue', 'blue', 'blue'], ['blue', 'blue', 'blue', 'blue']],
     'Pour une solution compact, déplacez chaque pile de 3 emplacements vers la droite et ' +
-    'répétez. Cette solution peut être implémenter 10 registres.\n\nLa ' +
-    'plus courte solution utilise 9 registres (Avec un approche ' +
+    'répétez. Cette solution peut être implémentée en 10 registres.\n\nLa ' +
+    'plus courte solution utilise 9 registres (Avec une approche ' +
     'très spécifique à cette configuration)'
   ),
   'Inverseur répété': new cn.LevelData(
@@ -522,7 +522,7 @@ cn.LevelData.levels = {
     [[], ['blue', 'green', 'red', 'yellow'], [],
     ['blue', 'green', 'red', 'yellow'], [],
     ['blue', 'green', 'red', 'yellow']],
-    'Ce niveau peut être réaliser en 5 registres avec une utilisation intelligente ' +
+    'Ce niveau peut être réalisé en 5 registres avec une utilisation intelligente ' +
     'des conditions.'
   ),
   'Double tri': new cn.LevelData(
@@ -643,7 +643,7 @@ cn.LevelData.levels = {
     [[], ['red'], ['green'], ['red'], ['green'], ['green'], ['red'],
     ['green']],
     'Déplacer la pile entière d\'un emplacement vers la droite ' +
-    'et ramnenez une caisser vers la gauche sauf dans la première ' +
+    'et ramnenez une caisse vers la gauche sauf dans la première ' +
     'itération.\n\nLa plus courte solution utilise 11 registres.'
   ),
   'Compter les bleus': new cn.LevelData(
@@ -709,10 +709,10 @@ cn.LevelData.levels = {
     [['green'], ['green', 'green', 'green', 'green'], [], ['red', 'red'],
     ['blue'], ['blue', 'blue'], [],
     ['yellow', 'yellow', 'yellow', 'yellow']],
-    'Si la pile à un nombre impair de blocs, laissez-en une derrière, ' +
-    'sinon déplacez les toutes. Utilisez une séquence de mouvements qui s\'annule ' +
+    'Si la pile a un nombre impair de blocs, laissez-en un derrière, ' +
+    'sinon déplacez les tous. Utilisez une séquence de mouvements qui s\'annule ' +
     'toute seule lorsqu\'elle est répétée pour déplacer les blocs à droite, et ' +
-    'exécutez un nombre pair de fois.\n\nLa plus courte solution utilise 10 registres.'
+    's\'éxecute un nombre pair de fois.\n\nLa plus courte solution utilise 10 registres.'
   ),
   'Code génétique': new cn.LevelData(
     1,
@@ -741,7 +741,7 @@ cn.LevelData.levels = {
     ['green', 'green', 'green', 'green'], [],
     ['yellow', 'yellow', 'yellow', 'yellow']],
     'Passez en revue chaque pile et soit vous ramassez si vous êtes au dessus ' +
-    'un emplacement pair ou déposez sur la couleur correspondant si ' +
+    'd\'un emplacement pair soit vous déposez sur la couleur correspondant si ' +
     'vous êtes au dessus d\'un emplacement impair.\n\nLa plus courte solution utilise 17 registres.'
   ),
   'L\'échange': new cn.LevelData(
@@ -782,7 +782,7 @@ cn.LevelData.levels = {
     [['red', 'red', 'red'], ['red'], [], ['green', 'green', 'green'],
     ['red', 'red'], ['red', 'red', 'red', 'red'], ['green'],
     ['green', 'green', 'green', 'green']],
-    'Échangez chaque pair de piles. D\'abord, déplacez la pile de gauche ' +
+    'Échangez chaque paire de piles. D\'abord, déplacez la pile de gauche ' +
     'vers la droite, empilez la pile. Ensuite, déplacez tout les blkocs sur l\'emplacement de gauche. ' +
     'Enfin, dépilez la pile en déplacant un bloc vers la droite à chaque fois ' +
     '\n\nLa plus courte solution utilise 17 registres.'
@@ -825,7 +825,7 @@ cn.LevelData.levels = {
     [['red', 'red', 'red'], ['red'], ['red', 'red', 'red', 'red', 'red'], [],
     ['red', 'red'], ['red', 'red', 'red', 'red'], ['red', 'red', 'red'],
     ['red']],
-    'Comme dans Changer de place, échanger les piles. Faire ceci pour chaque pair ' +
+    'Comme dans Changer de place, échanger les piles. Faire ceci pour chaque paire ' +
     'de piles consécutives et c\'est bon.\n\nLa plus courte solution' +
     'utilise 16 registres.'
   ),

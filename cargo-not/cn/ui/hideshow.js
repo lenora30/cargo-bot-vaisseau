@@ -57,7 +57,7 @@ goog.inherits(cn.ui.HSGoal, goog.ui.Button);
  */
 cn.ui.HSLevels.prototype.enterDocument = function () {
   goog.base(this, 'enterDocument');
-  goog.dom.classlist.set(
+  goog.dom.classes.set(
     this.getElement(), cn.constants.HSLEVELS_CLASS_NAME);
 
   var LevelSelector;
@@ -88,7 +88,7 @@ cn.ui.HSLevels.prototype.enterDocument = function () {
 */
 cn.ui.HSGoal.prototype.enterDocument = function () {
   goog.base(this, 'enterDocument');
-  goog.dom.classlist.set(
+  goog.dom.classes.set(
     this.getElement(), cn.constants.HSGOAL_CLASS_NAME);
 
   var goalCanvas;

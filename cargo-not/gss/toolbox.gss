@@ -60,7 +60,7 @@
   background-size: 9.5%;
   position: fixed;
   left: 391px;
-  top: 22px;
+  top: 18px;
   background-color: transparent;
   background-repeat: no-repeat;
   cursor: pointer; 
@@ -80,7 +80,7 @@
   background-size: 18%;
   position: fixed;
   left: 459px;
-  top: 231px;
+  top: 227px;
   background-color: transparent;
   background-repeat: no-repeat; 
   cursor: pointer;

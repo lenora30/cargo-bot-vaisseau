@@ -274,11 +274,12 @@ cn.controller.loadLevel = function(game, ui, name, levelData) {
 /**
  * @param {!cn.model.Game} game The current game.
  * @param {!cn.ui.GameUi} ui A pointer to the UI.
- */
+*/
 cn.controller.showHint = function(game, ui) {
   // TODO(joseph): Use a better UI for alerts.
   alert(game.levelData.hint);
 };
+
 
 cn.controller.scan = function (game, ui) {
   if (window.location.hash != "") {

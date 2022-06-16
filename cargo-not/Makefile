@@ -16,7 +16,7 @@ CC_PATH = closure/compiler
 CC_JAR = $(CC_PATH)/compiler.jar
 
 # Closure closurebuilder.py arguments.
-CC = python $(LIB_PATH)/closure/bin/build/closurebuilder.py \
+CC = python3 $(LIB_PATH)/closure/bin/build/closurebuilder.py \
 		--root $(LIB_PATH) \
 		--root $(PROJECT)/ \
 		--namespace "$(PROJECT)" \
@@ -68,7 +68,7 @@ clean:
 	rm -f $(JS_OUTPUT) $(CSS_OUTPUT) $(JS_MAP_OUTPUT) $(INDEX_OUTPUT)
 
 server:
-	python -m SimpleHTTPServer
+	python3 -m SimpleHTTPServer
 
 closure: closure-library closure-compiler closure-stylesheets
 

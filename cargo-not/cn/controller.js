@@ -33,9 +33,9 @@ cn.controller.init = function() {
 cn.controller.play = function(game, ui) {
   if (game.level.equals(game.goal)) {
     // TODO(joseph): Handle winning differently.
-    var stars = game.getStars();
-    game.log.record('won ' + stars + ' stars');
-    alert('Le but est atteint !\nCompacité du programme : ' + (stars + 1) + '/4');
+    //var stars = game.getStars();
+    //game.log.record('won ' + stars + ' stars');
+    alert('Le but est atteint !\n');
     return;
   }
   var command = game.program.next(game.bot);
@@ -274,12 +274,12 @@ cn.controller.loadLevel = function(game, ui, name, levelData) {
 /**
  * @param {!cn.model.Game} game The current game.
  * @param {!cn.ui.GameUi} ui A pointer to the UI.
-*/
+
 cn.controller.showHint = function(game, ui) {
   // TODO(joseph): Use a better UI for alerts.
   alert(game.levelData.hint);
 };
-
+*/
 
 cn.controller.scan = function (game, ui) {
   if (window.location.hash != "") {

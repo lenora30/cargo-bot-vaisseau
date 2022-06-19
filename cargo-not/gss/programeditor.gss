@@ -1,6 +1,7 @@
 .cn-program-editor {
   display: inline-block;
   margin-top: 15px;
+  width: 490px;
 }
 
 .cn-register {

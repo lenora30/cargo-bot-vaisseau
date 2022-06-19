@@ -58,7 +58,8 @@ cn.constants.LEVEL_HEIGHT = 10;
 
 
 /** @type {string} @const */
-cn.constants.LEVEL_COLOR = cn.constants.BOT_COLOR;
+cn.constants.LEVEL_COLOR = '#a600ff';
+//cn.constants.LEVEL_COLOR = cn.constants.BOT_COLOR;
 
 
 /** @type {number} @const */

@@ -76,7 +76,7 @@ cn.model.Game.prototype.id;
 
 /**
  * Sets up the game models' positions.
- */
+*/
 cn.model.Game.prototype.setupModelPositions = function() {
   var consts = cn.constants;
   this.level.setPosition(
@@ -86,6 +86,7 @@ cn.model.Game.prototype.setupModelPositions = function() {
       this.level.stacks[this.bot.position].getX(),
       consts.GAME_MARGIN + Math.floor(this.bot.height / 2));
 };
+
 
 
 /**

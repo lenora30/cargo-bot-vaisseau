@@ -72,7 +72,7 @@ cn.LevelData.mapStacks_ = function (colors) {
  * @const
  */
 cn.LevelData.levelpacks = {
-  'Tutorial 1': [
+  'Tutorial': [
     'Défi A',
     'Défi B',
     'Défi C'

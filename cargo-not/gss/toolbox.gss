@@ -1,6 +1,6 @@
 .cn-toolbox-container {
   display: inline-block;
-  margin-top: 15px;
+  margin-top: 25px;
 }
 
 .cn-full-toolbox {
@@ -80,7 +80,7 @@
   background-size: 18%;
   position: fixed;
   left: 459px;
-  top: 227px;
+  top: 165px;
   background-color: transparent;
   background-repeat: no-repeat; 
   cursor: pointer;

@@ -71,12 +71,12 @@ cn.ui.HSLevels.prototype.enterDocument = function () {
       goog.style.setElementShown(LevelSelector, false);
       show = false;
       goog.style.setTransparentBackgroundImage(this.getElement(), 'png/showMore.png');
-      goog.dom.getElementByClass(cn.constants.HSGOAL_CLASS_NAME).style.top = "52px";
+      goog.dom.getElementByClass(cn.constants.HSGOAL_CLASS_NAME).style.top = "48px";
     } else {
       goog.style.setElementShown(LevelSelector, true);
       show = true;
       goog.style.setTransparentBackgroundImage(this.getElement(), 'png/showLess.png');
-      goog.dom.getElementByClass(cn.constants.HSGOAL_CLASS_NAME).style.top = "231px";
+      goog.dom.getElementByClass(cn.constants.HSGOAL_CLASS_NAME).style.top = "175px";
     }
 
   });

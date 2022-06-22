@@ -74,9 +74,9 @@ cn.model.Instruction.prototype.passesCondition = function(bot) {
     case cond.NONE: return !bot.hasCargo();
     case cond.ANY: return bot.hasCargo();
     case cond.RED: return bot.hasCargo(col.RED);
-    case cond.GREEN: return bot.hasCargo(col.GREEN);
+    //case cond.GREEN: return bot.hasCargo(col.GREEN);
     case cond.BLUE: return bot.hasCargo(col.BLUE);
-    case cond.YELLOW: return bot.hasCargo(col.YELLOW);
+    //case cond.YELLOW: return bot.hasCargo(col.YELLOW);
   }
   return true;
 };

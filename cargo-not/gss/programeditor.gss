@@ -8,7 +8,7 @@
   float: left;
   margin: 2px;
   width: 50px;
-  height: 70px;
+  height: 50px;
 }
 
 @defmixin function-register(URL) {
@@ -16,10 +16,10 @@
   background-image: url(URL);
   margin-right: 5px;
 }
-.cn-register-f0 { @mixin function-register('png/f0_large.png'); }
-.cn-register-f1 { @mixin function-register('png/f1_large.png'); }
-.cn-register-f2 { @mixin function-register('png/f2_large.png'); }
-.cn-register-f3 { @mixin function-register('png/f3_large.png'); }
+.cn-register-f0 { @mixin function-register('png/f0.png'); }
+.cn-register-f1 { @mixin function-register('png/f1.png'); }
+.cn-register-f2 { @mixin function-register('png/f2.png'); }
+.cn-register-f3 { @mixin function-register('png/f3.png'); }
 
 .cn-command-register .cn-command,
 .cn-condition-register .cn-condition {
@@ -31,5 +31,5 @@
   background-size: 100%;
   background-image: url(URL);
 }
-.cn-condition-register { @mixin register('png/drag_top.png', 20px); }
+/*.cn-condition-register { @mixin register('png/drag_top.png', 20px); }*/
 .cn-command-register   { @mixin register('png/drag_bottom.png', 50px); }

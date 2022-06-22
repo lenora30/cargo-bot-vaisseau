@@ -121,9 +121,9 @@ cn.model.Game.prototype.loadLevel = function(levelData) {
   // loading, so it's not called in the reset method.
   var consts = cn.constants;
   this.goal.setPosition(
-      Math.floor((this.width - this.level.width) / 2),
+      Math.floor((this.width - (this.level.width)) / 2),
       consts.GOAL_HEIGHT * 2 - this.level.height - consts.GOAL_MARGIN);
-  this.goal.scale(0.6667);
+  this.goal.scale(0.5);
 
   this.reset();
 };

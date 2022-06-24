@@ -142,12 +142,16 @@ cn.constants.GOAL_CLASS_NAME = goog.getCssName('cn-goal');
  */
 cn.constants.COMMAND_CLASS_NAMES = {
   LEFT: goog.getCssName('cn-command-left'),
+  LLEFT: goog.getCssName('cn-command-lleft'),
   RIGHT: goog.getCssName('cn-command-right'),
+  RRIGHT: goog.getCssName('cn-command-rright'),
+  PIOCHE_B: goog.getCssName('cn-command-pioche_b'),
+  PIOCHE_R: goog.getCssName('cn-command-pioche_r'),
   DOWN: goog.getCssName('cn-command-down'),
   F0: goog.getCssName('cn-command-f0'),
   F1: goog.getCssName('cn-command-f1'),
-  F2: goog.getCssName('cn-command-f2'),
-  F3: goog.getCssName('cn-command-f3')
+  //F2: goog.getCssName('cn-command-f2'),
+  //F3: goog.getCssName('cn-command-f3')
 };
 
 

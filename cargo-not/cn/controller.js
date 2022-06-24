@@ -46,16 +46,28 @@ cn.controller.play = function(game, ui) {
       case cn.model.Command.LEFT:
         cn.controller.moveLeft(game, ui);
         break;
+      case cn.model.Command.LLEFT:
+        cn.controller.moveLLeft(game, ui);
+        break;
       case cn.model.Command.RIGHT:
         cn.controller.moveRight(game, ui);
         break;
-      case cn.model.Command.DOWN:
-        cn.controller.moveDown(game, ui);
+      case cn.model.Command.RRIGHT:
+        cn.controller.moveRRight(game, ui);
         break;
-      case cn.model.Command.F0:
+      case cn.model.Command.PIOCHE_B:
+        cn.controller.movePioche_b(game, ui);
+        break;
+      case cn.model.Command.PIOCHE_R:
+        cn.controller.movePioche_r(game, ui);
+        break;
+      case cn.model.Command.DOWN:
+        cn.controller.movePoser(game, ui);
+        break;
+      //case cn.model.Command.F0:
       case cn.model.Command.F1:
-      case cn.model.Command.F2:
-      case cn.model.Command.F3:
+      //case cn.model.Command.F2:
+      //case cn.model.Command.F3:
         cn.controller.play(game, ui);
         break;
       default:
@@ -104,6 +116,27 @@ cn.controller.moveLeft = function(game, ui) {
       });
 };
 
+/**
+ * @param {!cn.model.Game} game The current game.
+ * @param {!cn.ui.GameUi} ui A pointer to the UI.
+ */
+cn.controller.moveLLeft = function(game, ui) {
+  if (game.bot.position == 0 || game.bot.position == 1) {
+    // TODO(joseph): Add a cleaner error notification.
+    alert('Une instruction est impossible à réaliser :\nLe robot ne peut pas aller plus à gauche');
+    return;
+  }
+  var nextStack = game.level.stacks[game.bot.position - 2];
+  ui.animatedCanvas.attachAnimation(
+      function() { return game.bot.getX() > nextStack.getX(); },
+      function() { game.bot.translate(-game.bot.speed, 0); },
+      function() {
+        game.bot.setPosition(nextStack.getX(), game.bot.getY());
+        game.bot.position-=2;
+        cn.controller.play(game, ui);
+      });
+};
+
 
 /**
  * @param {!cn.model.Game} game The current game.
@@ -117,6 +150,7 @@ cn.controller.moveRight = function(game, ui) {
   }
   var nextStack = game.level.stacks[game.bot.position + 1];
   ui.animatedCanvas.attachAnimation(
+      
       function() { return game.bot.getX() < nextStack.getX(); },
       function() { game.bot.translate(game.bot.speed, 0); },
       function() {
@@ -131,7 +165,106 @@ cn.controller.moveRight = function(game, ui) {
  * @param {!cn.model.Game} game The current game.
  * @param {!cn.ui.GameUi} ui A pointer to the UI.
  */
+cn.controller.moveRRight = function(game, ui) {
+  if (game.bot.position == game.level.stacks.length - 1 || game.bot.position == game.level.stacks.length - 2) {
+    // TODO(joseph): Add a cleaner error notification.
+    alert('Une instruction est impossible à réaliser :\nLe robot ne peut pas aller plus à droite');
+    return;
+  }
+  var nextStack = game.level.stacks[game.bot.position + 2];
+  ui.animatedCanvas.attachAnimation(
+      function() { return game.bot.getX() < nextStack.getX(); },
+      function() { game.bot.translate(game.bot.speed, 0); },
+      function() {
+        game.bot.setPosition(nextStack.getX(), game.bot.getY());
+        game.bot.position+=2;
+        cn.controller.play(game, ui);
+      });
+};
+
+/**
+ * @param {!cn.model.Game} game The current game.
+ * @param {!cn.ui.GameUi} ui A pointer to the UI.
+ */
+ cn.controller.movePioche_b = function(game, ui) {
+  var pile_b = game.level.stacks[5];
+  if (game.bot.hasCargo()) {
+    alert('Tu ne peux pas piocher avec la pince pleine');
+    return;
+  }
+  ui.animatedCanvas.attachAnimation(
+    function() { return game.bot.getX() < pile_b.getX(); },
+    function() { game.bot.translate(game.bot.speed, 0); },
+    function() {
+      game.bot.setPosition(pile_b.getX(), game.bot.getY());
+      game.bot.position=5;
+      if (pile_b.size()==0) {
+        alert('Tu ne peux pas piocher si la pioche est vide');
+        return;
+      }
+      cn.controller.moveDown(game, ui);
+    });
+};
+
+/**
+ * @param {!cn.model.Game} game The current game.
+ * @param {!cn.ui.GameUi} ui A pointer to the UI.
+ */
+ cn.controller.movePioche_r = function(game, ui) {
+  var pile_r = game.level.stacks[0];
+  if (game.bot.hasCargo()) {
+    alert('Tu ne peux pas piocher avec la pince pleine');
+    return;
+  }
+  ui.animatedCanvas.attachAnimation(
+    function() { return game.bot.getX() > pile_r.getX(); },
+    function() { game.bot.translate(-game.bot.speed, 0); },
+    function() {
+      game.bot.setPosition(pile_r.getX(), game.bot.getY());
+      game.bot.position=0;
+      if (pile_r.size()==0) {
+        alert('Tu ne peux pas piocher si la pioche est vide');
+        return;
+      }
+      cn.controller.moveDown(game, ui);
+    });
+};
+
+/**
+ * @param {!cn.model.Game} game The current game.
+ * @param {!cn.ui.GameUi} ui A pointer to the UI.
+ */
 cn.controller.moveDown = function(game, ui) {
+  var startingY = game.bot.getY();
+  var stack = game.level.stacks[game.bot.position];
+  ui.animatedCanvas.attachAnimation(
+      function() {
+        if (game.bot.hasCargo()) {
+          return game.bot.getY() < stack.getMaxY() - game.bot.height;
+        }
+        return game.bot.getInnerY() < stack.getMaxY();
+      },
+      function() { game.bot.translate(0, game.bot.speed); },
+      function() {
+        if (game.bot.hasCargo()) {
+          stack.addCargo(game.bot.detachCargo());
+        } else if (stack.size() > 0) {
+          game.bot.attachCargo(stack.liftCargo());
+        }
+        game.bot.setPosition(
+            game.bot.getX(),
+            game.bot.hasCargo() || stack.size() == 0 ?
+                stack.getMaxY() - game.bot.height :
+                stack.getMaxY() + game.bot.getY() - game.bot.getInnerY());
+        cn.controller.moveUp(game, ui, startingY);
+      });
+};
+
+/**
+ * @param {!cn.model.Game} game The current game.
+ * @param {!cn.ui.GameUi} ui A pointer to the UI.
+ */
+ cn.controller.movePoser = function(game, ui) {
   var startingY = game.bot.getY();
   var stack = game.level.stacks[game.bot.position];
   ui.animatedCanvas.attachAnimation(
@@ -145,8 +278,10 @@ cn.controller.moveDown = function(game, ui) {
       function() {
         if (game.bot.hasCargo()) {
           stack.addCargo(game.bot.detachCargo());
-        } else if (stack.size() > 0) {
-          game.bot.attachCargo(stack.liftCargo());
+        }
+        else {
+          alert('Tu ne peux pas poser si la pince est vide');
+          return;
         }
         game.bot.setPosition(
             game.bot.getX(),
@@ -202,11 +337,11 @@ cn.controller.removeCommand = function(game, f, i) {
  * @param {number} f The function to add the condition to.
  * @param {number} i The position in the function to add the condition to.
  * @param {!cn.model.Condition} condition The condition.
- */
+
 cn.controller.setCondition = function(game, f, i, condition) {
   game.log.record('set condition [' + f + '][' + i + '] to ' + condition);
   game.program.functions[f][i].condition = condition;
-};
+}; */
 
 
 /**
@@ -323,15 +458,15 @@ cn.controller.setScan = function (game, codesArray) {
       cn.controller.setCommand(game,e[1],e[2],cn.model.Command.DOWN);
       goog.style.setTransparentBackgroundImage(commands[e[1]*8+e[2]], "png/down.svg");
       break;
-    case 115:
+    /*case 115:
       cn.controller.setCommand(game,e[1],e[2],cn.model.Command.F0);
-      goog.style.setTransparentBackgroundImage(commands[e[1]*8+e[2]], "png/f0.svg");
-      break;
+      goog.style.setTransparentBackgroundImage(commands[e[1]*8+e[2]], "png/debut.svg");
+      break;*/
     case 117:
       cn.controller.setCommand(game,e[1],e[2],cn.model.Command.F1);
       goog.style.setTransparentBackgroundImage(commands[e[1]*8+e[2]], "png/f1.svg");
       break;
-    case 121:
+    /*case 121:
       cn.controller.setCommand(game,e[1],e[2],cn.model.Command.F2);
       goog.style.setTransparentBackgroundImage(commands[e[1]*8+e[2]], "png/f2.svg");
       break;
@@ -362,7 +497,14 @@ cn.controller.setScan = function (game, codesArray) {
     case 181:
       cn.controller.setCondition(game,e[1],e[2],cn.model.Condition.ANY);
       goog.style.setTransparentBackgroundImage(conditions[e[1]*8+e[2]], "png/any.svg");
-      break;
+      break;*/
+    case 118:
+      cn.controller.setCommand(game,e[1],e[2],cn.model.Command.RRIGHT);
+      goog.style.setTransparentBackgroundImage(commands[e[1]*8+e[2]], "png/rright.svg");
+    case 119:
+      cn.controller.setCommand(game,e[1],e[2],cn.model.Command.LLEFT);
+      goog.style.setTransparentBackgroundImage(commands[e[1]*8+e[2]], "png/lleft.svg");
+      
     default:
       break;
     }

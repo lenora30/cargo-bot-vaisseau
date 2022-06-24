@@ -16,10 +16,8 @@
   background-image: url(URL);
   margin-right: 5px;
 }
-.cn-register-f0 { @mixin function-register('png/f0.png'); }
-.cn-register-f1 { @mixin function-register('png/f1.png'); }
-.cn-register-f2 { @mixin function-register('png/f2.png'); }
-.cn-register-f3 { @mixin function-register('png/f3.png'); }
+.cn-register-f0 { @mixin function-register('png/depart.png'); }
+.cn-register-f1 { @mixin function-register('png/proc.png'); }
 
 .cn-command-register .cn-command,
 .cn-condition-register .cn-condition {

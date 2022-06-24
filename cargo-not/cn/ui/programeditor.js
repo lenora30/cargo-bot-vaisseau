@@ -146,9 +146,7 @@ cn.ui.ProgramEditor.prototype.registerDragDropEvents_ = function(
         e.dropTargetItem.element.appendChild(element);
 
         // Update the actual program model.
-        if (goog.isDefAndNotNull(data.condition)) {
-          cn.controller.setCondition(this.game_, ptr.f, ptr.i, data.condition);
-        } else if (goog.isDefAndNotNull(data.command)) {
+        if (goog.isDefAndNotNull(data.command)) {
           cn.controller.setCommand(this.game_, ptr.f, ptr.i, data.command);
         } else {
           throw Error('invalid data in register.');

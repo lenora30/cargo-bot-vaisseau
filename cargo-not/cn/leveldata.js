@@ -122,21 +122,21 @@ cn.LevelData.levels = {
   'Défi A': new cn.LevelData(
     1,
     [8],
-    ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3'],
+    ['pioche_r', 'right', 'down'],
     [['red', 'red', 'red', 'red'], [], [], [], [], ['blue', 'blue', 'blue', 'blue']],
     [['red', 'red', 'red'], ['red'], [], [], [], ['blue', 'blue', 'blue', 'blue']]
   ),
   'Défi B': new cn.LevelData(
     1,
     [8],
-    ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3'],
+    ['pioche_b', 'left', 'left', 'down'],
     [['red', 'red', 'red', 'red'], [], [], [], [], ['blue', 'blue', 'blue', 'blue']],
     [['red', 'red', 'red','red'], [], [], ['blue'], [], ['blue', 'blue', 'blue']]
   ),
   'Défi C': new cn.LevelData(
     1,
     [8],
-    ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3'],
+    ['pioche_r', 'droite', 'droite', 'droite', 'droite', 'down'],
     [['red', 'red', 'red', 'red'], [], [], [], [], ['blue', 'blue', 'blue', 'blue']],
     [['red', 'red', 'red'], [], [], [], ['red'], ['blue', 'blue', 'blue', 'blue']]
   ),
@@ -144,24 +144,21 @@ cn.LevelData.levels = {
   'Défi D': new cn.LevelData(
     1,
     [8],
-    ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'blue', 'red',
-      'green', 'yellow', 'none', 'any'],
+    ['pioche_b', 'left', 'lleft', 'down', 'pioche_r', 'rright', 'right', 'down'],
     [['red', 'red', 'red', 'red'], [], [], [], [], ['blue', 'blue', 'blue', 'blue']],
     [['red', 'red', 'red'], [], ['blue'], ['red'], [], ['blue', 'blue', 'blue']]
   ),
   'Défi E': new cn.LevelData(
     1,
     [8],
-    ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'blue', 'red',
-      'green', 'yellow', 'none', 'any'],
+    ['pioche_b', 'lleft', 'lleft', 'down', 'pioche_r', 'rright', 'rright', 'down'],
     [['red', 'red', 'red', 'red'], [], [], [], [], ['blue', 'blue', 'blue', 'blue']],
     [['red', 'red', 'red'], ['blue'], [], [], ['red'], ['blue', 'blue', 'blue']]
   ),
   'Défi F': new cn.LevelData(
     1,
     [8],
-    ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'blue', 'red',
-      'green', 'yellow', 'none', 'any'],
+    ['pioche_r', 'right', 'rright', 'down', 'pioche_r', 'rright', 'right', 'down'],
     [['red', 'red', 'red', 'red'], [], [], [], [], ['blue', 'blue', 'blue', 'blue']],
     [['red', 'red'], [], [], ['red','red'], [], ['blue', 'blue', 'blue', 'blue']]
   ),
@@ -169,24 +166,24 @@ cn.LevelData.levels = {
   'Défi G': new cn.LevelData(
     1,
     [16],
-    ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'blue', 'red',
-      'green', 'yellow', 'none', 'any'],
+    ['pioche_r', 'rright', 'down', 'pioche_b', 'left', 'lleft', 'down', 'pioche_b', 'lleft',
+      'down', 'pioche_r', 'rright', 'right', 'down'],
     [['red', 'red', 'red', 'red'], [], [], [], [], ['blue', 'blue', 'blue', 'blue']],
     [['red', 'red'], [], ['red','blue'], ['blue','red'], [], ['blue', 'blue']]
   ),
   'Défi H': new cn.LevelData(
     1,
     [16],
-    ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'blue', 'red',
-      'green', 'yellow', 'none', 'any'],
+    ['pioche_r', 'rright', 'down', 'pioche_b', 'left', 'lleft', 'down', 'pioche_r', 'rright',
+      'down', 'pioche_b', 'left', 'lleft', 'down'],
     [['red', 'red', 'red', 'red'], [], [], [], [], ['blue', 'blue', 'blue', 'blue']],
     [['red','red'], [], ['red','blue','red','blue'], [], [], ['blue', 'blue']]
   ),
   'Défi I': new cn.LevelData(
     1,
     [16],
-    ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'blue', 'red',
-      'green', 'yellow', 'none', 'any'],
+    ['pioche_r', 'right', 'down', 'pioche_b', 'left', 'lleft', 'down', 'pioche_r', 'rright',
+      'down', 'pioche_r', 'right', 'rright', 'down'],
     [['red', 'red', 'red', 'red'], [], [], [], [], ['blue', 'blue', 'blue', 'blue']],
     [['red'], ['red'], ['blue','red'], ['red'], [], ['blue','blue', 'blue']]
   ),
@@ -194,21 +191,22 @@ cn.LevelData.levels = {
   'Défi J': new cn.LevelData(
     1,
     [8, 8],
-    ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'yellow', 'none'],
+    ['f1', 'f1', 'f1', 'f1', 'pioche_r', 'rright', 'down'],
     [['red', 'red', 'red', 'red'], [], [], [], [], ['blue', 'blue', 'blue', 'blue']],
     [[], [], ['red', 'red', 'red', 'red'], [], [], ['blue', 'blue', 'blue', 'blue']]
   ),
   'Défi K': new cn.LevelData(
     1,
     [8, 8],
-    ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'yellow', 'none'],
+    ['f1', 'f1', 'pioche_b', 'left', 'lleft', 'down', 'pioche_r', 'rright', 'down'],
     [['red', 'red', 'red', 'red'], [], [], [], [], ['blue', 'blue', 'blue', 'blue']],
     [['red', 'red'], [], ['blue', 'red', 'blue', 'red'], [], [], ['blue',  'blue']]
   ),
   'Défi L': new cn.LevelData(
     1,
     [8, 8],
-    ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'yellow', 'none'],
+    ['f1', 'f1', 'f1', 'f1', 'pioche_r', 'right', 'rright', 'down', 'pioche_b', 'left',
+     'lleft', 'down'],
     [['red', 'red', 'red', 'red'], [], [], [], [], ['blue', 'blue', 'blue', 'blue']],
     [[], [], ['blue', 'blue', 'blue', 'blue'], ['red', 'red', 'red', 'red'], [], []]
   ),
@@ -216,28 +214,28 @@ cn.LevelData.levels = {
   'Défi M': new cn.LevelData(
     1,
     [8, 8],
-    ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'blue', 'none'],
+    [''],
     [['red', 'red', 'red', 'red'], [], [], [], [], ['blue', 'blue', 'blue', 'blue']],
     [[ 'red', 'red', 'red'], ['blue', 'blue'], ['blue','red', 'blue'], [], [], []]
   ),
   'Défi N': new cn.LevelData(
     1,
     [8, 8],
-    ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'blue', 'none'],
+    [''],
     [['red', 'red', 'red', 'red'], [], [], [], [], ['blue', 'blue', 'blue', 'blue']],
     [['red'], ['red'], ['red','red'], ['blue', 'blue', 'blue'], [], ['blue']]
   ),
   'Défi O': new cn.LevelData(
     1,
     [8, 8],
-    ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'blue', 'none'],
+    [''],
     [['red', 'red', 'red', 'red'], [], [], [], [], ['blue', 'blue', 'blue', 'blue']],
     [[ 'red', 'red', 'red', 'red'], ['blue'], ['blue'], ['blue'], ['blue'], []]
   ),
   'Défi P': new cn.LevelData(
     1,
     [8, 8],
-    ['right', 'pickup', 'left', 'f0', 'f1', 'f2', 'f3', 'blue', 'none'],
+    [''],
     [['red', 'red', 'red', 'red'], [], [], [], [], ['blue', 'blue', 'blue', 'blue']],
     [[ 'red'], ['blue', 'blue', 'blue'], ['red'], ['red'], ['red'], ['blue']]
   ),

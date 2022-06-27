@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Cargo-Bot Tangible</title>
+  <title>Cargo-Bot</title>
   <meta charset="UTF-8">
   <meta name="description" content="Apprenez les bases de l'algorithmique et de la programmation">
   <meta name="keywords"
@@ -31,9 +31,9 @@
     <div id="begin-content">
       <div>
         <h2>Quel est le principe de ce jeu ?</h2>
-        Le Cargo-Bot Tangible est un jeu conçu pour apprendre les bases de l'algorithmique et de la programmation.
+        Le Cargo-Bot est un jeu conçu pour apprendre les bases de l'algorithmique et de la programmation.
         Un robot virtuel déplace des blocs de couleur entre une disposition de départ et un but. Le principe du jeu est
-        d'écrire un programme sur une grille physique, tangible, qui sera transmis pour commander le robot virtuel.
+        d'écrire un programme en plaçant les instructions dans le bon ordre et ainsi commander le robot virtuel pour atteindre la position finale.
       </div>
     </div>
 
@@ -49,23 +49,23 @@
           </h3>
           <div id="etape1">
             Commencez par choisir le niveau que vous voulez réaliser dans l'interface :
-            <img class="exemple" src="img/selecteur.png">
-            <div id="carte">
+            <img class="exemple" src="img/panneau_jeu.PNG">
+            <!--<div id="carte">
               <img id="carte_niveau" class="exemple" src="img/niveau.svg">
               Ou bien à l'aide d'une carte de niveau à placer sur la grille de programmation.
-            </div>
+            </div>-->
 
             Vous pouvez voir la disposition de départ des blocs dans la partie « exécution du programme »
-            et la disposition finale à atteindre dans la partie « but ».
-            <img class="exemple" src="img/but_arrivee.png">
-            Vous pouvez maintenant écrire votre programme en plaçant les cartes d'instructions sur la grille.
+            et la disposition finale à atteindre dans la partie « but ». <br>
+            Vous pouvez maintenant écrire votre programme en plaçant les cartes d'instructions sur la grille ou en faisant glisser les blocs du panneau commandes.
+            <img class="exemple" src="img/commande.PNG">
             <a href="#savoir_regles">En savoir plus sur les règles de programmation.</a>
           </div>
         </div>
 
         <div class="etape">
           <h3>
-            2<br>Transférer le programme
+            2<br>Transférer le programme (pour la version tangible)
           </h3>
           <div id="etape2">
             La transmission du programme, réalisé sur feuille, jusqu'à l'ordinateur se fait grâce à une photo de la
@@ -111,22 +111,22 @@
             <div id="command_execution">
               <img class="exemple" src="img/touches.png">
             </div>
-            <div id="ayuda">
+            <!--<div id="ayuda">
               <img src="img/aide.png" width="40px" height="auto">
               Une aide est disponible si vous ne parvenez pas à résoudre le niveau.
-            </div>
+            </div>-->
 
             <div id="save">
               Vous avez la possibilité de sauvegarder des programmes tant que la page web reste ouverte :
               <div>
                 <img src="style/img/save.svg">
-                <div>
+                <div class="court">
                   Sauvegarder le programme en cours.
                 </div>
               </div>
               <div>
                 <img src="style/img/load.svg">
-                <div>
+                <div class="court">
                   Charger un programme sauvegardé.
                 </div>
               </div>
@@ -143,10 +143,11 @@
         <h2 id="savoir_regles" class="title">Comment écrire un programme ?</h2>
 
         <div class="bloc">
-          L'écriture d'un programme se fait en remplissant la grille avec des cartes d'instructions.
+          L'écriture d'un programme se fait en remplissant la grille avec des cartes d'instructions en version tangible ou en glissant les commandes
+          dans les cases sinon.
           Le remplissage se fait en partant de la gauche et sans laisser de case vide.
-          Le robot commencera par exécuter le programme P0.
-          Il existe trois types d'instructions :
+          Le robot commencera par les cases suivant celle nommée début.
+          Il existe deux types d'instructions :
           <div class="grp_parties" id="part">
             <div id="deplacement" class="explications">
               <h3>1 - Déplacements</h3>
@@ -189,7 +190,7 @@
 
             </div>
 
-            <div id="conditions" class="explications">
+            <!--<div id="conditions" class="explications">
               <h3>3 - Conditions</h3>
               Les cartes de condition peuvent être placées au dessus d'une commande de déplacement ou d'appel de
               programme.
@@ -213,7 +214,7 @@
                   choisie).
                 </div>
               </div>
-            </div>
+            </div>-->
           </div>
         </div>
       </div>

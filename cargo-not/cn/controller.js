@@ -458,10 +458,10 @@ cn.controller.setScan = function (game, codesArray) {
       cn.controller.setCommand(game,e[1],e[2],cn.model.Command.DOWN);
       goog.style.setTransparentBackgroundImage(commands[e[1]*8+e[2]], "png/down.svg");
       break;
-    /*case 115:
-      cn.controller.setCommand(game,e[1],e[2],cn.model.Command.F0);
-      goog.style.setTransparentBackgroundImage(commands[e[1]*8+e[2]], "png/debut.svg");
-      break;*/
+    case 115:
+      cn.controller.setCommand(game,e[1],e[2],cn.model.Command.DOWN);
+      goog.style.setTransparentBackgroundImage(commands[e[1]*8+e[2]], "png/down.svg");
+      break;
     case 117:
       cn.controller.setCommand(game,e[1],e[2],cn.model.Command.F1);
       goog.style.setTransparentBackgroundImage(commands[e[1]*8+e[2]], "png/proc.png");

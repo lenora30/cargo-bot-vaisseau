@@ -452,7 +452,7 @@ cn.controller.setScan = function (game, codesArray) {
         break;
       case 107:
         cn.controller.setCommand(game,e[1],e[2],cn.model.Command.LEFT);
-        goog.style.setTransparentBackgroundImage(commands[e[1]*8+e[2]], "png/left.svg");
+        goog.style.setTransparentBackgroundImage(commands[e[1]*8+e[2]], "png/left.png");
       break;
     case 109:
       cn.controller.setCommand(game,e[1],e[2],cn.model.Command.DOWN);

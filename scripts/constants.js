@@ -34,7 +34,7 @@ const LEVEL = {
 const CODE_MIN_COMMAND = 103;
 
 /** @type {number} @const */
-const CODE_MAX_COMMAND = 143;
+const CODE_MAX_COMMAND = 179;
 
 /** @type {number} @const */
 const CODE_MIN_CONDITION = 157;

@@ -12,8 +12,6 @@
 	.st6{clip-path:url(#SVGID_6_);}
 	.st7{clip-path:url(#SVGID_8_);}
 	.st8{clip-path:url(#SVGID_10_);}
-	.st9{font-family:'ArialMT';}
-	.st10{font-size:142px;}
 </style>
 <symbol  id="_107" viewBox="-27 -27 54 54">
 	<g>
@@ -100,5 +98,4 @@
 	</g>
 </g>
 <path d="M965.9,0c78.8,0,157.6,0,236.5,0c-0.3,78.8-0.6,157.5-1,236.3C1122.9,157.5,1044.4,78.8,965.9,0z"/>
-<text transform="matrix(0.916 0 0 1 110.8677 1100.5795)" class="st9 st10">G</text>
 </svg>

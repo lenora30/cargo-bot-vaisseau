@@ -1,6 +1,6 @@
 .cn-toolbox-container {
   display: inline-block;
-  margin-top: 15px;
+  margin-top: 25px;
 }
 
 .cn-full-toolbox {
@@ -29,12 +29,14 @@
 
 .cn-command { @mixin condition-command(50px); }
 .cn-command-left { background-image: url('png/left.png'); }
+.cn-command-lleft { background-image: url('png/lleft.png'); }
 .cn-command-right { background-image: url('png/right.png'); }
-.cn-command-down { background-image: url('png/down.png'); }
-.cn-command-f0 { background-image: url('png/f0.png'); }
-.cn-command-f1 { background-image: url('png/f1.png'); }
-.cn-command-f2 { background-image: url('png/f2.png'); }
-.cn-command-f3 { background-image: url('png/f3.png'); }
+.cn-command-rright { background-image: url('png/rright.png'); }
+.cn-command-pioche_b { background-image: url('png/pioche_b.png'); }
+.cn-command-pioche_r { background-image: url('png/pioche_r.png'); }
+.cn-command-down { background-image: url('png/poser.png'); }
+.cn-command-f0 { background-image: url('png/depart.png'); }
+.cn-command-f1 { background-image: url('png/proc.png'); }
 
 .cn-hint-button {
   float: right;
@@ -60,7 +62,7 @@
   background-size: 9.5%;
   position: fixed;
   left: 391px;
-  top: 22px;
+  top: 18px;
   background-color: transparent;
   background-repeat: no-repeat;
   cursor: pointer; 
@@ -80,7 +82,7 @@
   background-size: 18%;
   position: fixed;
   left: 459px;
-  top: 231px;
+  top: 165px;
   background-color: transparent;
   background-repeat: no-repeat; 
   cursor: pointer;

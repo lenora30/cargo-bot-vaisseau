@@ -34,7 +34,7 @@ const LEVEL = {
 const CODE_MIN_COMMAND = 103;
 
 /** @type {number} @const */
-const CODE_MAX_COMMAND = 143;
+const CODE_MAX_COMMAND = 179;
 
 /** @type {number} @const */
 const CODE_MIN_CONDITION = 157;
@@ -88,46 +88,20 @@ const DST_CORNER  = {
  * @enum {string}
  */
 const LEVEL_CODE = {
-    1: 'Cargo 101',
-    2: 'Transporteur',
-    3: 'Empiler',
-    4: 'Échanger',
-    5: 'Récursion',
-    6: 'Diviser',
-    7: 'Inverseur',
-    8: 'D\'en bas',
-    9: 'La Trieuse',
-    10: 'Translation',
-    11: 'Translation des couleurs',
-    12: 'Aller à gauche',
-    13: 'Double Flip',
-    14: 'Aller à gauche 2',
-    15: 'Tri aléatoire',
-    16: 'Distanciation sociale',
-    17: 'Tri par couleur',
-    18: 'Piles marchantes',
-    19: 'Inverseur répété',
-    20: 'Double tri',
-    21: 'Mirroir',
-    22: 'Étalez-le',
-    23: 'L\'empileur',
-    24: 'Clarté',
-    25: 'Se rassembler',
-    26: 'Se rassembler 2',
-    27: 'Les verts',
-    28: 'Remplir les blancs',
-    29: 'Compter les bleus',
-    30: 'Tri multiple',
-    31: 'Diviser par deux',
-    32: 'La fusion',
-    33: 'Même les impairs',
-    34: 'Code génétique',
-    35: 'Tri multiple 2',
-    36: 'L\'échange',
-    37: 'Remettre l\'ordre',
-    38: 'Changer de place',
-    39: 'Échange de palettes',
-    40: 'Mirroir 2',
-    41: 'Changer de place 2',
-    42: 'Tri vertical'
+    1: 'Défi A',
+    2: 'Défi B',
+    3: 'Défi C',
+    4: 'Défi D',
+    5: 'Défi E',
+    6: 'Défi F',
+    7: 'Défi G',
+    8: 'Défi H',
+    9: 'Défi I',
+    10: 'Défi J',
+    11: 'Défi K',
+    12: 'Défi L',
+    13: 'Défi M',
+    14: 'Défi N',
+    15: 'Défi O',
+    16: 'Défi P'
   }

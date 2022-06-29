@@ -76,7 +76,7 @@ cn.model.Game.prototype.id;
 
 /**
  * Sets up the game models' positions.
- */
+*/
 cn.model.Game.prototype.setupModelPositions = function() {
   var consts = cn.constants;
   this.level.setPosition(
@@ -86,6 +86,7 @@ cn.model.Game.prototype.setupModelPositions = function() {
       this.level.stacks[this.bot.position].getX(),
       consts.GAME_MARGIN + Math.floor(this.bot.height / 2));
 };
+
 
 
 /**
@@ -120,9 +121,9 @@ cn.model.Game.prototype.loadLevel = function(levelData) {
   // loading, so it's not called in the reset method.
   var consts = cn.constants;
   this.goal.setPosition(
-      Math.floor((this.width - this.level.width) / 2),
+      Math.floor((this.width - (this.level.width)) / 2),
       consts.GOAL_HEIGHT * 2 - this.level.height - consts.GOAL_MARGIN);
-  this.goal.scale(0.6667);
+  this.goal.scale(0.5);
 
   this.reset();
 };
@@ -131,7 +132,7 @@ cn.model.Game.prototype.loadLevel = function(levelData) {
 /**
  * @return {number} The number of stars awarded based on the number of registers
  * used.
- */
+
 cn.model.Game.prototype.getStars = function() {
   var count = this.program.instructionCount();
   if (count <= this.levelData.stars[2]) {
@@ -145,3 +146,4 @@ cn.model.Game.prototype.getStars = function() {
   }
   return 0;
 };
+ */

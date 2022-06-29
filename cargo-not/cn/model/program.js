@@ -141,10 +141,10 @@ cn.model.Program.prototype.next = function(bot) {
   var instruction = this.current_();
 
   // Skip this instruction if its condition fails.
-  if (!instruction.passesCondition(bot)) {
+  /*if (!instruction.passesCondition(bot)) {
     this.i_++;
     return this.next(bot);
-  }
+  }*/
 
   // Update the pointer stack and call the function, then return the function
   // call instruction.

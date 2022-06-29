@@ -110,6 +110,10 @@ header{
     background-color: #eeeeee;
 }
 
+.court {
+    text-align: start;
+}
+
 #content {
     background-color: #eeeeee;
     border-radius: 5px;
@@ -235,7 +239,7 @@ header{
     display: flex;
     flex-direction: row;
     width: 100%;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 

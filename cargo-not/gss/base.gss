@@ -21,10 +21,10 @@ div:after {
 }
 
 .cn-game-ui {
-  width: 800px;
+  width: 750px;
   text-align: center;
   background-color: #eeeeee;
-  padding: 5px 25px 25px 25px;
+  padding: 30px 50px 50px 50px;
   margin: auto;
 }
 
@@ -40,7 +40,6 @@ div:after {
 .cn-heading {
   font-size: 20px;
   font-weight: bolder;
-  margin-top: 5px;
   margin-bottom: 3px;
   outline: none;
 }

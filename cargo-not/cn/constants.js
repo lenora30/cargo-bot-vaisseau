@@ -30,15 +30,15 @@ cn.constants.GAME_COLOR = 'white';
 
 
 /** @type {number} @const */
-cn.constants.GOAL_WIDTH = 500;
+cn.constants.GOAL_WIDTH = 375;
 
 
 /** @type {number} @const */
-cn.constants.GOAL_HEIGHT = 200;
+cn.constants.GOAL_HEIGHT = 113 ;
 
 
 /** @type {number} @const */
-cn.constants.GOAL_MARGIN = 150;
+cn.constants.GOAL_MARGIN = 80;
 
 
 /** @type {string} @const */
@@ -59,6 +59,7 @@ cn.constants.LEVEL_HEIGHT = 10;
 
 /** @type {string} @const */
 cn.constants.LEVEL_COLOR = cn.constants.BOT_COLOR;
+
 
 
 /** @type {number} @const */
@@ -97,6 +98,9 @@ cn.constants.GAME_CANVAS_CLASS_NAME = goog.getCssName('cn-game-canvas');
 cn.constants.GAME_CANVAS_CONTAINER =
     goog.getCssName('cn-game-canvas-container');
 
+/** @type {string} @const */
+cn.constants.GOAL_CANVAS =
+    goog.getCssName('cn-goal-canvas');
 
 /** @type {string} @const */
 cn.constants.ANIMATED_GAME_CANVAS_CLASS_NAME =
@@ -138,12 +142,16 @@ cn.constants.GOAL_CLASS_NAME = goog.getCssName('cn-goal');
  */
 cn.constants.COMMAND_CLASS_NAMES = {
   LEFT: goog.getCssName('cn-command-left'),
+  LLEFT: goog.getCssName('cn-command-lleft'),
   RIGHT: goog.getCssName('cn-command-right'),
+  RRIGHT: goog.getCssName('cn-command-rright'),
+  PIOCHE_B: goog.getCssName('cn-command-pioche_b'),
+  PIOCHE_R: goog.getCssName('cn-command-pioche_r'),
   DOWN: goog.getCssName('cn-command-down'),
   F0: goog.getCssName('cn-command-f0'),
   F1: goog.getCssName('cn-command-f1'),
-  F2: goog.getCssName('cn-command-f2'),
-  F3: goog.getCssName('cn-command-f3')
+  //F2: goog.getCssName('cn-command-f2'),
+  //F3: goog.getCssName('cn-command-f3')
 };
 
 
@@ -212,57 +220,20 @@ cn.constants.COMMAND_REGISTER_CLASS_NAME =
 
 
 cn.constants.LEVEL_CODE = {
-  1: 'Cargo 101',
-  2: 'Transporteur',
-  3: 'Empiler',
-  4: 'Échanger',
-  5: 'Récursion',
-  6: 'Diviser',
-  7: 'Inverseur',
-  8: 'D\'en bas',
-  9: 'La Trieuse',
-  10: 'Translation',
-  11: 'Translation des couleurs',
-  12: 'Aller à gauche',
-  13: 'Double Flip',
-  14: 'Aller à gauche 2',
-  15: 'Tri aléatoire',
-  16: 'Distanciation sociale',
-  17: 'Tri par couleur',
-  18: 'Piles marchantes',
-  19: 'Inverseur répété',
-  20: 'Double tri',
-  21: 'Mirroir',
-  22: 'Étalez-le',
-  23: 'L\'empileur',
-  24: 'Clarté',
-  25: 'Se rassembler',
-  26: 'Se rassembler 2',
-  27: 'Les verts',
-  28: 'Remplir les blancs',
-  29: 'Compter les bleus',
-  30: 'Tri multiple',
-  31: 'Diviser par deux',
-  32: 'La fusion',
-  33: 'Même les impairs',
-  34: 'Code génétique',
-  35: 'Tri multiple 2',
-  36: 'L\'échange',
-  37: 'Remettre l\'ordre',
-  38: 'Changer de place',
-  39: 'Échange de palettes',
-  40: 'Mirroir 2',
-  41: 'Changer de place 2',
-  42: 'Tri vertical'
-  // ,
-  // 43: 'Bouton d\'arrêt',
-  // 44: 'Roumanie',
-  // 45: 'Permutation circulaire',
-  // 46: 'Chèvre deviendra barbichette',
-  // 47: 'Spain',
-  // 48: 'Ella',
-  // 49: 'Inversion',
-  // 50: 'Aure',
-  // 51: 'Demis',
-  // 52: 'Jean Baptiste'
+  1: 'Défi A',
+  2: 'Défi B',
+  3: 'Défi C',
+  4: 'Défi D',
+  5: 'Défi E',
+  6: 'Défi F',
+  7: 'Défi G',
+  8: 'Défi H',
+  9: 'Défi I',
+  10: 'Défi J',
+  11: 'Défi K',
+  12: 'Défi L',
+  13: 'Défi M',
+  14: 'Défi N',
+  15: 'Défi O',
+  16: 'Défi P'
 }

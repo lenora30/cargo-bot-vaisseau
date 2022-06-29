@@ -34,6 +34,7 @@ h1:hover {
     transform: scale(1.1);
 }
 
+
 #main {
     background-color: transparent;
     width: 1050px;
@@ -50,13 +51,12 @@ h1:hover {
 }
 
 #inputMethod {
+    margin-left: 950px;
     display: flex;
     flex-direction: column;
-    overflow: auto;
-    position: fixed;
-    left: 20px;
     width: 200px;
     height: auto;
+    position: absolute;
 }
 
 .button {
@@ -429,6 +429,13 @@ a {
 
 @media screen and (min-width: 1090px) {
     #inputMethod {
-        left: auto;
+        right: auto;
     }
+}
+
+.cn_-function-editor {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  
 }

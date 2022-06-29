@@ -21,12 +21,13 @@ goog.require('goog.style');
 /**
  * @param {!cn.model.Game} game The game model to render.
  * @param {!cn.ui.GameUi} ui A pointer to parent game UI.
+ * @param {!cn.ui.Toolbox} commandToolbox The drag drop source for commands.
  * @param {goog.dom.DomHelper=} opt_domHelper Optional DOM helper.
  * @constructor
  * @extends {cn.ui.ClassComponent}
  */
 cn.ui.ProgramEditor = function(
-    game, ui, opt_domHelper) {
+    game, ui, commandToolbox, opt_domHelper) {
   goog.base(this, cn.constants.PROGRAM_EDITOR_CLASS_NAME, opt_domHelper);
   this.game_ = game;
   this.ui_ = ui;
@@ -34,6 +35,9 @@ cn.ui.ProgramEditor = function(
   this.conditionDragGroup_ = new goog.fx.DragDropGroup();
   this.commandDropGroup_ = new goog.fx.DragDropGroup();
   this.commandDragGroup_ = new goog.fx.DragDropGroup();
+
+  //Add the registers as a drag drop target for the toolboxes.
+  commandToolbox.getDragDropGroup().addTarget(this.commandDropGroup_);
 
   // Add the registers as a drag drop target for the actions already in a
   // register.
@@ -127,6 +131,13 @@ cn.ui.ProgramEditor.prototype.registerDragDropEvents_ = function(
         var data = e.dragSourceItem.data;
         var ptr = e.dropTargetItem.data;
 
+        // Clone the command element if coming from the toolbox.
+        if (source === this.ui_.commandToolbox.getDragDropGroup()) {
+          element = e.dragSourceItem.element.cloneNode(true);
+          data = goog.object.clone(data);
+          this.commandDragGroup_.addItem(element, data);
+        }
+
         // Update the style and add the element to the register's DOM.
         goog.style.setOpacity(element, 1.0);
         goog.style.setStyle(
@@ -135,9 +146,7 @@ cn.ui.ProgramEditor.prototype.registerDragDropEvents_ = function(
         e.dropTargetItem.element.appendChild(element);
 
         // Update the actual program model.
-        if (goog.isDefAndNotNull(data.condition)) {
-          cn.controller.setCondition(this.game_, ptr.f, ptr.i, data.condition);
-        } else if (goog.isDefAndNotNull(data.command)) {
+        if (goog.isDefAndNotNull(data.command)) {
           cn.controller.setCommand(this.game_, ptr.f, ptr.i, data.command);
         } else {
           throw Error('invalid data in register.');

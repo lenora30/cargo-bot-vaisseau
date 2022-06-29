@@ -1873,10 +1873,10 @@ n=new X.b6().T(P.e0(p.getImageData(0,0,a.width,a.height)),p)
 m=[]
 for(s=n.length,r=u.z,o=u.L,l=o.i("~(1)?"),k=u.Y,o=o.c,j=0;j<n.length;n.length===s||(0,H.aH)(n),++j){i=n[j]
 h=i.a
-if(h>=103&&h<=143){a=W.ee(null,e+C.b.h(h)+".svg",null)
+if(h>=103&&h<=179){a=W.ee(null,e+C.b.h(h)+".png",null)
 h=l.a(new X.dC(p,i,a))
 k.a(null)
-W.ay(a,"load",h,!1,o)}else if(h>=157&&h<=181){g=e+C.b.h(h)+".svg"
+W.ay(a,"load",h,!1,o)}else if(h>=179&&h<=181){g=e+C.b.h(h)+".svg"
 h=i.b*8/2
 f=C.e.B(h*6)
 a=W.ee(C.e.B(h*3),g,f)

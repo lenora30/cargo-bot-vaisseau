@@ -2,6 +2,7 @@
 PROJECT = cn
 JS_OUTPUT = cargo-not-min.js
 CSS_OUTPUT = cargo-not-min.css
+JQ_OUTPUT = jquery-min.js
 JS_MAP_OUTPUT = cargo-not-map.js
 INDEX_OUTPUT = index.html
 
@@ -43,7 +44,7 @@ release: css-release
 	$(CC) \
 		--compiler_flags "--compilation_level=ADVANCED_OPTIMIZATIONS" \
 		--output_mode compiled > $(JS_OUTPUT)
-	py/index.py $(CSS_OUTPUT) $(JS_OUTPUT) > $(INDEX_OUTPUT)
+	py/index.py $(CSS_OUTPUT) $(JQ_OUTPUT) $(JS_OUTPUT) > $(INDEX_OUTPUT)
 
 css-release:
 	$(CSS) \

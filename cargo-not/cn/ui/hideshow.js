@@ -57,7 +57,7 @@ goog.inherits(cn.ui.HSGoal, goog.ui.Button);
  */
 cn.ui.HSLevels.prototype.enterDocument = function () {
   goog.base(this, 'enterDocument');
-  goog.dom.classes.set(
+  goog.dom.classlist.set(
     this.getElement(), cn.constants.HSLEVELS_CLASS_NAME);
 
   var LevelSelector;
@@ -71,12 +71,12 @@ cn.ui.HSLevels.prototype.enterDocument = function () {
       goog.style.setElementShown(LevelSelector, false);
       show = false;
       goog.style.setTransparentBackgroundImage(this.getElement(), 'png/showMore.png');
-      goog.dom.getElementByClass(cn.constants.HSGOAL_CLASS_NAME).style.top = "52px";
+      goog.dom.getElementByClass(cn.constants.HSGOAL_CLASS_NAME).style.top = "48px";
     } else {
       goog.style.setElementShown(LevelSelector, true);
       show = true;
       goog.style.setTransparentBackgroundImage(this.getElement(), 'png/showLess.png');
-      goog.dom.getElementByClass(cn.constants.HSGOAL_CLASS_NAME).style.top = "231px";
+      goog.dom.getElementByClass(cn.constants.HSGOAL_CLASS_NAME).style.top = "175px";
     }
 
   });
@@ -88,7 +88,7 @@ cn.ui.HSLevels.prototype.enterDocument = function () {
 */
 cn.ui.HSGoal.prototype.enterDocument = function () {
   goog.base(this, 'enterDocument');
-  goog.dom.classes.set(
+  goog.dom.classlist.set(
     this.getElement(), cn.constants.HSGOAL_CLASS_NAME);
 
   var goalCanvas;

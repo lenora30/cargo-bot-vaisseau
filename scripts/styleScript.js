@@ -1,4 +1,3 @@
-var camButton = document.getElementById("camInButton");
 var imgButton = document.getElementById("imgInButton");
 var phoneButton = document.getElementById("phoneInButton");
 var saveButton = document.getElementById("saveButton");
@@ -23,18 +22,6 @@ var h = window.innerHeight;
 var jsonImg;
 
 drawLoadingScreen();
-
-camButton.onclick = function() {
-	// Ask the user which camera to use (only for the first scan)
-	if (videoSelect.value == "") {
-		selectorCam.style.display = "flex";
-	// If the camera is already chosen, start the scan
-	} else {
-		modal.style.display = "flex";
-		TopCodes.startVideoScan("video-canvas");
-		selectorCam.style.display = "none";
-	}
-}
 
 // Close the camera selector and start the scan
 videoSelect.oninput = function() {

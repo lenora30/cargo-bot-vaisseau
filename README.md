@@ -1,4 +1,4 @@
-# cargo-not-tangible
+# cargo-not
 
 _
 The Cargo is a game designed to learn the basics of algorithms and programming by manipulating real objects. 

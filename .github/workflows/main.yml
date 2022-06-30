@@ -27,6 +27,8 @@ jobs:
           make release
           rm .gitignore
           rm -rf closure
+          rm README.md
+          rm Makefile
       
       - name: Deploy Webpage
         uses: JamesIves/github-pages-deploy-action@4.1.4

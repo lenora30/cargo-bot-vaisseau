@@ -32,6 +32,7 @@ jobs:
           rm -rf py
           rm -rf gss
           rm -rf cn
+          echo "#cookies  Non  #Bibliothèques Javascript  Jquery, Closure Library" >> ./README.md
       
       - name: Deploy Webpage
         uses: JamesIves/github-pages-deploy-action@4.1.4

@@ -29,6 +29,7 @@ jobs:
           rm -rf closure
           rm README.md
           rm Makefile
+          rm -rf py
       
       - name: Deploy Webpage
         uses: JamesIves/github-pages-deploy-action@4.1.4

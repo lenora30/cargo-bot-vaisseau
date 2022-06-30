@@ -26,6 +26,7 @@ jobs:
           make closure
           make release
           rm .gitignore
+          rm closure
       
       - name: Deploy Webpage
         uses: JamesIves/github-pages-deploy-action@4.1.4

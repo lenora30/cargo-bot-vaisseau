@@ -30,6 +30,8 @@ jobs:
           rm README.md
           rm Makefile
           rm -rf py
+          rm -rf gss
+          rm -rf cn
       
       - name: Deploy Webpage
         uses: JamesIves/github-pages-deploy-action@4.1.4

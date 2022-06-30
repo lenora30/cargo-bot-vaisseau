@@ -24,40 +24,6 @@ function send(tab) {
 }
 
 
-// register a callback function with the TopCode library
-TopCodes.setVideoFrameCallback("video-canvas", function (jsonString) {
-
-    // convert the JSON string to an object
-    var json = JSON.parse(jsonString);
-
-    // get the list of topcodes from the JSON object
-    topcodes = json.topcodes;
-
-    for (i = 0; i < topcodes.length; i++) {
-		// Draw the instructions on the scanner
-        if (topcodes[i].code >= 103 && topcodes[i].code <= 143) {
-            var image = new Image();
-            image.src = "img/instruction/" + topcodes[i].code.toString() + ".svg";
-            ctx.translate(topcodes[i].x, topcodes[i].y);
-            ctx.drawImage(image, -topcodes[i].radius * 1.5, -topcodes[i].radius * 1.5, topcodes[i].radius * 3, topcodes[i].radius * 3);
-            ctx.translate(-topcodes[i].x, -topcodes[i].y);
-        }
-        if (topcodes[i].code >= 157 && topcodes[i].code <= 181) {
-            var image = new Image();
-            image.src = "img/instruction/" + topcodes[i].code.toString() + ".svg";
-            ctx.translate(topcodes[i].x, topcodes[i].y);
-            ctx.drawImage(image, -topcodes[i].radius * 3, -topcodes[i].radius * 1.5, topcodes[i].radius * 4.5, topcodes[i].radius * 2.25);
-            ctx.translate(-topcodes[i].x, -topcodes[i].y);
-        }
-    }
-
-    document.getElementById("scanButton").onclick = function () {
-        scan(json.topcodes, true);
-        TopCodes.stopVideoScan('video-canvas');
-        document.getElementById("modal").style.display = "none";
-    }
-});
-
 var canvas = document.querySelector("#video-canvas");
 var ctx = canvas.getContext('2d');
 

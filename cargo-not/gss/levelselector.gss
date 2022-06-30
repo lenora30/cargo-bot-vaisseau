@@ -60,6 +60,7 @@
 
 .goog-tab-hover {
   background-color: black;
+  color: white;
 }
 
 .goog-tab-bar-horizontal .goog-tab-selected {

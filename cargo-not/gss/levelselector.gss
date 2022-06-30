@@ -59,7 +59,7 @@
 .goog-tab[title=Champo] { @mixin bg('png/difficulty6.png', 65%); }*/
 
 .goog-tab-hover {
-  background-color: #black;
+  background-color: black;
 }
 
 .goog-tab-bar-horizontal .goog-tab-selected {

@@ -57,7 +57,7 @@
 
             Vous pouvez voir la disposition de départ des blocs dans la partie « exécution du programme »
             et la disposition finale à atteindre dans la partie « but ». <br>
-            Vous pouvez maintenant écrire votre programme en plaçant les cartes d'instructions sur la grille ou en faisant glisser les blocs du panneau commandes.
+            Vous pouvez maintenant écrire votre programme en faisant glisser les blocs du panneau commandes.
             <img class="exemple" src="img/commande.PNG">
             <a href="#savoir_regles">En savoir plus sur les règles de programmation.</a>
           </div>
@@ -65,45 +65,7 @@
 
         <div class="etape">
           <h3>
-            2<br>Transférer le programme (pour la version tangible)
-          </h3>
-          <div id="etape2">
-            La transmission du programme, réalisé sur feuille, jusqu'à l'ordinateur se fait grâce à une photo de la
-            grille.
-            Pour cela trois moyens s'offrent à vous :
-            <div>
-              <img src="style/img/cam.svg">
-              <div>
-                Prendre une photo à l'aide d'une webcam.
-              </div>
-            </div>
-
-            <div>
-              <img src="style/img/addPhoto.svg">
-              <div>
-                Utiliser une image existante sur l'ordinateur.
-              </div>
-            </div>
-
-            <div>
-              <img src="style/img/phone.svg">
-              <div>
-                Prendre une photo à l'aide d'un téléphone, connecté à l'ordinateur grâce à un QR Code.
-              </div>
-            </div>
-            <div>
-              <img src="img/tchek.png">
-              Quand toutes les instructions sont détéctées, cliquez sur le bouton vert pour transmettre le programme.
-            </div>
-            Pour assurer une bonne détéction, prenez la photo bien en face de la feuille, évitez les flashs et les
-            ombres.<br>
-            <img id="bon" src="img/BonTransfere.png" width="100%" height="auto">
-          </div>
-        </div>
-
-        <div class="etape">
-          <h3>
-            3<br>Exécuter le programme
+            2<br>Exécuter le programme
           </h3>
           <div id="executer">
             Commandez le robot en exécutant votre programme à l'aide des boutons de lecture et de la règle de vitesse.
@@ -114,7 +76,7 @@
             <!--<div id="ayuda">
               <img src="img/aide.png" width="40px" height="auto">
               Une aide est disponible si vous ne parvenez pas à résoudre le niveau.
-            </div>-->
+            </div>
 
             <div id="save">
               Vous avez la possibilité de sauvegarder des programmes tant que la page web reste ouverte :
@@ -130,7 +92,7 @@
                   Charger un programme sauvegardé.
                 </div>
               </div>
-            </div>
+            </div>-->
           </div>
         </div>
       </div>
@@ -143,8 +105,7 @@
         <h2 id="savoir_regles" class="title">Comment écrire un programme ?</h2>
 
         <div class="bloc">
-          L'écriture d'un programme se fait en remplissant la grille avec des cartes d'instructions en version tangible ou en glissant les commandes
-          dans les cases sinon.
+          L'écriture d'un programme se fait en glissant les commandes dans les cases.
           Le remplissage se fait en partant de la gauche et sans laisser de case vide.
           Le robot commencera par les cases suivant celle nommée début.
           Il existe deux types d'instructions :
@@ -153,24 +114,51 @@
               <h3>1 - Déplacements</h3>
 
               <div class="carotte">
-                <img src="img/instruction/103.svg" width="40px" height="40px">
+                <img src="cargo-not/png/right.png" width="40px" height="40px">
                 <div>
                   Aller à droite d'un pas.
                 </div>
               </div>
 
               <div class="carotte">
-                <img src="img/instruction/107.svg" width="40px" height="40px">
+                <img src="cargo-not/png/rright.png" width="40px" height="40px">
+                <div>
+                  Aller à droite de deux pas.
+                </div>
+              </div>
+
+              <div class="carotte">
+                <img src="cargo-not/png/left.png" width="40px" height="40px">
                 <div>
                   Aller à gauche d'un pas.
                 </div>
               </div>
 
               <div class="carotte">
-                <img src="img/instruction/109.svg" width="40px" height="40px">
+                <img src="cargo-not/png/lleft.png" width="40px" height="40px">
                 <div>
-                  Descendre et remonter la pince du robot. S'il y a un bloc dans la pince, il est déposé,
-                  sinon la pince prend le bloc situé en dessous.
+                  Aller à gauche de deux pas.
+                </div>
+              </div>
+
+              <div class="carotte">
+                <img src="cargo-not/png/pioche_b.png" width="40px" height="40px">
+                <div>
+                  La pince se déplace juqu'à la pioche des blocs bleus, se baisse et en attrape un.
+                </div>
+              </div>
+
+              <div class="carotte">
+                <img src="cargo-not/png/pioche_r.png" width="40px" height="40px">
+                <div>
+                  La pince se déplace juqu'à la pioche des blocs rouges, se baisse et en attrape un.
+                </div>
+              </div>
+
+              <div class="carotte">
+                <img src="cargo-not/png/poser.png" width="40px" height="40px">
+                <div>
+                  Descendre et poser le bloc dans la pince.
                 </div>
               </div>
 
@@ -180,9 +168,9 @@
               <h3>2 - Appel de programme / procédure</h3>
 
               <div>
-                <img src="img/instruction/117.svg" width="40px" height="40px">
+                <img src="cargo-not/png/proc.png" width="40px" height="40px">
                 <div>
-                  Il existe quatre programmes (P0, P1, P2, P3), qui peuvent être appelés les uns par les autres.
+                  A partir du niveau 4, il existe un programme, qui peut être appelé par lui-même ou le programme de départ.
                   Quand un programme est appelé, il s'exécute entièrement, puis le programme qui a fait l'appel continue
                   de s'exécuter.
                 </div>

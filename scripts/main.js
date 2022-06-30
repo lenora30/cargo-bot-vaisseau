@@ -6,12 +6,6 @@ var okButtonSave = document.getElementById('okButtonSave');
 var okButtonLoad = document.getElementById('okButtonLoad');
 var deleteSave = document.getElementById('deleteSave');
 var levelSelector = document.getElementById('levelSelector');
-var peer = new Peer({
-	config: {'iceServers': [
-		{ url: 'stun:stun.l.google.com:19302' },
-		{ url: 'turn:cargobot-tangible.u-strasbg.fr', username: 'azertyuiop', credential: 'azertyuiop' }
-	]}
-}); 
 var currentProgram = null;
 
 
@@ -90,30 +84,6 @@ function gotDevices(deviceInfos) {
 getDevices().then(gotDevices);
 
 
-
-// handle incoming data from phone
-peer.on('connection', function(conn) {
-	modalQr.style.display = "none";
-
-  	var canvas = document.getElementById('image-canvas');
-  	var ctx = canvas.getContext('2d');
-
-	// Display and scan incoming images from the phone
-  	conn.on('data', data => {
-    	modalImg.style.display = "flex";
-
-		if (data.filetype.includes('image')) {
-			var bytes = new Uint8Array(data.file);
-			var img = new Image();
-			img.src = 'data:image/png;base64,' + encode(bytes);
-			img.onload = function(){
-				canvas.width = img.width;
-				canvas.height = img.height;
-				jsonImg = scanCanvas(img);
-			}
-		}
-	});
-});
 
 const encode = input => {
 	const keyStr =

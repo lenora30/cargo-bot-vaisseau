@@ -6,7 +6,6 @@ var okButtonSave = document.getElementById('okButtonSave');
 var okButtonLoad = document.getElementById('okButtonLoad');
 var deleteSave = document.getElementById('deleteSave');
 var levelSelector = document.getElementById('levelSelector');
-var qrcode = new QRCode("qrcode", {width: 500, height: 500});
 var peer = new Peer({
 	config: {'iceServers': [
 		{ url: 'stun:stun.l.google.com:19302' },
@@ -90,15 +89,6 @@ function gotDevices(deviceInfos) {
 // enumerate camera devices
 getDevices().then(gotDevices);
 
-
-// Generate the QR code with the URL of the mobile page and the peerID of the computer
-function makeCode () {
-	var peerId = peer.id;
-	var address = "https://pinguee.github.io/cargo-bot-tangible/mobile.html";
-	// var address = window.location.origin + "/mobile.html";
-	var qr = address + "#" + peerId; 
-	qrcode.makeCode(qr);
-}
 
 
 // handle incoming data from phone

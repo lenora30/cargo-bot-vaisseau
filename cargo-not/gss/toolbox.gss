@@ -12,16 +12,13 @@
   margin: 0 auto;
 }
 
-.cn_-command_ {
-  cursor: grab;
-}
-
 @defmixin condition-command(HEIGHT) {
   margin: 5px;
   width: 50px;
   height: HEIGHT;
   background-size: 100%;
   display: inline-block;
+  cursor: grab;
 }
 .cn-condition { @mixin condition-command(20px); }
 .cn-condition-none { background-image: url('png/none.png'); }

@@ -109,7 +109,7 @@ cn.ui.ProgramEditor.prototype.registerDragDropEvents_ = function(
           goog.dom.removeNode(e.dragSourceItem.element);
         } else {
           goog.style.setOpacity(e.dragSourceItem.element, 1.0);
-          e.dragSourceItem.element.style.cursor = "grabbing" ;
+          e.dragSourceItem.element.style.cursor = "grab" ;
         }
       });
 

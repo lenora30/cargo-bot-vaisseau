@@ -10,9 +10,6 @@
 
 .cn-toolbox {
   margin: 0 auto;
-}
-
-.cn_-command_:hover {
   cursor: grab;
 }
 

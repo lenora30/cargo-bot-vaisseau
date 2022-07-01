@@ -193,6 +193,7 @@ cn.ui.ProgramEditor.prototype.highlightExecution = function() {
 cn.ui.ProgramEditor.prototype.unhighlightExecution = function() {
   this.forEachRegister(function(register) {
     goog.style.setOpacity(register.getElement(), 1.0);
+    e.dragSourceItem.element.style.cursor = "grab" ;
   });
 };
 

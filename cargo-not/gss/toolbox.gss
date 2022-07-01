@@ -13,7 +13,7 @@
 }
 
 .cn_-command_ {
-  cursor: pointer;
+  cursor: grab;
 }
 
 @defmixin condition-command(HEIGHT) {

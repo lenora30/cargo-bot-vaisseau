@@ -12,6 +12,10 @@
   margin: 0 auto;
 }
 
+.cn_-command_ {
+  cursor: pointer;
+}
+
 @defmixin condition-command(HEIGHT) {
   margin: 5px;
   width: 50px;

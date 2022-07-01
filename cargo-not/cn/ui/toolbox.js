@@ -44,7 +44,7 @@ cn.ui.Toolbox.prototype.enterDocument = function() {
   this.getHandler().listen(this.dragDropGroup_, EventType.DRAGSTART,
       function(e) {
         goog.style.setOpacity(e.dragSourceItem.element, 0.5);
-        e.dragSourceItem.element.style.cursor = "grab" ;
+        e.dragSourceItem.element.style.cursor = "move" ;
       });
   this.getHandler().listen(this.dragDropGroup_, EventType.DRAGEND,
       function(e) {

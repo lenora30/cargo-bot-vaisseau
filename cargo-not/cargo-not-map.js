@@ -3,8 +3,6 @@ goog.setCssNameMapping({
   "toolbox": "toolbox_",
   "container": "container_",
   "full": "full_",
-  "cn_": "cn__",
-  "command_": "command__",
   "condition": "condition_",
   "none": "none_",
   "any": "any_",

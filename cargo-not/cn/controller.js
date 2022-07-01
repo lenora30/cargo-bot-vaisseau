@@ -55,10 +55,10 @@ cn.controller.play = function(game, ui) {
       case cn.model.Command.RRIGHT:
         cn.controller.moveRRight(game, ui);
         break;
-      case cn.model.Command.PIOCHE_B:
+      case cn.model.Command.PIOCHE_N:
         cn.controller.movePioche_n(game, ui);
         break;
-      case cn.model.Command.PIOCHE_R:
+      case cn.model.Command.PIOCHE_B:
         cn.controller.movePioche_b(game, ui);
         break;
       case cn.model.Command.DOWN:
@@ -187,18 +187,18 @@ cn.controller.moveRRight = function(game, ui) {
  * @param {!cn.ui.GameUi} ui A pointer to the UI.
  */
  cn.controller.movePioche_n = function(game, ui) {
-  var pile_b = game.level.stacks[5];
+  var pile_n = game.level.stacks[5];
   if (game.bot.hasCargo()) {
     alert('Tu ne peux pas piocher avec la pince pleine');
     return;
   }
   ui.animatedCanvas.attachAnimation(
-    function() { return game.bot.getX() < pile_b.getX(); },
+    function() { return game.bot.getX() < pile_n.getX(); },
     function() { game.bot.translate(game.bot.speed, 0); },
     function() {
-      game.bot.setPosition(pile_b.getX(), game.bot.getY());
+      game.bot.setPosition(pile_n.getX(), game.bot.getY());
       game.bot.position=5;
-      if (pile_b.size()==0) {
+      if (pile_n.size()==0) {
         alert('Tu ne peux pas piocher si la pioche est vide');
         return;
       }
@@ -211,18 +211,18 @@ cn.controller.moveRRight = function(game, ui) {
  * @param {!cn.ui.GameUi} ui A pointer to the UI.
  */
  cn.controller.movePioche_b = function(game, ui) {
-  var pile_r = game.level.stacks[0];
+  var pile_b = game.level.stacks[0];
   if (game.bot.hasCargo()) {
     alert('Tu ne peux pas piocher avec la pince pleine');
     return;
   }
   ui.animatedCanvas.attachAnimation(
-    function() { return game.bot.getX() > pile_r.getX(); },
+    function() { return game.bot.getX() > pile_b.getX(); },
     function() { game.bot.translate(-game.bot.speed, 0); },
     function() {
-      game.bot.setPosition(pile_r.getX(), game.bot.getY());
+      game.bot.setPosition(pile_b.getX(), game.bot.getY());
       game.bot.position=0;
-      if (pile_r.size()==0) {
+      if (pile_b.size()==0) {
         alert('Tu ne peux pas piocher si la pioche est vide');
         return;
       }

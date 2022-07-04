@@ -376,8 +376,9 @@ header{
 }
 
 .button:hover {
-    box-shadow: 0 0 10px var(--quad-color);
+    box-shadow: 0 0 10px var(--ter-color);
     transition: all 0.2s;
+    background-color: var(--quint-color);
 }
 
 .explications img {

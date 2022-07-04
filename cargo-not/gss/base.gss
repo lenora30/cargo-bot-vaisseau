@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway+Dots&display=swap');
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
   font-size: 10px;
   font-weight: bold;
@@ -41,7 +41,6 @@ div:after {
 }
 
 .cn-heading {
-  font-family: 'Raleway Dots', cursive;
   font-size: 20px;
   font-weight: bolder;
   margin-bottom: 3px;

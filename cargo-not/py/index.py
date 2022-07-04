@@ -6,7 +6,7 @@ import markup
 import sys
 
 style = [filename for filename in sys.argv if filename.endswith('.css')]
-style.append('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400&display=swap')
+style.append('https://fonts.googleapis.com/css2?family=Work+Sans:wght@200&display=swap')
 
 index = markup.page()
 index.init(

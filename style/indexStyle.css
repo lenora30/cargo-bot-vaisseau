@@ -246,7 +246,7 @@ header{
 .bloc {
     transition: all 2s;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     
 }

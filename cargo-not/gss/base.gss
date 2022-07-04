@@ -2,7 +2,6 @@
 
 body {
   font-family: 'Work Sans', sans-serif;
-  /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
   font-size: 10px;
   color: #2afd8d;
 }
@@ -41,7 +40,7 @@ div:after {
 
 .cn-heading {
   font-size: 20px;
-  font-weight: bolder;
+  font-weight: bold;
   margin-bottom: 3px;
   outline: none;
 }

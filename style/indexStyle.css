@@ -40,13 +40,8 @@ header{
 }
 
 .title {
-    cursor: pointer;
     font-family: 'Raleway Dots', cursive;
 
-}
-
-.title:hover {
-    color: var(--quad-color);
 }
 
 #ban {

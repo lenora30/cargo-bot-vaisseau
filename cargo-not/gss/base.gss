@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway+Dots&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Raleway+Dots&display=swap');*/
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Raleway Dots', cursive;
   /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
   font-size: 10px;
   font-weight: bold;

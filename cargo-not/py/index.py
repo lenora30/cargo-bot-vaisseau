@@ -9,7 +9,8 @@ index = markup.page()
 index.init(
     title = 'Cargo-Not: Educational Cargo-Bot',
     script = [filename for filename in sys.argv if filename.endswith('.js')],
-    css = [filename for filename in sys.argv if filename.endswith('.css')])
+    css = [filename for filename in sys.argv if filename.endswith('.css')],
+    style = '@import url(\'https://fonts.googleapis.com/css2?family=Raleway+Dots&display=swap\')')
 index.script('main();')
 
 print index

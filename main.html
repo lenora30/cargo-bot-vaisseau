@@ -14,7 +14,6 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway+Dots&display=swap" rel="stylesheet"> 
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400&display=swap" rel="stylesheet">
 
     <!-- end fonts -->
@@ -99,19 +98,17 @@
 
   <div id="inputMethod">
       <button id="problems" class="button">
-        <span class="mouseOver">Aides</span>
-              <div class="close">
-        <h2 id="savoir_regles" class="title">Comment écrire un programme ?</h2>
+        <span class="mouseOver">Aide</span>
+      </button>
+      <div class="close">
+          <h2 id="savoir_regles">Comment écrire un programme ?</h2>
 
-        <div class="bloc">
-          L'écriture d'un programme se fait en glissant les commandes dans les cases.
-          Le remplissage se fait en partant de la gauche et sans laisser de case vide.
-          Le robot commencera par les cases suivant celle nommée début.
-          Il existe deux types d'instructions :
-          <div class="grp_parties" id="part">
-            <div id="deplacement" class="explications">
-              <h3>1 - Déplacements</h3>
-
+          <div class="bloc">
+            L'écriture d'un programme se fait en glissant les commandes dans les cases.
+            Le remplissage se fait en partant de la gauche et sans laisser de case vide.
+            Le robot commencera par les cases suivant celle nommée début.
+            Les instructions possibles sont :
+            <div class="grp_parties">
               <div class="carotte">
                 <img src="cargo-not/png/right.png" width="40px" height="40px">
                 <div>
@@ -161,26 +158,17 @@
                 </div>
               </div>
 
-            </div>
-
-            <div id="appel_fonction" class="explications">
-              <h3>2 - Appel de programme / procédure</h3>
-
-              <div>
+              <div class="carotte">
                 <img src="cargo-not/png/proc.png" width="40px" height="40px">
                 <div>
-                  A partir du niveau 4, il existe un programme, qui peut être appelé par lui-même ou le programme de départ.
-                  Quand un programme est appelé, il s'exécute entièrement, puis le programme qui a fait l'appel continue
-                  de s'exécuter.
+                  Disponible à partir du niveau 4. Programme qui peut être appelé par lui-même ou par le programme de départ.
+                  Quand il est appelé, il s'exécute entièrement, puis le programme qui a fait l'appel continue de s'exécuter.
                 </div>
               </div>
 
             </div>
-
           </div>
         </div>
-      </div>
-      </button>
   </div>
 
     <iframe id="frame" src="cargo-not/index.html" width="1000" height="1000" scrolling="no"></iframe> 
@@ -203,6 +191,7 @@
 
 
   <script src="scripts/styleScript.js"></script>
+  <script src="script_style.js"></script>
   <script src="scripts/main.js"></script>
   <script src="scripts/constants.js"></script>
 </body>

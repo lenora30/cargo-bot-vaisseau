@@ -34,6 +34,7 @@ body {
     height: 100%;
     margin: 0;
     background-color: var(--sec-color);
+    font-family: 'Work Sans', sans-serif;
 }
 
 header {
@@ -57,6 +58,12 @@ h1:hover {
     transform: scale(1.1);
 }
 
+h2 {
+    text-align: center;
+    font-family: 'font_fabriqueregular';
+    font-size: 1.8em;
+    color: var(--quad-color);
+}
 
 #main {
     background-color: transparent;
@@ -98,6 +105,13 @@ h1:hover {
     box-shadow: 0 0 15px var(--main-color);
     border-bottom: 25px solid rgba(255, 0, 112, .5);
     transition: all 0.2s;
+}
+
+.grp_parties {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 #camInButton {
@@ -407,6 +421,64 @@ option {
   
 .button:hover .mouseOverDiv {
     visibility: visible;
+}
+
+.open .carotte {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    margin: 10px;
+    margin-left:0px;
+    width: 48%;
+    text-align: start;
+}
+
+.open .carotte img{
+    margin: 10px;
+    margin-left:0px;
+}
+
+.open .carotte div{
+    margin: 10px;
+}
+
+.open .explications {
+    width: 30%;
+    margin: 10px;
+}
+
+.open .bloc {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 90%;
+    padding-bottom: 1%;
+}
+
+.open {
+    display: flex;
+    position: absolute;
+    right: 100%;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+    border-radius: 5px;
+    margin: auto;
+    width: 350%;
+    padding: 2%;
+    background-color: var(--main-color);
+    color: #eeeeee;
+    text-align: justify;
+    box-shadow: 0 0 5px rgb(0, 0, 0);
+    cursor: default;
+}
+
+.bloc {
+    transition: all 2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
 }
 
 #modalDialog {

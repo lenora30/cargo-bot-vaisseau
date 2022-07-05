@@ -28,7 +28,7 @@
 
 
 body {
-  font-family: 'dot_matrixbold';
+  font-family: 'font_fabriqueregular';
   font-size: 10px;
   color: #2afd8d;
 }

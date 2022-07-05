@@ -113,7 +113,6 @@ header{
     align-self: flex-end;
     background-color: 'white';
     border: none;
-    /* background-image: url("img/play_arrow_black_48dp.svg"); */
     background-size: cover;
     border-radius: 10px;
     height: 70px;
@@ -186,81 +185,6 @@ header{
     text-align: justify;
 }
 
-#materiel > div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    width: 600px;
-}
-
-
-#carte {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 5px;
-}
-
-#ayuda {
-    display: flex;
-    flex-direction: row;
-    margin: 10px;
-    align-items: center;
-}
-
-#ayuda img {
-    margin: 10px;
-    
-}
-
-.open .explications {
-    width: 30%;
-    margin: 10px;
-}
-
-.open .bloc {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-bottom: 1%;
-}
-
-.close .bloc{
-    display: none;
-}
-
-.open {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 1;
-    border-radius: 5px;
-    margin: auto;
-    width: 90%;
-    padding: 2%;
-    background-color: var(--main-color);
-    color: #eeeeee;
-    text-align: justify;
-    box-shadow: 0 0 5px rgb(0, 0, 0);
-}
-
-.open #etapes {
-    display: flex;
-    flex-direction: row;
-}
-
-
-
-.close h2 {
-    background-color: var(--main-color);
-    font-family: 'font_fabriqueregular';
-    color: white;
-    /*width: 60%;*/
-    margin: auto;
-    padding: 2%;
-}
-
 .bloc {
     transition: all 2s;
     display: flex;
@@ -280,10 +204,6 @@ header{
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-#etape1 > a {
-    align-self: flex-start;
 }
 
 .etape {
@@ -322,19 +242,6 @@ header{
     box-shadow: 0 0 10px var(--ter-color);
     transition: all 0.2s;
     background-color: var(--quint-color);
-}
-
-.explications img {
-    margin: 10px;
-    width: 70px;
-    height: auto;
-}
-
-.explications > div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 10px;
 }
 
 h2 {

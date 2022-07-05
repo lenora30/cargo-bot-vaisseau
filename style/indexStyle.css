@@ -2,8 +2,8 @@
     --main-color: black;
     --sec-color: #464646;
     --ter-color: 'white';
-    --quad-color: #ff006f;
-    --quint-color:  #2afd8d;
+    --quad-color: #ff0070;
+    --quint-color:  #00FF89;
     --txt-color: rgb(54, 54, 54);
 }
 
@@ -165,11 +165,6 @@ header{
     margin: 10px;
 }
 
-/*#bon {
-    display: flex;
-    justify-items: center;
-}*/
-
 #carte {
     display: flex;
     flex-direction: row;
@@ -260,12 +255,6 @@ header{
     justify-content: center;
 }
 
-
-.parties {
-    display: flex;
-
-}
-
 /*#regles h3 {
     text-align: center;
     font-family: 'Raleway Dots', cursive;
@@ -284,49 +273,8 @@ header{
     align-self: flex-start;
 }
 
-#etape2 > div {
-    padding: 10px;
-    display: flex;
-    flex-direction: row;
-}
-
-#etape2 > div > img {
-    margin: 10px;
-    width: 44px;
-    height: 44px;
-    margin-bottom: auto;
-    margin-top: auto;
-}
-
-#executer > div > div > img {
-    margin: 10px;
-}
-
-#executer {
-    display: flex;
-    flex-direction: column;
-}
-
-#executer > div > div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 10px;
-}
-
-#command_execution > div > div{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 200px;
-}
-
 .etape {
     width: 80%;
-}
-
-#command_execution img {
-    background-color: #eeeeee;
 }
 
 .exemple {
@@ -335,17 +283,13 @@ header{
     height: auto;
 }
 
-.petit {
+#command_execution img {
     display: block;
     margin-top: 15px;
     margin-right: auto;
     margin-left: auto;
     width: 70%;
     height: auto;
-}
-
-#carte_niveau {
-    width: 60%;
 }
 
 .button {
@@ -378,14 +322,6 @@ header{
     flex-direction: row;
     align-items: center;
     margin: 10px;
-}
-
-#pdf {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-    border-radius: 5px;
-    border: solid rgba(0, 0, 0, 0.596) 2px;
 }
 
 h2 {

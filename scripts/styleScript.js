@@ -10,7 +10,7 @@ var closeButtonImg = document.getElementById("closeButtonImg");
 var closeButtonQr = document.getElementById("closeButtonQr");
 var closeButtonSelect = document.getElementById("closeButtonSelect");
 var closeButtonLoad = document.getElementById("closeButtonLoad");
-var fileInput = document.getElementById("fileInput");
+//var fileInput = document.getElementById("fileInput");
 var imgInput = document.getElementById("imgInput");
 var selectorCam = document.getElementById('selectorCam');
 var saveLevel = document.getElementById('saveLevel');
@@ -31,7 +31,7 @@ videoSelect.oninput = function() {
 }
 
 
-fileInput.oninput = function() {
+/*fileInput.oninput = function() {
   // Display the image scanner canvas
   modalImg.style.display = "flex";
 
@@ -54,7 +54,7 @@ fileInput.oninput = function() {
     }
     reader.readAsDataURL(e.target.files[0]);     
   }
-}
+}*/
 
 
 // Display the QR Code

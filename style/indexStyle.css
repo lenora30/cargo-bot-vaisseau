@@ -86,6 +86,11 @@ header{
     background-color: var(--quint-color)
 }
 
+#principe {
+    width: 80%;
+    margin: auto;
+}
+
 #debut{
     background-image: url("img/fond.jpg");
     background-repeat: no-repeat;
@@ -128,10 +133,6 @@ header{
     background-color: var(--sec-color);
 }
 
-.court {
-    text-align: start;
-}
-
 #content {
     background-color: var(--main-color);
     color:  white;
@@ -164,10 +165,10 @@ header{
     margin: 10px;
 }
 
-#bon {
+/*#bon {
     display: flex;
     justify-items: center;
-}
+}*/
 
 #carte {
     display: flex;
@@ -321,18 +322,7 @@ header{
 }
 
 .etape {
-    width: 90%;
-}
-
-/* #etapes {
-    display: flex;
-    flex-direction: row;
-} */
-
-#etapes img {
-    border-radius: 5px;
-    padding: 5px;
-    background-color: white;
+    width: 80%;
 }
 
 #command_execution img {
@@ -340,8 +330,17 @@ header{
 }
 
 .exemple {
-    margin: 10px;
+    margin: 15px;
     width: 90%;
+    height: auto;
+}
+
+.petit {
+    display: block;
+    margin-top: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 70%;
     height: auto;
 }
 
@@ -416,7 +415,8 @@ a:hover {
 
 p {
     text-align: start;
-    align-items:start;
+    align-self:start;
+    margin: 0px;
 }
 
 @media screen and (max-width: 800px) {

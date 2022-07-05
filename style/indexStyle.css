@@ -204,10 +204,6 @@ header{
     padding-bottom: 1%;
 }
 
-.open #part {
-    
-}
-
 .close .bloc{
     display: none;
 }
@@ -416,6 +412,10 @@ a {
 
 a:hover {
     color:  var(--quad-color);
+}
+
+p {
+    text-align: start;
 }
 
 @media screen and (max-width: 800px) {

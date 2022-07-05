@@ -363,6 +363,23 @@ option {
     border-radius: 30%;
 }
 
+#attention {
+    height: 40%;
+    margin-left: 27%;
+    /*margin-right: 15%;*/
+    margin-top: -10%;
+    background-color: black;
+    color: var(--quad-color);
+    font-family: 'Work Sans', sans-serif;
+    text-align: center;
+    font-size: 60%;
+    border-radius: 6px;
+    padding: 5px;
+  
+    position: relative;
+    z-index: 1;
+}
+
 .scannerButton {
     position: absolute;
     width: 40px;

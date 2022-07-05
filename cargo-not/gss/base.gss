@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'dot_matrixbold';
-    src: url('./Fonts/dotmbold-libre_de_droit-webfont.woff2') format('woff2'),
-         url('./Fonts/dotmbold-libre_de_droit-webfont.woff') format('woff');
+    src: url('../Fonts/dotmbold-libre_de_droit-webfont.woff2') format('woff2'),
+         url('../Fonts/dotmbold-libre_de_droit-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -9,8 +9,8 @@
 
 @font-face {
     font-family: 'font_fabriqueregular';
-    src: url('./Fonts/fontfabrique-regular-la_fabrique-webfont.woff2') format('woff2'),
-         url('./Fonts/fontfabrique-regular-la_fabrique-webfont.woff') format('woff');
+    src: url('../Fonts/fontfabrique-regular-la_fabrique-webfont.woff2') format('woff2'),
+         url('../Fonts/fontfabrique-regular-la_fabrique-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -18,8 +18,8 @@
 
 @font-face {
     font-family: 'dot_matrixregular';
-    src: url('../../Fonts/dotmatri-libre_de_droit-webfont.woff2') format('woff2'),
-         url('../../Fonts/dotmatri-libre_de_droit-webfont.woff') format('woff');
+    src: url('../Fonts/dotmatri-libre_de_droit-webfont.woff2') format('woff2'),
+         url('../Fonts/dotmatri-libre_de_droit-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }

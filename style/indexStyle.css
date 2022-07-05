@@ -72,6 +72,7 @@ header{
 #ban {
     padding: 0;
     margin: 0;
+    font-size: 1.5em;
 }
 
 #box {
@@ -253,9 +254,9 @@ header{
 
 .close h2 {
     background-color: var(--main-color);
-    font-family: 'Raleway Dots', cursive;
+    font-family: 'font_fabriqueregular';
     color: white;
-    width: 60%;
+    /*width: 60%;*/
     margin: auto;
     padding: 2%;
 }
@@ -351,7 +352,8 @@ header{
 
 h2 {
     text-align: center;
-    font-family: 'Raleway Dots', cursive;
+    font-family: 'font_fabriqueregular';
+    font-size: 1.8em;
 }
 
 footer {

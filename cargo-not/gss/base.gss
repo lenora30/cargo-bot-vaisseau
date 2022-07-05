@@ -3,7 +3,7 @@
 body {
   font-family: 'Work Sans', sans-serif;
   font-size: 10px;
-  color: #2afd8d;
+  color: #00FF89;
 }
 
  @defmixin rounded-borders(AMOUNT) {

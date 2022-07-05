@@ -2,7 +2,7 @@
     --main-color: black;
     --sec-color: #464646;
     --ter-color: 'white';
-    --quad-color: #ff006f;
+    --quad-color: #ff0070;
     --txt-color: rgb(54, 54, 54);
 }
 
@@ -25,7 +25,7 @@ header {
 h1 {
     transition: all 0.2s;
     cursor: pointer;
-    color: #2afd8d;
+    color: #00FF89;
     font-family: 'Raleway Dots', cursive;
 }
 

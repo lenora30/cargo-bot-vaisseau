@@ -25,6 +25,18 @@ cn.controller.init = function() {
   cn.controller.scan(game, ui);  
 };
 
+/**
+ * @param {!cn.model.Game} game The current game.
+ */
+cn.controller.proc_possible = function (game) {
+  if(game.levelData.functions.length>1) {
+    return true;
+  }
+  else {
+    return false;
+  }
+};
+
 
 /**
  * @param {!cn.model.Game} game The current game.
@@ -64,12 +76,15 @@ cn.controller.play = function(game, ui) {
       case cn.model.Command.DOWN:
         cn.controller.movePoser(game, ui);
         break;
-      //case cn.model.Command.F0:
       case cn.model.Command.F1:
-      //case cn.model.Command.F2:
-      //case cn.model.Command.F3:
-        cn.controller.play(game, ui);
-        break;
+        if (cn.controller.proc_possible(game)) {
+          cn.controller.play(game, ui);
+          break;
+        }
+        else {
+          alert('tu ne peux pas utiliser proc dans ce niveau');
+          return;
+        }
       default:
         throw Error('Animation not implemented for "' + command + '"');
     }
@@ -187,18 +202,18 @@ cn.controller.moveRRight = function(game, ui) {
  * @param {!cn.ui.GameUi} ui A pointer to the UI.
  */
  cn.controller.movePioche_n = function(game, ui) {
-  var pile_n = game.level.stacks[5];
+  var pile_b = game.level.stacks[5];
   if (game.bot.hasCargo()) {
     alert('Tu ne peux pas piocher avec la pince pleine');
     return;
   }
   ui.animatedCanvas.attachAnimation(
-    function() { return game.bot.getX() < pile_n.getX(); },
+    function() { return game.bot.getX() < pile_b.getX(); },
     function() { game.bot.translate(game.bot.speed, 0); },
     function() {
-      game.bot.setPosition(pile_n.getX(), game.bot.getY());
+      game.bot.setPosition(pile_b.getX(), game.bot.getY());
       game.bot.position=5;
-      if (pile_n.size()==0) {
+      if (pile_b.size()==0) {
         alert('Tu ne peux pas piocher si la pioche est vide');
         return;
       }
@@ -211,18 +226,18 @@ cn.controller.moveRRight = function(game, ui) {
  * @param {!cn.ui.GameUi} ui A pointer to the UI.
  */
  cn.controller.movePioche_b = function(game, ui) {
-  var pile_b = game.level.stacks[0];
+  var pile_r = game.level.stacks[0];
   if (game.bot.hasCargo()) {
     alert('Tu ne peux pas piocher avec la pince pleine');
     return;
   }
   ui.animatedCanvas.attachAnimation(
-    function() { return game.bot.getX() > pile_b.getX(); },
+    function() { return game.bot.getX() > pile_r.getX(); },
     function() { game.bot.translate(-game.bot.speed, 0); },
     function() {
-      game.bot.setPosition(pile_b.getX(), game.bot.getY());
+      game.bot.setPosition(pile_r.getX(), game.bot.getY());
       game.bot.position=0;
-      if (pile_b.size()==0) {
+      if (pile_r.size()==0) {
         alert('Tu ne peux pas piocher si la pioche est vide');
         return;
       }
@@ -431,6 +446,24 @@ cn.controller.scan = function (game, ui) {
   }
 };
 
+/*Array.prototype.equals = function (getArray) {
+    console.log('equals');
+    for (var i = 0; i < getArray.length; i++) {
+      if (!this[i].equals(getArray[i])) {
+        return false;
+      } 
+      else if (this[i] != getArray[i]) {
+        return false;
+      }
+    }
+    return true;
+};*/
+
+
+
+
+
+
 cn.controller.setScan = function (game, codesArray) {
   var commands = goog.dom.getElementsByClass("cn_-command_-register_");
   var conditions = goog.dom.getElementsByClass("cn_-condition_-register_");
@@ -442,6 +475,10 @@ cn.controller.setScan = function (game, codesArray) {
   conditions.forEach(e => {
     goog.style.setTransparentBackgroundImage(e, "png/drag_top.png");
   });
+
+
+
+
 
   codesArray.forEach(e => {
     //Set command or condition
@@ -465,6 +502,10 @@ cn.controller.setScan = function (game, codesArray) {
     case 117:
       cn.controller.setCommand(game,e[1],e[2],cn.model.Command.F1);
       goog.style.setTransparentBackgroundImage(commands[e[1]*8+e[2]], "png/proc.png");
+      if (!(cn.controller.proc_possible(game))) {
+          alert('tu ne peux pas utiliser proc dans ce niveau');
+          return;
+      }
       break;
     case 121:
       cn.controller.setCommand(game,e[1],e[2],cn.model.Command.LLEFT);
@@ -474,18 +515,6 @@ cn.controller.setScan = function (game, codesArray) {
       cn.controller.setCommand(game,e[1],e[2],cn.model.Command.RRIGHT);
       goog.style.setTransparentBackgroundImage(commands[e[1]*8+e[2]], "png/rright.png");
       break;
-    /*case 157:
-      cn.controller.setCondition(game,e[1],e[2],cn.model.Condition.NONE);
-      goog.style.setTransparentBackgroundImage(conditions[e[1]*8+e[2]], "png/none.svg");
-      break;
-    case 167:
-      cn.controller.setCondition(game,e[1],e[2],cn.model.Condition.YELLOW);
-      goog.style.setTransparentBackgroundImage(conditions[e[1]*8+e[2]], "png/yellow.svg");
-      break;
-    case 171:
-      cn.controller.setCondition(game,e[1],e[2],cn.model.Condition.GREEN);
-      goog.style.setTransparentBackgroundImage(conditions[e[1]*8+e[2]], "png/green.svg");
-      break;*/
     case 173:
       cn.controller.setCommand(game,e[1],e[2],cn.model.Command.PIOCHE_B);
       goog.style.setTransparentBackgroundImage(commands[e[1]*8+e[2]], "png/pioche_b.png");
@@ -510,6 +539,8 @@ cn.controller.setScan = function (game, codesArray) {
     }
   });
 }
+
+
 
 /**
  * @param {!cn.model.Game} game The current game.
